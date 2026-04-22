@@ -339,12 +339,64 @@
           "type": "collection",
           "settings": {
             "collection_title": "@everyday.elegance",
-            "collection_link": "shopify://collections"
+            "collection_link": "shopify://collections",
+            "collection_desktop_image": "shopify://shop_images/Image_w-full_4.png",
+            "collection_mobile_image": "shopify://shop_images/Image_w-full_1.png"
+          }
+        },
+        "collection_ELWd6B": {
+          "type": "collection",
+          "settings": {
+            "collection_title": "@everyday.elegance",
+            "collection_link": "shopify://collections",
+            "collection_desktop_image": "shopify://shop_images/Image_w-full_4.png",
+            "collection_mobile_image": "shopify://shop_images/Image_w-full_1.png"
+          }
+        },
+        "collection_gGNAtf": {
+          "type": "collection",
+          "settings": {
+            "collection_title": "@everyday.elegance",
+            "collection_link": "shopify://collections",
+            "collection_desktop_image": "shopify://shop_images/Image_w-full_4.png",
+            "collection_mobile_image": "shopify://shop_images/Image_w-full_1.png"
+          }
+        },
+        "collection_E7k7KW": {
+          "type": "collection",
+          "settings": {
+            "collection_title": "@everyday.elegance",
+            "collection_link": "shopify://collections",
+            "collection_desktop_image": "shopify://shop_images/Image_w-full.png",
+            "collection_mobile_image": "shopify://shop_images/Image_w-full.png"
+          }
+        },
+        "collection_ppTXTX": {
+          "type": "collection",
+          "settings": {
+            "collection_title": "@everyday.elegance",
+            "collection_link": "shopify://collections",
+            "collection_desktop_image": "shopify://shop_images/Image_w-full.png",
+            "collection_mobile_image": "shopify://shop_images/Image_w-full.png"
+          }
+        },
+        "collection_HC4Jdt": {
+          "type": "collection",
+          "settings": {
+            "collection_title": "@everyday.elegance",
+            "collection_link": "shopify://collections",
+            "collection_desktop_image": "shopify://shop_images/Image_w-full.png",
+            "collection_mobile_image": "shopify://shop_images/Image_w-full.png"
           }
         }
       },
       "block_order": [
-        "collection_MwMYmm"
+        "collection_MwMYmm",
+        "collection_ELWd6B",
+        "collection_gGNAtf",
+        "collection_E7k7KW",
+        "collection_ppTXTX",
+        "collection_HC4Jdt"
       ],
       "name": "Home Zinara Collections",
       "settings": {
