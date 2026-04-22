@@ -13,6 +13,15 @@
     gap: 15px;
     justify-content: start;
 }
+
 .zinara-collection_mobile-image {
     display: none;
+}
+
+.zinara-collection_link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 32%;
 }
