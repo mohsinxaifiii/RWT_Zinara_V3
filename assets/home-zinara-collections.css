@@ -13,3 +13,6 @@
     gap: 15px;
     justify-content: start;
 }
+.zinara-collection_mobile-image {
+    display: none;
+}
