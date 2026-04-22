@@ -8,10 +8,11 @@
 
 .zinara-collection_container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
     margin-top: 30px;
     grid-auto-flow: dense;
+    grid-auto-rows: auto;
 }
 
 .zinara-collection_mobile-image {
@@ -23,6 +24,30 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+/* Create varying heights for masonry effect */
+.zinara-collection_link:nth-child(2) {
+    grid-row: span 2;
+}
+
+.zinara-collection_link:nth-child(4) {
+    grid-row: span 2;
+}
+
+/* Mobile: 2 columns */
+@media (max-width: 768px) {
+    .zinara-collection_container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .zinara-collection_link:nth-child(2) {
+        grid-row: span 1;
+    }
+    
+    .zinara-collection_link:nth-child(4) {
+        grid-row: span 1;
+    }
 }
 
 .zinara-collection_link img {
