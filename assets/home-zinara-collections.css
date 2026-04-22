@@ -35,6 +35,7 @@
 .home-zinara-collections__container h3 {
     font-family: var(--font-body-family);
     font-weight: 600;
+    font-size: 1.6rem;
 }
 .home-zinara-collections__container a {
     text-decoration: none;
