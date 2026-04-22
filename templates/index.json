@@ -355,6 +355,16 @@
             "collection_border_color": "#610c27"
           }
         },
+        "collection_GtLAQ4": {
+          "type": "collection",
+          "settings": {
+            "collection_title": "@everyday.elegance",
+            "collection_link": "shopify://collections",
+            "collection_desktop_image": "shopify://shop_images/Image_w-full.png",
+            "collection_mobile_image": "shopify://shop_images/Image_w-full.png",
+            "collection_border_color": "#610c27"
+          }
+        },
         "collection_ELWd6B": {
           "type": "collection",
           "settings": {
@@ -394,15 +404,27 @@
             "collection_mobile_image": "shopify://shop_images/Image_w-full.png",
             "collection_border_color": "#2be478"
           }
+        },
+        "collection_H8kdk6": {
+          "type": "collection",
+          "settings": {
+            "collection_title": "@everyday.elegance",
+            "collection_link": "shopify://collections",
+            "collection_desktop_image": "shopify://shop_images/Image_w-full_4.png",
+            "collection_mobile_image": "shopify://shop_images/Image_w-full_1.png",
+            "collection_border_color": "#712242"
+          }
         }
       },
       "block_order": [
         "collection_MwMYmm",
         "collection_ppTXTX",
+        "collection_GtLAQ4",
         "collection_ELWd6B",
         "collection_E7k7KW",
         "collection_gGNAtf",
-        "collection_HC4Jdt"
+        "collection_HC4Jdt",
+        "collection_H8kdk6"
       ],
       "name": "Home Zinara Collections",
       "settings": {
