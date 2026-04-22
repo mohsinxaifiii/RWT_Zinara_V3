@@ -41,6 +41,7 @@
     font-family: var(--font-body-family);
     font-weight: 600;
     font-size: 1.6rem;
+text-align: center;
 }
 .home-zinara-collections__container a {
     text-decoration: none;
