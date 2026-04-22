@@ -41,8 +41,15 @@
     font-family: var(--font-body-family);
     font-weight: 600;
     font-size: 1.6rem;
-text-align: center;
+    text-align: center;
 }
+
 .home-zinara-collections__container a {
     text-decoration: none;
+}
+
+@media(max-width: 768px) {
+    .home-zinara-collections__container h3 {
+        font-size: 1.2rem;
+    }
 }
