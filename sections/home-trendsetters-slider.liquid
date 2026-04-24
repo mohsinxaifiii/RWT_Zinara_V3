@@ -1,9 +1,9 @@
 <div class="section-{{ section.id }}">
   <div class="page-width">
-    <div class="carousel-wrapper" id="carousel-{{ section.id }}">
-      <div class="carousel-track">
+    <div class="swiper trend-carousel-{{ section.id }}">
+      <div class="swiper-wrapper">
         {% for block in section.blocks %}
-          <div class="carousel-slide" {{ block.shopify_attributes }}>
+          <div class="swiper-slide" {{ block.shopify_attributes }}>
             <a href="{{ block.settings.url }}">
               <img src="{{ block.settings.image | image_url: width: 800 }}">
               <div class="carousel-label">
@@ -14,297 +14,109 @@
         {% endfor %}
       </div>
 
-      <div class="carousel-dots"></div>
+      <div class="swiper-pagination"></div>
     </div>
   </div>
 </div>
 {% stylesheet %}
-        .section-{{ section.id }} {
-          padding: 60px 0;
-          background: #f4f4f4;
-        }
-
-        /* contain everything */
-        .carousel-wrapper {
-          position: relative;
-          overflow: hidden;
-        }
-
-        /* track should not overflow viewport */
-        .carousel-track {
-          display: flex;
-          align-items: center;
-          will-change: transform;
-        }
-
-      .carousel-slide {
-        flex: 0 0 20%;
-        max-width: 20%;
-        padding: 0 10px;
-
-        opacity: 0.4;
-        transform: scale(0.85);
-        transition: transform 0.4s ease, opacity 0.4s ease;
-      }
-
-        /* center slide */
-        .carousel-slide.is-active {
-          opacity: 1;
-          transform: scale(1);
-        }
-
-        /* side slides */
-        .carousel-slide.is-prev,
-        .carousel-slide.is-next {
-          opacity: 0.6;
-          transform: scale(0.9);
-        }
-
-        /* image */
-        .carousel-slide img {
-          width: 100%;
-          display: block;
-          border-radius: 8px;
-          pointer-events: none;
-        }
-
-        /* label */
-        .carousel-label {
-          position: absolute;
-          bottom: 12px;
-          left: 12px;
-          background: rgba(0,0,0,0.6);
-          color: #fff;
-          font-size: 12px;
-          padding: 6px 10px;
-          border-radius: 4px;
-        }
-
-        /* DOTS */
-        .carousel-dots {
-          margin-top: 20px;
-          display: flex !important;
-          justify-content: center;
-          gap: 8px;
-        }
-
-        .carousel-dot {
-          height: 6px;
-          width: 6px;
-          background: #bbb;
-          border-radius: 10px;
-          display: flex !important;
-          overflow: hidden;
-          position: relative;
-          transition: all 0.3s ease;
-        }
-
-        .carousel-dot.active {
-          width: 28px;
-          background: #ddd;
-        }
-
-        .carousel-dot.active::after {
-          content: "";
-          position: absolute;
-          height: 100%;
-          width: 0%;
-          background: #000;
-          animation: dotProgress 4s linear forwards;
-        }
-        .carousel-slide img,
-  .carousel-slide a {
-    -webkit-user-drag: none;
-    user-drag: none;
-    user-select: none;
+  .section-{{ section.id }} {
+    padding: 60px 0;
+    background: #f4f4f4;
   }
-    @media screen and (max-width: 768px) {
-      .carousel-slide {
-        flex: 0 0 80%;
-        max-width: 80%;
-      }
-    }
-        @keyframes dotProgress {
-          from { width: 0%; }
-          to { width: 100%; }
-        }
+
+  .swiper {
+    overflow: visible;
+  }
+
+  .swiper-slide {
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+
+  .swiper-slide-active {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .swiper-slide-prev,
+  .swiper-slide-next {
+    opacity: 0.6;
+    transform: scale(0.9);
+  }
+
+  .swiper-slide img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+  }
+
+  .carousel-label {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 4px;
+  }
+
+  /* dots */
+  .swiper-pagination {
+    margin-top: 20px;
+    position: relative;
+  }
+
+  .swiper-pagination-bullet {
+    background: #bbb;
+    opacity: 1;
+    transition: all 0.3s ease;
+  }
+
+  .swiper-pagination-bullet-active {
+    width: 28px;
+    border-radius: 10px;
+    background: #000;
+  }
 {% endstylesheet %}
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const root = document.getElementById('carousel-{{ section.id }}');
-    if (!root) return;
+    new Swiper('.trend-carousel-{{ section.id }}', {
+      loop: true,
+      centeredSlides: true,
+      grabCursor: true,
 
-    const track = root.querySelector('.carousel-track');
-    const dotsContainer = root.querySelector('.carousel-dots');
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
 
-    let slides = Array.from(track.children);
-    let index = 1;
-    let autoTimer;
-    const SLIDE_TIME = 4000;
+      speed: 600,
 
-    // CLONE
-    const first = slides[0].cloneNode(true);
-    const last = slides[slides.length - 1].cloneNode(true);
+      slidesPerView: 5,
+      spaceBetween: 20,
 
-    track.appendChild(first);
-    track.insertBefore(last, slides[0]);
+      breakpoints: {
+        0: {
+          slidesPerView: 1.2, // center + side peek
+          spaceBetween: 10,
+        },
+        768: {
+          slidesPerView: 5,
+          spaceBetween: 20,
+        },
+      },
 
-    slides = Array.from(track.children);
-
-    function getWidth() {
-      return slides[0].getBoundingClientRect().width;
-    }
-
-    function setPos(animate = true) {
-      const width = getWidth();
-      track.style.transition = animate ? 'transform 0.5s ease' : 'none';
-      track.style.transform = `translateX(-${index * width}px)`;
-
-      slides.forEach((s) => s.classList.remove('is-active', 'is-prev', 'is-next'));
-      slides[index]?.classList.add('is-active');
-      slides[index - 1]?.classList.add('is-prev');
-      slides[index + 1]?.classList.add('is-next');
-
-      updateDots();
-    }
-
-    function buildDots() {
-      dotsContainer.innerHTML = '';
-      for (let i = 0; i < slides.length - 2; i++) {
-        const dot = document.createElement('div');
-        dot.className = 'carousel-dot';
-        dotsContainer.appendChild(dot);
-      }
-    }
-
-    function updateDots() {
-      const dots = dotsContainer.children;
-      const realIndex = (index - 1 + dots.length) % dots.length;
-
-      [...dots].forEach((d) => d.classList.remove('active'));
-      dots[realIndex]?.classList.add('active');
-    }
-
-    function next() {
-      index++;
-      setPos();
-
-      if (index === slides.length - 1) {
-        setTimeout(() => {
-          index = 1;
-          setPos(false);
-        }, 500);
-      }
-    }
-
-    function prev() {
-      index--;
-      setPos();
-
-      if (index === 0) {
-        setTimeout(() => {
-          index = slides.length - 2;
-          setPos(false);
-        }, 500);
-      }
-    }
-
-    function autoplay() {
-      clearInterval(autoTimer);
-      autoTimer = setInterval(next, SLIDE_TIME);
-    }
-
-    // DRAG
-    let startX = 0;
-    let isDown = false;
-    let current = 0;
-    let prevTranslate = 0;
-    let isDragging = false;
-
-    function getX(e) {
-      return e.touches ? e.touches[0].clientX : e.pageX;
-    }
-
-    function start(e) {
-      isDown = true;
-      isDragging = false;
-
-      startX = getX(e);
-      prevTranslate = -index * getWidth();
-
-      track.style.transition = 'none';
-    }
-
-    function move(e) {
-      if (!isDown) return;
-
-      const diff = getX(e) - startX;
-
-      // detect real drag
-      if (Math.abs(diff) > 5) {
-        isDragging = true;
-      }
-
-      current = prevTranslate + diff;
-      track.style.transform = `translateX(${current}px)`;
-    }
-
-    function end() {
-      if (!isDown) return;
-
-      isDown = false;
-
-      const moved = current - prevTranslate;
-
-      if (moved < -50) next();
-      else if (moved > 50) prev();
-      else setPos();
-
-      autoplay();
-    }
-    track.addEventListener('click', function (e) {
-      if (isDragging) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
+      pagination: {
+        el: '.trend-carousel-{{ section.id }} .swiper-pagination',
+        clickable: true,
+      },
     });
-
-    track.addEventListener('mousedown', start);
-    track.addEventListener('touchstart', start);
-
-    window.addEventListener('mousemove', move);
-    window.addEventListener('touchmove', move);
-
-    window.addEventListener('mouseup', end);
-    window.addEventListener('touchend', end);
-
-    function init() {
-      buildDots();
-      setPos(false);
-      autoplay();
-    }
-
-    // WAIT for images
-    const imgs = track.querySelectorAll('img');
-    let loaded = 0;
-
-    imgs.forEach((img) => {
-      if (img.complete) loaded++;
-      else {
-        img.onload = () => {
-          loaded++;
-          if (loaded === imgs.length) init();
-        };
-      }
-    });
-
-    if (loaded === imgs.length) init();
-
-    window.addEventListener('resize', () => setPos(false));
   });
 </script>
-
 {% schema %}
 {
   "name": "Trendsetters Carousel",
