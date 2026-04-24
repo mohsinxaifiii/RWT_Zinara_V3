@@ -19,109 +19,115 @@
   </div>
 </div>
 {% stylesheet %}
-      .section-{{ section.id }} {
-        padding: 60px 0;
-        background: #f4f4f4;
+        .section-{{ section.id }} {
+          padding: 60px 0;
+          background: #f4f4f4;
+        }
+
+        /* contain everything */
+        .carousel-wrapper {
+          position: relative;
+          overflow: hidden;
+        }
+
+        /* track should not overflow viewport */
+        .carousel-track {
+          display: flex;
+          align-items: center;
+          will-change: transform;
+        }
+
+      .carousel-slide {
+        flex: 0 0 20%;
+        max-width: 20%;
+        padding: 0 10px;
+
+        opacity: 0.4;
+        transform: scale(0.85);
+        transition: transform 0.4s ease, opacity 0.4s ease;
       }
 
-      /* contain everything */
-      .carousel-wrapper {
-        position: relative;
-        overflow: hidden;
-      }
+        /* center slide */
+        .carousel-slide.is-active {
+          opacity: 1;
+          transform: scale(1);
+        }
 
-      /* track should not overflow viewport */
-      .carousel-track {
-        display: flex;
-        align-items: center;
-        will-change: transform;
-      }
+        /* side slides */
+        .carousel-slide.is-prev,
+        .carousel-slide.is-next {
+          opacity: 0.6;
+          transform: scale(0.9);
+        }
 
-    .carousel-slide {
-      flex: 0 0 20%;
-      max-width: 20%;
-      padding: 0 10px;
+        /* image */
+        .carousel-slide img {
+          width: 100%;
+          display: block;
+          border-radius: 8px;
+          pointer-events: none;
+        }
 
-      opacity: 0.4;
-      transform: scale(0.85);
-      transition: transform 0.4s ease, opacity 0.4s ease;
-    }
+        /* label */
+        .carousel-label {
+          position: absolute;
+          bottom: 12px;
+          left: 12px;
+          background: rgba(0,0,0,0.6);
+          color: #fff;
+          font-size: 12px;
+          padding: 6px 10px;
+          border-radius: 4px;
+        }
 
-      /* center slide */
-      .carousel-slide.is-active {
-        opacity: 1;
-        transform: scale(1);
-      }
+        /* DOTS */
+        .carousel-dots {
+          margin-top: 20px;
+          display: flex !important;
+          justify-content: center;
+          gap: 8px;
+        }
 
-      /* side slides */
-      .carousel-slide.is-prev,
-      .carousel-slide.is-next {
-        opacity: 0.6;
-        transform: scale(0.9);
-      }
+        .carousel-dot {
+          height: 6px;
+          width: 6px;
+          background: #bbb;
+          border-radius: 10px;
+          display: flex !important;
+          overflow: hidden;
+          position: relative;
+          transition: all 0.3s ease;
+        }
 
-      /* image */
-      .carousel-slide img {
-        width: 100%;
-        display: block;
-        border-radius: 8px;
-        pointer-events: none;
-      }
+        .carousel-dot.active {
+          width: 28px;
+          background: #ddd;
+        }
 
-      /* label */
-      .carousel-label {
-        position: absolute;
-        bottom: 12px;
-        left: 12px;
-        background: rgba(0,0,0,0.6);
-        color: #fff;
-        font-size: 12px;
-        padding: 6px 10px;
-        border-radius: 4px;
-      }
-
-      /* DOTS */
-      .carousel-dots {
-        margin-top: 20px;
-        display: flex !important;
-        justify-content: center;
-        gap: 8px;
-      }
-
-      .carousel-dot {
-        height: 6px;
-        width: 6px;
-        background: #bbb;
-        border-radius: 10px;
-        display: flex !important;
-        overflow: hidden;
-        position: relative;
-        transition: all 0.3s ease;
-      }
-
-      .carousel-dot.active {
-        width: 28px;
-        background: #ddd;
-      }
-
-      .carousel-dot.active::after {
-        content: "";
-        position: absolute;
-        height: 100%;
-        width: 0%;
-        background: #000;
-        animation: dotProgress 4s linear forwards;
-      }
-  @media screen and (max-width: 768px) {
-    .carousel-slide {
-      flex: 0 0 80%;
-      max-width: 80%;
-    }
+        .carousel-dot.active::after {
+          content: "";
+          position: absolute;
+          height: 100%;
+          width: 0%;
+          background: #000;
+          animation: dotProgress 4s linear forwards;
+        }
+        .carousel-slide img,
+  .carousel-slide a {
+    -webkit-user-drag: none;
+    user-drag: none;
+    user-select: none;
   }
-      @keyframes dotProgress {
-        from { width: 0%; }
-        to { width: 100%; }
+    @media screen and (max-width: 768px) {
+      .carousel-slide {
+        flex: 0 0 80%;
+        max-width: 80%;
       }
+    }
+        @keyframes dotProgress {
+          from { width: 0%; }
+          to { width: 100%; }
+        }
 {% endstylesheet %}
 
 <script>
