@@ -19,28 +19,29 @@
   </div>
 </div>
 {% stylesheet %}
-  .section-{{ section.id }} {
-    padding: 60px 0;
-    background: #f4f4f4;
-  }
+    .section-{{ section.id }} {
+      padding: 60px 0;
+      background: #f4f4f4;
+    }
 
-  /* contain everything */
-  .carousel-wrapper {
-    position: relative;
-    overflow: hidden;
-  }
+    /* contain everything */
+    .carousel-wrapper {
+      position: relative;
+      overflow: hidden;
+    }
 
-  /* track should not overflow viewport */
-  .carousel-track {
-    display: flex;
-    align-items: center;
-    will-change: transform;
-  }
+    /* track should not overflow viewport */
+    .carousel-track {
+      display: flex;
+      align-items: center;
+      will-change: transform;
+    }
 
-  /* IMPORTANT: proper sizing */
+    /* IMPORTANT: proper sizing */
+  /* DESKTOP */
   .carousel-slide {
-    flex: 0 0 70%;
-    max-width: 70%;
+    flex: 0 0 20%;
+    max-width: 20%;
     padding: 0 10px;
 
     opacity: 0.4;
@@ -48,75 +49,75 @@
     transition: transform 0.4s ease, opacity 0.4s ease;
   }
 
-  /* center slide */
-  .carousel-slide.is-active {
-    opacity: 1;
-    transform: scale(1);
-  }
+    /* center slide */
+    .carousel-slide.is-active {
+      opacity: 1;
+      transform: scale(1);
+    }
 
-  /* side slides */
-  .carousel-slide.is-prev,
-  .carousel-slide.is-next {
-    opacity: 0.6;
-    transform: scale(0.9);
-  }
+    /* side slides */
+    .carousel-slide.is-prev,
+    .carousel-slide.is-next {
+      opacity: 0.6;
+      transform: scale(0.9);
+    }
 
-  /* image */
-  .carousel-slide img {
-    width: 100%;
-    display: block;
-    border-radius: 8px;
-  }
+    /* image */
+    .carousel-slide img {
+      width: 100%;
+      display: block;
+      border-radius: 8px;
+    }
 
-  /* label */
-  .carousel-label {
-    position: absolute;
-    bottom: 12px;
-    left: 12px;
-    background: rgba(0,0,0,0.6);
-    color: #fff;
-    font-size: 12px;
-    padding: 6px 10px;
-    border-radius: 4px;
-  }
+    /* label */
+    .carousel-label {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 4px;
+    }
 
-  /* DOTS */
-  .carousel-dots {
-    margin-top: 20px;
-    display: flex !important;
-    justify-content: center;
-    gap: 8px;
-  }
+    /* DOTS */
+    .carousel-dots {
+      margin-top: 20px;
+      display: flex !important;
+      justify-content: center;
+      gap: 8px;
+    }
 
-  .carousel-dot {
-    height: 6px;
-    width: 6px;
-    background: #bbb;
-    border-radius: 10px;
-    display: flex !important;
-    overflow: hidden;
-    position: relative;
-    transition: all 0.3s ease;
-  }
+    .carousel-dot {
+      height: 6px;
+      width: 6px;
+      background: #bbb;
+      border-radius: 10px;
+      display: flex !important;
+      overflow: hidden;
+      position: relative;
+      transition: all 0.3s ease;
+    }
 
-  .carousel-dot.active {
-    width: 28px;
-    background: #ddd;
-  }
+    .carousel-dot.active {
+      width: 28px;
+      background: #ddd;
+    }
 
-  .carousel-dot.active::after {
-    content: "";
-    position: absolute;
-    height: 100%;
-    width: 0%;
-    background: #000;
-    animation: dotProgress 4s linear forwards;
-  }
+    .carousel-dot.active::after {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 0%;
+      background: #000;
+      animation: dotProgress 4s linear forwards;
+    }
 
-  @keyframes dotProgress {
-    from { width: 0%; }
-    to { width: 100%; }
-  }
+    @keyframes dotProgress {
+      from { width: 0%; }
+      to { width: 100%; }
+    }
 {% endstylesheet %}
 
 <script>
