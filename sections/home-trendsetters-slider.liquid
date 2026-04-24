@@ -228,20 +228,31 @@
 
     function start(e) {
       isDown = true;
+      isDragging = false;
+
       startX = getX(e);
       prevTranslate = -index * getWidth();
+
       track.style.transition = 'none';
     }
 
     function move(e) {
       if (!isDown) return;
+
       const diff = getX(e) - startX;
+
+      // detect real drag
+      if (Math.abs(diff) > 5) {
+        isDragging = true;
+      }
+
       current = prevTranslate + diff;
       track.style.transform = `translateX(${current}px)`;
     }
 
     function end() {
       if (!isDown) return;
+
       isDown = false;
 
       const moved = current - prevTranslate;
@@ -252,6 +263,12 @@
 
       autoplay();
     }
+    track.addEventListener('click', function (e) {
+      if (isDragging) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    });
 
     track.addEventListener('mousedown', start);
     track.addEventListener('touchstart', start);
