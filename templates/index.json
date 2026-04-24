@@ -969,6 +969,96 @@
         "subheading": "Find the perfect gift and delight your loved ones"
       }
     },
+    "home_trendsetters_slider_7hfRrg": {
+      "type": "home-trendsetters-slider",
+      "blocks": {
+        "slide_NnUr4E": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/trendsetter-2.jpg",
+            "text": "Daily Wear first",
+            "url": "shopify://collections/18-kt-gold-vermeil"
+          }
+        },
+        "slide_VyyWFd": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/trendsetter-2.jpg",
+            "text": "Daily Wear",
+            "url": "shopify://collections/18-kt-gold-vermeil"
+          }
+        },
+        "slide_FAhTdM": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/trendsetter-2.jpg",
+            "text": "Daily Wear",
+            "url": "shopify://collections/18-kt-gold-vermeil"
+          }
+        },
+        "slide_zXjhmx": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/trendsetter-2.jpg",
+            "text": "Daily Wear",
+            "url": "shopify://collections/18-kt-gold-vermeil"
+          }
+        },
+        "slide_8UfFQc": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/trendsetter-2.jpg",
+            "text": "Daily Wear",
+            "url": "shopify://collections/18-kt-gold-vermeil"
+          }
+        },
+        "slide_ptkqJx": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/trendsetter-2.jpg",
+            "text": "Daily Wear",
+            "url": "shopify://collections/18-kt-gold-vermeil"
+          }
+        },
+        "slide_38jMmX": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/trendsetter-2.jpg",
+            "text": "Daily Wear",
+            "url": "shopify://collections/18-kt-gold-vermeil"
+          }
+        },
+        "slide_zATWiF": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/trendsetter-2.jpg",
+            "text": "Daily Wear",
+            "url": "shopify://collections/18-kt-gold-vermeil"
+          }
+        },
+        "slide_EAawRj": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/trendsetter-2.jpg",
+            "text": "Daily Wear last",
+            "url": "shopify://collections/18-kt-gold-vermeil"
+          }
+        }
+      },
+      "block_order": [
+        "slide_NnUr4E",
+        "slide_VyyWFd",
+        "slide_FAhTdM",
+        "slide_zXjhmx",
+        "slide_8UfFQc",
+        "slide_ptkqJx",
+        "slide_38jMmX",
+        "slide_zATWiF",
+        "slide_EAawRj"
+      ],
+      "name": "Trendsetters Carousel",
+      "settings": {}
+    },
     "home_own_design_WDng9w": {
       "type": "home-own_design",
       "custom_css": [],
@@ -1221,6 +1311,7 @@
     "home_shop_by_occasion_WePWCL",
     "home_benefits_pbKiTY",
     "home_shop_by_category_XPFUnn",
+    "home_trendsetters_slider_7hfRrg",
     "home_own_design_WDng9w",
     "home_tryathome_UAw34q",
     "home_testimonials_iX3QWY",
