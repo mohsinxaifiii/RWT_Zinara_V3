@@ -122,32 +122,30 @@
   (function () {
     const root = document.getElementById('carousel-{{ section.id }}');
     const track = root.querySelector('.carousel-track');
-    let slides = Array.from(track.children);
     const dotsContainer = root.querySelector('.carousel-dots');
 
-    let index = 0;
-    let isDragging = false;
-    let startX = 0;
-    let currentTranslate = 0;
-    let prevTranslate = 0;
+    let slides = Array.from(track.children);
+    let index = 1;
     let autoTimer;
-
     const SLIDE_TIME = 4000;
 
-    // clone for infinite loop
-    const cloneFirst = slides[0].cloneNode(true);
-    const cloneLast = slides[slides.length - 1].cloneNode(true);
+    // CLONE (infinite loop)
+    const first = slides[0].cloneNode(true);
+    const last = slides[slides.length - 1].cloneNode(true);
 
-    track.appendChild(cloneFirst);
-    track.insertBefore(cloneLast, slides[0]);
+    track.appendChild(first);
+    track.insertBefore(last, slides[0]);
 
     slides = Array.from(track.children);
-    index = 1;
 
-    function updatePosition(animate = true) {
-      const slideWidth = slides[0].offsetWidth;
+    function getSlideWidth() {
+      return slides[0].getBoundingClientRect().width;
+    }
+
+    function setPosition(animate = true) {
+      const width = getSlideWidth();
       track.style.transition = animate ? 'transform 0.5s ease' : 'none';
-      track.style.transform = `translateX(-${index * slideWidth}px)`;
+      track.style.transform = `translateX(-${index * width}px)`;
       updateClasses();
       updateDots();
     }
@@ -155,7 +153,7 @@
     function updateClasses() {
       slides.forEach((s) => s.classList.remove('is-active', 'is-prev', 'is-next'));
 
-      slides[index].classList.add('is-active');
+      slides[index]?.classList.add('is-active');
       slides[index - 1]?.classList.add('is-prev');
       slides[index + 1]?.classList.add('is-next');
     }
@@ -164,100 +162,124 @@
       dotsContainer.innerHTML = '';
       for (let i = 0; i < slides.length - 2; i++) {
         const dot = document.createElement('div');
-        dot.classList.add('carousel-dot');
+        dot.className = 'carousel-dot';
         dotsContainer.appendChild(dot);
       }
     }
 
     function updateDots() {
-      const realIndex = (index - 1 + (slides.length - 2)) % (slides.length - 2);
       const dots = dotsContainer.children;
+      const realIndex = (index - 1 + dots.length) % dots.length;
 
-      [...dots].forEach((d) => {
-        d.classList.remove('active');
-        d.style.animation = 'none';
-      });
-
-      if (dots[realIndex]) {
-        dots[realIndex].classList.add('active');
-      }
+      [...dots].forEach((d) => d.classList.remove('active'));
+      dots[realIndex]?.classList.add('active');
     }
 
-    function nextSlide() {
+    function next() {
       index++;
-      updatePosition();
+      setPosition();
 
       if (index === slides.length - 1) {
         setTimeout(() => {
           index = 1;
-          updatePosition(false);
+          setPosition(false);
         }, 500);
       }
     }
 
-    function prevSlide() {
+    function prev() {
       index--;
-      updatePosition();
+      setPosition();
 
       if (index === 0) {
         setTimeout(() => {
           index = slides.length - 2;
-          updatePosition(false);
+          setPosition(false);
         }, 500);
       }
     }
 
-    function startAuto() {
+    function autoPlay() {
       clearInterval(autoTimer);
-      autoTimer = setInterval(nextSlide, SLIDE_TIME);
+      autoTimer = setInterval(next, SLIDE_TIME);
     }
 
-    // DRAG (mouse + touch)
-    track.addEventListener('mousedown', startDrag);
-    track.addEventListener('touchstart', startDrag);
+    // DRAG
+    let startX = 0;
+    let isDown = false;
+    let current = 0;
+    let prevTranslate = 0;
 
-    window.addEventListener('mouseup', endDrag);
-    window.addEventListener('touchend', endDrag);
+    function getX(e) {
+      return e.touches ? e.touches[0].clientX : e.pageX;
+    }
 
-    window.addEventListener('mousemove', drag);
-    window.addEventListener('touchmove', drag);
-
-    function startDrag(e) {
-      isDragging = true;
+    function dragStart(e) {
+      isDown = true;
       startX = getX(e);
-      prevTranslate = -index * slides[0].offsetWidth;
+      prevTranslate = -index * getSlideWidth();
       track.style.transition = 'none';
     }
 
-    function drag(e) {
-      if (!isDragging) return;
-      const currentX = getX(e);
-      const diff = currentX - startX;
-      currentTranslate = prevTranslate + diff;
-      track.style.transform = `translateX(${currentTranslate}px)`;
+    function dragMove(e) {
+      if (!isDown) return;
+      const diff = getX(e) - startX;
+      current = prevTranslate + diff;
+      track.style.transform = `translateX(${current}px)`;
     }
 
-    function endDrag(e) {
-      if (!isDragging) return;
-      isDragging = false;
+    function dragEnd() {
+      if (!isDown) return;
+      isDown = false;
 
-      const movedBy = currentTranslate - prevTranslate;
+      const moved = current - prevTranslate;
 
-      if (movedBy < -50) nextSlide();
-      else if (movedBy > 50) prevSlide();
-      else updatePosition();
+      if (moved < -50) next();
+      else if (moved > 50) prev();
+      else setPosition();
 
-      startAuto();
+      autoPlay();
     }
 
-    function getX(e) {
-      return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+    track.addEventListener('mousedown', dragStart);
+    track.addEventListener('touchstart', dragStart);
+
+    window.addEventListener('mousemove', dragMove);
+    window.addEventListener('touchmove', dragMove);
+
+    window.addEventListener('mouseup', dragEnd);
+    window.addEventListener('touchend', dragEnd);
+
+    // FIX: wait for images to load before init
+    function initWhenReady() {
+      const imgs = track.querySelectorAll('img');
+      let loaded = 0;
+
+      imgs.forEach((img) => {
+        if (img.complete) loaded++;
+        else {
+          img.onload = () => {
+            loaded++;
+            if (loaded === imgs.length) init();
+          };
+        }
+      });
+
+      if (loaded === imgs.length) init();
     }
 
-    // INIT
-    buildDots();
-    updatePosition(false);
-    startAuto();
+    function init() {
+      buildDots();
+      setPosition(false);
+      autoPlay();
+    }
+
+    // also fix resize glitch
+    window.addEventListener('resize', () => {
+      setPosition(false);
+    });
+
+    initWhenReady();
   })();
 {% endjavascript %}
 
