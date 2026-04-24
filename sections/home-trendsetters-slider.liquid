@@ -144,29 +144,26 @@
     function getWidth() {
       return slides[0].getBoundingClientRect().width;
     }
-    function getCurrentTranslateX(el) {
-      const style = window.getComputedStyle(el);
-      const matrix = new WebKitCSSMatrix(style.transform);
-      return matrix.m41;
-    }
     function setPos(animate = true) {
       const container = root.querySelector('.carousel-wrapper');
       const containerRect = container.getBoundingClientRect();
       const slide = slides[index];
+
       const slideRect = slide.getBoundingClientRect();
 
-      // calculate center alignment
-      const slideCenter = slideRect.left + slideRect.width / 2;
-      const containerCenter = containerRect.left + containerRect.width / 2;
+      // calculate how much to move so slide center = container center
+      const offset = slideRect.left + slideRect.width / 2 - (containerRect.left + containerRect.width / 2);
 
-      const currentTransform = getCurrentTranslateX(track);
+      // IMPORTANT: always reset base transform first
+      track.style.transition = 'none';
+      track.style.transform = 'translateX(0px)';
 
-      const offset = slideCenter - containerCenter;
+      // force reflow (so browser applies reset)
+      track.offsetHeight;
 
-      const finalTranslate = currentTransform - offset;
-
+      // now apply correct transform
       track.style.transition = animate ? 'transform 0.5s ease' : 'none';
-      track.style.transform = `translateX(${finalTranslate}px)`;
+      track.style.transform = `translateX(${-offset}px)`;
 
       // classes
       slides.forEach((s) => s.classList.remove('is-active', 'is-prev', 'is-next'));
