@@ -1,6 +1,6 @@
 <div class="section-{{ section.id }}">
   <div class="page-width">
-    <p>{{section.settings.section_heading}}</p>
+    <p class="trendsetters-section_heading">{{ section.settings.section_heading }}</p>
     <div class="swiper trend-carousel-{{ section.id }}">
       <div class="swiper-wrapper">
         {% for block in section.blocks %}
@@ -19,119 +19,125 @@
   </div>
 </div>
 {% stylesheet %}
-          .swiper {
-            overflow: visible;
-          }
-
-          .swiper-wrapper {
-            align-items: center;
-          }
-    .trend-pagination-{{ section.id }} {
-      margin-top: 24px;
-      display: flex;
-      justify-content: center;
-    }
-          .swiper-slide {
-            height: auto;
-          }
-            .section-{{ section.id }} {
-              padding: 60px 0;
-              background: #f4f4f4;
-            }
-
+  .trendsetters-section_heading{
+        font-weight: 400;
+      color: #000;
+      font-size: 2rem;
+      margin: 0;
+  }
             .swiper {
               overflow: visible;
             }
 
-      .swiper-slide {
-        transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-                    opacity 0.5s ease,
-                    filter 0.5s ease;
-
-        opacity: 0.35;
-        transform: scale(0.8) !important;
-        filter: blur(1px);
-      }
-
-      /* ACTIVE */
-      .swiper-slide-active {
-        opacity: 1;
-        transform: scale(1) !important;
-        filter: blur(0);
-        z-index: 2;
-      }
-
-      /* SIDE */
-      .swiper-slide-prev,
-      .swiper-slide-next {
-        opacity: 0.6;
-        transform: scale(0.9) !important;
-        filter: blur(0.5px);
-        z-index: 1;
-      }
-
-            .swiper-slide img {
-              width: 100%;
-              border-radius: 8px;
-              display: block;
+            .swiper-wrapper {
+              align-items: center;
             }
-
-            .carousel-label {
-              position: absolute;
-              bottom: 12px;
-              left: 12px;
-              background: rgba(0,0,0,0.6);
-              color: #fff;
-              font-size: 12px;
-              padding: 6px 10px;
-              border-radius: 4px;
+      .trend-pagination-{{ section.id }} {
+        margin-top: 24px;
+        display: flex;
+        justify-content: center;
+      }
+            .swiper-slide {
+              height: auto;
             }
+              .section-{{ section.id }} {
+                padding: 60px 0;
+                background: #f4f4f4;
+              }
 
-            /* dots */
-            .swiper-pagination {
-              margin-top: 20px;
-              position: relative;
-              position: unset !important;
-            }
+              .swiper {
+                overflow: visible;
+              }
 
-  .swiper-pagination-bullet {
-    width: 8px;
-    height: 6px;
-    background: #bbb;
-    border-radius: 10px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    opacity: 1;
-  }
+        .swiper-slide {
+          transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                      opacity 0.5s ease,
+                      filter 0.5s ease;
 
-  .swiper-pagination-bullet-active {
-    width: 30px !important;
-    background: #D1D5DC !important;
-    border-radius: 50px !important;
-  }
-
-  .swiper-pagination-bullet-active::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    width: 0%;
-    background: #1A1A1A;
-    animation: dotProgress 4s linear forwards;
-  }
-  .trend-pagination-{{ section.id }} {
-    margin-top: 24px;
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    position: relative;
-    z-index: 5;
-  }
-        @keyframes dotProgress {
-          from { width: 0%; }
-          to { width: 100%; }
+          opacity: 0.35;
+          transform: scale(0.8) !important;
+          filter: blur(1px);
         }
+
+        /* ACTIVE */
+        .swiper-slide-active {
+          opacity: 1;
+          transform: scale(1) !important;
+          filter: blur(0);
+          z-index: 2;
+        }
+
+        /* SIDE */
+        .swiper-slide-prev,
+        .swiper-slide-next {
+          opacity: 0.6;
+          transform: scale(0.9) !important;
+          filter: blur(0.5px);
+          z-index: 1;
+        }
+
+              .swiper-slide img {
+                width: 100%;
+                border-radius: 8px;
+                display: block;
+              }
+
+              .carousel-label {
+                position: absolute;
+                bottom: 12px;
+                left: 12px;
+                background: rgba(0,0,0,0.6);
+                color: #fff;
+                font-size: 12px;
+                padding: 6px 10px;
+                border-radius: 4px;
+              }
+
+              /* dots */
+              .swiper-pagination {
+                margin-top: 20px;
+                position: relative;
+                position: unset !important;
+              }
+
+    .swiper-pagination-bullet {
+      width: 8px;
+      height: 6px;
+      background: #bbb;
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      opacity: 1;
+    }
+
+    .swiper-pagination-bullet-active {
+      width: 30px !important;
+      background: #D1D5DC !important;
+      border-radius: 50px !important;
+    }
+
+    .swiper-pagination-bullet-active::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      width: 0%;
+      background: #1A1A1A;
+      animation: dotProgress 4s linear forwards;
+    }
+    .trend-pagination-{{ section.id }} {
+      margin-top: 24px;
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+      z-index: 5;
+    }
+          @keyframes dotProgress {
+            from { width: 0%; }
+            to { width: 100%; }
+          }
 {% endstylesheet %}
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
