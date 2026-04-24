@@ -144,28 +144,12 @@
     function getWidth() {
       return slides[0].getBoundingClientRect().width;
     }
+
     function setPos(animate = true) {
-      const container = root.querySelector('.carousel-wrapper');
-      const containerRect = container.getBoundingClientRect();
-      const slide = slides[index];
-
-      const slideRect = slide.getBoundingClientRect();
-
-      // calculate how much to move so slide center = container center
-      const offset = slideRect.left + slideRect.width / 2 - (containerRect.left + containerRect.width / 2);
-
-      // IMPORTANT: always reset base transform first
-      track.style.transition = 'none';
-      track.style.transform = 'translateX(0px)';
-
-      // force reflow (so browser applies reset)
-      track.offsetHeight;
-
-      // now apply correct transform
+      const width = getWidth();
       track.style.transition = animate ? 'transform 0.5s ease' : 'none';
-      track.style.transform = `translateX(${-offset}px)`;
+      track.style.transform = `translateX(-${index * width}px)`;
 
-      // classes
       slides.forEach((s) => s.classList.remove('is-active', 'is-prev', 'is-next'));
       slides[index]?.classList.add('is-active');
       slides[index - 1]?.classList.add('is-prev');
@@ -268,7 +252,6 @@
 
     function init() {
       buildDots();
-      track.style.transform = 'translateX(0px)';
       setPos(false);
       autoplay();
     }
