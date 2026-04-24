@@ -19,69 +19,80 @@
   </div>
 </div>
 {% stylesheet %}
-  .section-{{ section.id }} {
-    padding: 60px 0;
-    background: #f4f4f4;
-  }
-
   .swiper {
     overflow: visible;
   }
 
+  .swiper-wrapper {
+    align-items: center;
+  }
+
   .swiper-slide {
-    transition: transform 0.4s ease, opacity 0.4s ease;
-    opacity: 0.4;
-    transform: scale(0.85);
+    height: auto;
   }
+    .section-{{ section.id }} {
+      padding: 60px 0;
+      background: #f4f4f4;
+    }
 
-  .swiper-slide-active {
-    opacity: 1;
-    transform: scale(1);
-  }
+    .swiper {
+      overflow: visible;
+    }
 
-  .swiper-slide-prev,
-  .swiper-slide-next {
-    opacity: 0.6;
-    transform: scale(0.9);
-  }
+    .swiper-slide {
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      opacity: 0.4;
+      transform: scale(0.85);
+    }
 
-  .swiper-slide img {
-    width: 100%;
-    border-radius: 8px;
-    display: block;
-  }
+    .swiper-slide-active {
+      opacity: 1;
+      transform: scale(1);
+    }
 
-  .carousel-label {
-    position: absolute;
-    bottom: 12px;
-    left: 12px;
-    background: rgba(0,0,0,0.6);
-    color: #fff;
-    font-size: 12px;
-    padding: 6px 10px;
-    border-radius: 4px;
-  }
+    .swiper-slide-prev,
+    .swiper-slide-next {
+      opacity: 0.6;
+      transform: scale(0.9);
+    }
 
-  /* dots */
-  .swiper-pagination {
-    margin-top: 20px;
-    position: relative;
-  }
+    .swiper-slide img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+    }
 
-  .swiper-pagination-bullet {
-    background: #bbb;
-    opacity: 1;
-    transition: all 0.3s ease;
-  }
+    .carousel-label {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 4px;
+    }
 
-  .swiper-pagination-bullet-active {
-    width: 28px;
-    border-radius: 10px;
-    background: #000;
-  }
+    /* dots */
+    .swiper-pagination {
+      margin-top: 20px;
+      position: relative;
+    }
+
+    .swiper-pagination-bullet {
+      background: #bbb;
+      opacity: 1;
+      transition: all 0.3s ease;
+    }
+
+    .swiper-pagination-bullet-active {
+      width: 28px;
+      border-radius: 10px;
+      background: #000;
+    }
 {% endstylesheet %}
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     new Swiper('.trend-carousel-{{ section.id }}', {
