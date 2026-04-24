@@ -220,6 +220,7 @@
     let isDown = false;
     let current = 0;
     let prevTranslate = 0;
+    let isDragging = false;
 
     function getX(e) {
       return e.touches ? e.touches[0].clientX : e.pageX;
