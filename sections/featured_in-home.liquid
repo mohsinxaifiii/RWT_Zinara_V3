@@ -1,26 +1,20 @@
 <link rel="stylesheet" href="{{ 'featured_in-home.css' | asset_url }}">
 <div class="page-width home-featured_in-container">
   <h2 class="home-featured_in-heading">{{ section.settings.heading }}</h2>
-  <div class="home-featured_in-logos" id="featured-logos-slider">
-    {% for block in section.blocks %}
-      <div class="home-featured_in-logo-container">
-        <img
-          src="{{ block.settings.image | img_url: 'medium' }}"
-          alt="{{ block.settings.alt_text }}"
-          class="home-featured_in-logo"
-        >
-      </div>
-    {% endfor %}
-    <!-- Duplicate for seamless loop -->
-    {% for block in section.blocks %}
-      <div class="home-featured_in-logo-container">
-        <img
-          src="{{ block.settings.image | img_url: 'medium' }}"
-          alt="{{ block.settings.alt_text }}"
-          class="home-featured_in-logo"
-        >
-      </div>
-    {% endfor %}
+  <div class="swiper home-featured_in-slider">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        <div class="swiper-slide">
+          <div class="home-featured_in-logo-container">
+            <img
+              src="{{ block.settings.image | img_url: 'medium' }}"
+              alt="{{ block.settings.alt_text }}"
+              class="home-featured_in-logo"
+            >
+          </div>
+        </div>
+      {% endfor %}
+    </div>
   </div>
 </div>
 {% schema %}
