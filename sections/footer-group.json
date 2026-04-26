@@ -14,6 +14,20 @@
     "footer": {
       "type": "footer",
       "blocks": {
+        "platform_tGTAdA": {
+          "type": "platform",
+          "settings": {
+            "image": "shopify://shop_images/Image_h-full.png",
+            "heading": ""
+          }
+        },
+        "platform_cLqy9p": {
+          "type": "platform",
+          "settings": {
+            "image": "shopify://shop_images/Div_h-5.png",
+            "heading": ""
+          }
+        },
         "link_list_Mfht8K": {
           "type": "link_list",
           "settings": {
@@ -36,6 +50,8 @@
         }
       },
       "block_order": [
+        "platform_tGTAdA",
+        "platform_cLqy9p",
         "link_list_Mfht8K",
         "link_list_URgP36",
         "brand_information_7xcQqn"
