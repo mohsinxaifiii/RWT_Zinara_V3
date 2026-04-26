@@ -184,14 +184,52 @@
   <script>
     (() => {
       console.log('[SizeChart] script initialized');
-      const sizeChartBottomSheet = document.getElementById('sizeChartBottomSheet');
-      const closeSizeChartBtn = document.getElementById('closeSizeChartBtn');
-      const sizeChartOverlay = document.getElementById('sizeChartOverlay');
+      let sizeChartBottomSheet = document.getElementById('sizeChartBottomSheet');
+      let closeSizeChartBtn = document.getElementById('closeSizeChartBtn');
+      let sizeChartOverlay = document.getElementById('sizeChartOverlay');
       console.log('[SizeChart] elements', {
         hasBottomSheet: !!sizeChartBottomSheet,
         hasCloseButton: !!closeSizeChartBtn,
         hasOverlay: !!sizeChartOverlay,
       });
+
+      if (!sizeChartBottomSheet || !sizeChartOverlay) {
+        console.log('[SizeChart] creating fallback bottom sheet markup');
+        const fallbackMarkup = `
+          <div id="sizeChartOverlay" class="size-chart-overlay"></div>
+          <div id="sizeChartBottomSheet" class="size-chart-bottom-sheet">
+            <div class="size-chart-header">
+              <h2>Size Guide</h2>
+              <button id="closeSizeChartBtn" class="size-chart-close-btn" aria-label="Close size chart">✕</button>
+            </div>
+            <div class="size-chart-content">
+              <div class="size-chart-video-section">
+                <h3>How to measure your ring size</h3>
+                <div class="video-container">
+                  <iframe
+                    width="100%"
+                    height="300"
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="How to measure your ring size"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', fallbackMarkup);
+        sizeChartBottomSheet = document.getElementById('sizeChartBottomSheet');
+        closeSizeChartBtn = document.getElementById('closeSizeChartBtn');
+        sizeChartOverlay = document.getElementById('sizeChartOverlay');
+        console.log('[SizeChart] fallback created', {
+          hasBottomSheet: !!sizeChartBottomSheet,
+          hasCloseButton: !!closeSizeChartBtn,
+          hasOverlay: !!sizeChartOverlay,
+        });
+      }
 
       if (sizeChartBottomSheet && sizeChartOverlay) {
         if (!window.__zinaraSizeChartOpenBound) {
