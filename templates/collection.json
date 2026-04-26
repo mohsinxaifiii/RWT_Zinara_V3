@@ -17,6 +17,14 @@
         "color_scheme": "scheme-1"
       }
     },
+    "mobile_desktop_image_tpL8ja": {
+      "type": "mobile-desktop-image",
+      "name": "Mobile Desktop Image",
+      "settings": {
+        "mobile_image": "{{ collection.metafields.custom.main_image_mobile.value }}",
+        "desktop_image": "{{ collection.metafields.custom.main_image_desktop.value }}"
+      }
+    },
     "product-grid": {
       "type": "main-collection-product-grid",
       "custom_css": [
@@ -114,6 +122,7 @@
   },
   "order": [
     "banner",
+    "mobile_desktop_image_tpL8ja",
     "product-grid",
     "collapsible_content_nLnX9P"
   ]
