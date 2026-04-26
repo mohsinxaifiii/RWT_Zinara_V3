@@ -127,9 +127,6 @@
                                   class="platform-logo"
                                 >
                               {%- endif -%}
-                              {%- if block.settings.heading != blank -%}
-                                <p class="platform-heading">{{ block.settings.heading }}</p>
-                              {%- endif -%}
                             </div>
                           {%- endif -%}
                         {%- endfor -%}
@@ -148,9 +145,6 @@
                                   alt="{{ block.settings.heading }}"
                                   class="payment-logo"
                                 >
-                              {%- endif -%}
-                              {%- if block.settings.heading != blank -%}
-                                <p class="payment-heading">{{ block.settings.heading }}</p>
                               {%- endif -%}
                             </div>
                           {%- endif -%}
