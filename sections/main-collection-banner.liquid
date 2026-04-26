@@ -26,30 +26,20 @@
     </div>
 
     {%- if section.settings.show_collection_image -%}
-      {%- assign desktop_image = collection.metafields.custom.main_image_desktop -%}
-      {%- assign mobile_image = collection.metafields.custom.main_image_mobile -%}
-
-      {%- if desktop_image or mobile_image -%}
-        <div class="collection-hero__image-container media gradient">
-          {%- if mobile_image -%}
-            <img
-              src="{{ mobile_image | image_url: width: 360 }}"
-              alt="{{ collection.title }}"
-              class="collection-hero__image-mobile"
-              loading="lazy"
-            >
-          {%- endif -%}
-
-          {%- if desktop_image -%}
-            <img
-              src="{{ desktop_image | image_url: width: 750 }}"
-              alt="{{ collection.title }}"
-              class="collection-hero__image-desktop"
-              loading="lazy"
-            >
-          {%- endif -%}
-        </div>
-      {%- endif -%}
+      <div class="collection-hero__image-container media gradient">
+        <img
+          src="{{ mobile_image | image_url: width: 360 }}"
+          alt="{{ collection.title }}"
+          class="collection-hero__image-mobile"
+          loading="lazy"
+        >
+        <img
+          src="{{ desktop_image | image_url: width: 750 }}"
+          alt="{{ collection.title }}"
+          class="collection-hero__image-desktop"
+          loading="lazy"
+        >
+      </div>
     {%- endif -%}
   </div>
 </div>
