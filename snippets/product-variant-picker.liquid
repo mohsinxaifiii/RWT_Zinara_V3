@@ -46,11 +46,10 @@
           %}
         </fieldset>
       {%- elsif picker_type == 'button' -%}
-        {%- assign option_name_check = option.name | downcase | strip -%}
         <fieldset class="js product-form__input product-form__input--pill">
           <legend class="form__label">
             {{ option.name }}
-            {%- if option_name_check == 'size' -%}
+            {%- if option.name | downcase | strip == 'size' -%}
               <button type="button" class="size-chart-btn" id="openSizeChart" aria-label="Open size chart">
                 Size Chart
               </button>
@@ -182,29 +181,25 @@
     >
   </div>
   <script>
-    // Size Chart Modal
-    const openSizeChartBtn = document.getElementById('openSizeChart');
+    const openPopup = document.getElementById('openPopup');
     const closePopup = document.getElementById('closePopup');
     const popup = document.getElementById('popup');
 
-    if (openSizeChartBtn && popup) {
-      openSizeChartBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        popup.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-      });
+    openPopup.addEventListener('click', () => {
+      popup.style.display = 'flex';
+      // document.body.classList.add('no-scroll');
+    });
 
-      closePopup.addEventListener('click', () => {
+    closePopup.addEventListener('click', () => {
+      popup.style.display = 'none';
+      // document.body.classList.remove('no-scroll');
+    });
+
+    popup.addEventListener('click', (e) => {
+      if (e.target === popup) {
         popup.style.display = 'none';
-        document.body.style.overflow = '';
-      });
-
-      popup.addEventListener('click', (e) => {
-        if (e.target === popup) {
-          popup.style.display = 'none';
-          document.body.style.overflow = '';
-        }
-      });
-    }
+        // document.body.classList.remove('no-scroll');
+      }
+    });
   </script>
 {%- endunless -%}
