@@ -102,25 +102,27 @@
                       </ul>
                     {%- endif -%}
                   {%- when 'brand_information' -%}
-                    <p>Also Available on</p>
-                    <div class="also_available-on-container">
-                      {%- for block in section.blocks -%}
-                        {%- if block.type == 'platform' -%}
-                          <div class="platform-item" {{ block.shopify_attributes }}>
-                            {%- if block.settings.image != blank -%}
-                              <img
-                                src="{{ block.settings.image | image_url: width: 200 }}"
-                                alt="{{ block.settings.heading }}"
-                                class="platform-logo"
-                              >
-                            {%- endif -%}
-                            {%- if block.settings.heading != blank -%}
-                              <p class="platform-heading">{{ block.settings.heading }}</p>
-                            {%- endif -%}
-                          </div>
-                        {%- endif -%}
-                      {%- endfor -%}
-                    </div>
+                    {% if section.blocks.type.platform != blank %}
+                      <p>Also Available on</p>
+                      <div class="also_available-on-container">
+                        {%- for block in section.blocks -%}
+                          {%- if block.type == 'platform' -%}
+                            <div class="platform-item" {{ block.shopify_attributes }}>
+                              {%- if block.settings.image != blank -%}
+                                <img
+                                  src="{{ block.settings.image | image_url: width: 200 }}"
+                                  alt="{{ block.settings.heading }}"
+                                  class="platform-logo"
+                                >
+                              {%- endif -%}
+                              {%- if block.settings.heading != blank -%}
+                                <p class="platform-heading">{{ block.settings.heading }}</p>
+                              {%- endif -%}
+                            </div>
+                          {%- endif -%}
+                        {%- endfor -%}
+                      </div>
+                    {% endif %}
                     <div class="footer-block__brand-info">
                       {%- if settings.brand_image != blank -%}
                         {%- assign brand_image_height = settings.brand_image_width
