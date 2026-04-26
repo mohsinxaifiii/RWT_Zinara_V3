@@ -96,30 +96,3 @@
     min-height: 20rem;
   }
 }
-
-/* Responsive image display */
-.collection-hero__image-mobile {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: 100%;
-  object-fit: cover;
-}
-
-.collection-hero__image-desktop {
-  display: none;
-  width: 100%;
-  height: auto;
-  max-height: 100%;
-  object-fit: cover;
-}
-
-@media screen and (min-width: 750px) {
-  .collection-hero__image-mobile {
-    display: none;
-  }
-
-  .collection-hero__image-desktop {
-    display: block;
-  }
-}
