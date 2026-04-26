@@ -9,12 +9,13 @@
 
 .mobile-desktop-image {
   width: 100%;
-  height: 424px;
+  height: auto;
   display: block;
 }
 
 .mobile-image {
   display: block;
+  height: 424px;
 }
 
 .desktop-image {
