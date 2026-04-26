@@ -21,7 +21,15 @@
     {%- endif -%}
   </div>
 </div>
-
+{% if section.settings.mobile_image != null %}
+  <style>
+    @media (max-width: 756px) {
+      .facets-wrapper {
+        top: 500px !important;
+      }
+    }
+  </style>
+{% endif %}
 {% schema %}
 {
   "name": "Mobile Desktop Image",
