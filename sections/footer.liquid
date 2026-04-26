@@ -102,7 +102,19 @@
                       </ul>
                     {%- endif -%}
                   {%- when 'brand_information' -%}
-                    {% if section.blocks.type.platform != blank %}
+                    {% assign has_platform = false %}
+                    {% assign has_payment = false %}
+
+                    {% for block in section.blocks %}
+                      {% if block.type == 'platform' %}
+                        {% assign has_platform = true %}
+                      {% endif %}
+                      {% if block.type == 'payment' %}
+                        {% assign has_payment = true %}
+                      {% endif %}
+                    {% endfor %}
+
+                    {% if has_platform %}
                       <p>Also Available on</p>
                       <div class="also_available-on-container">
                         {%- for block in section.blocks -%}
@@ -124,7 +136,7 @@
                       </div>
                     {% endif %}
 
-                    {% if section.blocks.type.payment != blank %}
+                    {% if has_payment %}
                       <p>Accepted Payment Methods</p>
                       <div class="also_available-on-container">
                         {%- for block in section.blocks -%}
