@@ -182,56 +182,60 @@
     >
   </div>
   <script>
-    // Size Chart Bottom Sheet
-    const openSizeChartBtns = document.querySelectorAll('.size-chart-btn');
-    const sizeChartBottomSheet = document.getElementById('sizeChartBottomSheet');
-    const closeSizeChartBtn = document.getElementById('closeSizeChartBtn');
-    const sizeChartOverlay = document.getElementById('sizeChartOverlay');
+    (() => {
+      const sizeChartBottomSheet = document.getElementById('sizeChartBottomSheet');
+      const closeSizeChartBtn = document.getElementById('closeSizeChartBtn');
+      const sizeChartOverlay = document.getElementById('sizeChartOverlay');
 
-    if (openSizeChartBtns.length > 0 && sizeChartBottomSheet && closeSizeChartBtn && sizeChartOverlay) {
-      openSizeChartBtns.forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-          e.preventDefault();
-          sizeChartBottomSheet.classList.add('active');
-          sizeChartOverlay.classList.add('active');
-          document.body.style.overflow = 'hidden';
+      if (sizeChartBottomSheet && sizeChartOverlay) {
+        if (!window.__zinaraSizeChartOpenBound) {
+          document.addEventListener('click', (e) => {
+            const openBtn = e.target.closest('.size-chart-btn');
+            if (!openBtn) return;
+
+            e.preventDefault();
+            sizeChartBottomSheet.classList.add('active');
+            sizeChartOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          });
+          window.__zinaraSizeChartOpenBound = true;
+        }
+
+        if (closeSizeChartBtn && !window.__zinaraSizeChartCloseBound) {
+          const closeSheet = () => {
+            sizeChartBottomSheet.classList.remove('active');
+            sizeChartOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+          };
+
+          closeSizeChartBtn.addEventListener('click', closeSheet);
+          sizeChartOverlay.addEventListener('click', closeSheet);
+          window.__zinaraSizeChartCloseBound = true;
+        }
+      }
+
+      const openPopup = document.getElementById('openPopup');
+      const closePopup = document.getElementById('closePopup');
+      const popup = document.getElementById('popup');
+
+      if (openPopup && closePopup && popup) {
+        openPopup.addEventListener('click', () => {
+          popup.style.display = 'flex';
+          // document.body.classList.add('no-scroll');
         });
-      });
 
-      closeSizeChartBtn.addEventListener('click', () => {
-        sizeChartBottomSheet.classList.remove('active');
-        sizeChartOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-      });
-
-      sizeChartOverlay.addEventListener('click', () => {
-        sizeChartBottomSheet.classList.remove('active');
-        sizeChartOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-      });
-    }
-
-    const openPopup = document.getElementById('openPopup');
-    const closePopup = document.getElementById('closePopup');
-    const popup = document.getElementById('popup');
-
-    if (openPopup && popup) {
-      openPopup.addEventListener('click', () => {
-        popup.style.display = 'flex';
-        // document.body.classList.add('no-scroll');
-      });
-
-      closePopup.addEventListener('click', () => {
-        popup.style.display = 'none';
-        // document.body.classList.remove('no-scroll');
-      });
-
-      popup.addEventListener('click', (e) => {
-        if (e.target === popup) {
+        closePopup.addEventListener('click', () => {
           popup.style.display = 'none';
           // document.body.classList.remove('no-scroll');
-        }
-      });
-    }
+        });
+
+        popup.addEventListener('click', (e) => {
+          if (e.target === popup) {
+            popup.style.display = 'none';
+            // document.body.classList.remove('no-scroll');
+          }
+        });
+      }
+    })();
   </script>
 {%- endunless -%}
