@@ -50,12 +50,6 @@
             "image": "shopify://shop_images/Div_w-_42px.png"
           }
         },
-        "payment_LaGcke": {
-          "type": "payment",
-          "settings": {
-            "image": "shopify://shop_images/Div_w-_42px.png"
-          }
-        },
         "payment_3GdygG": {
           "type": "payment",
           "settings": {
@@ -90,7 +84,6 @@
         "payment_PUm4VF",
         "payment_fjegcN",
         "payment_JjDRLj",
-        "payment_LaGcke",
         "payment_3GdygG",
         "link_list_Mfht8K",
         "link_list_URgP36",

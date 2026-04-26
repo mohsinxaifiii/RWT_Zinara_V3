@@ -175,14 +175,16 @@
 .payment-item img {
   width: 50px
 }
+
 .also_available-on-container_2 {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 1rem 0 2rem 0;
-    justify-content: start;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 1rem 0 2rem 0;
+  justify-content: start;
 }
+
 .platform-logo {
   width: 90px;
   height: auto;
