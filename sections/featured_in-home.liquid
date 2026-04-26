@@ -54,3 +54,21 @@
   ]
 }
 {% endschema %}
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Swiper('.home-featured_in-slider', {
+      loop: true,
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+      },
+      speed: 5000,
+      slidesPerView: 'auto',
+      spaceBetween: 30,
+      freeMode: false,
+      grabCursor: true,
+    });
+  });
+</script>
