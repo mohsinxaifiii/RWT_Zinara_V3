@@ -1180,6 +1180,89 @@
         "heading": "They Tried It. They Loved It!"
       }
     },
+    "featured_in_home_8zRT3B": {
+      "type": "featured_in-home",
+      "blocks": {
+        "image_picker_Jw3Xa6": {
+          "type": "image_picker",
+          "settings": {
+            "image": "shopify://shop_images/VOGUE.png",
+            "alt_text": "featuredinlogo Image"
+          }
+        },
+        "image_picker_bqytnc": {
+          "type": "image_picker",
+          "settings": {
+            "image": "shopify://shop_images/ELLE.png",
+            "alt_text": "featuredinlogo Image"
+          }
+        },
+        "image_picker_Qdatk9": {
+          "type": "image_picker",
+          "settings": {
+            "image": "shopify://shop_images/GQ.png",
+            "alt_text": "featuredinlogo Image"
+          }
+        },
+        "image_picker_EGMUNW": {
+          "type": "image_picker",
+          "settings": {
+            "image": "shopify://shop_images/VOGUE.png",
+            "alt_text": "featuredinlogo Image"
+          }
+        },
+        "image_picker_iiUJnc": {
+          "type": "image_picker",
+          "settings": {
+            "image": "shopify://shop_images/ELLE.png",
+            "alt_text": "featuredinlogo Image"
+          }
+        },
+        "image_picker_LyB3xJ": {
+          "type": "image_picker",
+          "settings": {
+            "image": "shopify://shop_images/GQ.png",
+            "alt_text": "featuredinlogo Image"
+          }
+        },
+        "image_picker_WA8GDn": {
+          "type": "image_picker",
+          "settings": {
+            "image": "shopify://shop_images/VOGUE.png",
+            "alt_text": "featuredinlogo Image"
+          }
+        },
+        "image_picker_bnjLcY": {
+          "type": "image_picker",
+          "settings": {
+            "image": "shopify://shop_images/ELLE.png",
+            "alt_text": "featuredinlogo Image"
+          }
+        },
+        "image_picker_xDfKhr": {
+          "type": "image_picker",
+          "settings": {
+            "image": "shopify://shop_images/GQ.png",
+            "alt_text": "featuredinlogo Image"
+          }
+        }
+      },
+      "block_order": [
+        "image_picker_Jw3Xa6",
+        "image_picker_bqytnc",
+        "image_picker_Qdatk9",
+        "image_picker_EGMUNW",
+        "image_picker_iiUJnc",
+        "image_picker_LyB3xJ",
+        "image_picker_WA8GDn",
+        "image_picker_bnjLcY",
+        "image_picker_xDfKhr"
+      ],
+      "name": "Home Featured In",
+      "settings": {
+        "heading": "Featured In"
+      }
+    },
     "home_about_us_2_EmErTz": {
       "type": "home_about_us_2",
       "name": "Home About Us 2",
@@ -1341,6 +1424,7 @@
     "home_own_design_WDng9w",
     "home_tryathome_UAw34q",
     "home_testimonials_iX3QWY",
+    "featured_in_home_8zRT3B",
     "home_about_us_2_EmErTz",
     "home_about_hDMerC",
     "collapsible_content_AU8NGL"
