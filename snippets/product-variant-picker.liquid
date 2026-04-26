@@ -47,7 +47,14 @@
         </fieldset>
       {%- elsif picker_type == 'button' -%}
         <fieldset class="js product-form__input product-form__input--pill">
-          <legend class="form__label">{{ option.name }}</legend>
+          <legend class="form__label">
+            {{ option.name }}
+            {%- if option.name | downcase | strip == 'size' -%}
+              <button type="button" class="size-chart-btn" id="openSizeChart" aria-label="Open size chart">
+                Size Chart
+              </button>
+            {%- endif -%}
+          </legend>
           {% render 'product-variant-options',
             product: product,
             option: option,
@@ -174,25 +181,54 @@
     >
   </div>
   <script>
+    // Size Chart Bottom Sheet
+    const openSizeChartBtn = document.getElementById('openSizeChart');
+    const sizeChartBottomSheet = document.getElementById('sizeChartBottomSheet');
+    const closeSizeChartBtn = document.getElementById('closeSizeChartBtn');
+    const sizeChartOverlay = document.getElementById('sizeChartOverlay');
+
+    if (openSizeChartBtn && sizeChartBottomSheet) {
+      openSizeChartBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        sizeChartBottomSheet.classList.add('active');
+        sizeChartOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+
+      closeSizeChartBtn.addEventListener('click', () => {
+        sizeChartBottomSheet.classList.remove('active');
+        sizeChartOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+
+      sizeChartOverlay.addEventListener('click', () => {
+        sizeChartBottomSheet.classList.remove('active');
+        sizeChartOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    }
+
     const openPopup = document.getElementById('openPopup');
     const closePopup = document.getElementById('closePopup');
     const popup = document.getElementById('popup');
 
-    openPopup.addEventListener('click', () => {
-      popup.style.display = 'flex';
-      // document.body.classList.add('no-scroll');
-    });
+    if (openPopup && popup) {
+      openPopup.addEventListener('click', () => {
+        popup.style.display = 'flex';
+        // document.body.classList.add('no-scroll');
+      });
 
-    closePopup.addEventListener('click', () => {
-      popup.style.display = 'none';
-      // document.body.classList.remove('no-scroll');
-    });
-
-    popup.addEventListener('click', (e) => {
-      if (e.target === popup) {
+      closePopup.addEventListener('click', () => {
         popup.style.display = 'none';
         // document.body.classList.remove('no-scroll');
-      }
-    });
+      });
+
+      popup.addEventListener('click', (e) => {
+        if (e.target === popup) {
+          popup.style.display = 'none';
+          // document.body.classList.remove('no-scroll');
+        }
+      });
+    }
   </script>
 {%- endunless -%}
