@@ -1435,7 +1435,13 @@
                     checkerButton?.addEventListener('click', () => {
                       setTimeout(sendPincodeAvailabilityEvent, 500); // Allow time for DOM to update
                     });
-                  });
+                    }
+                    if (document.readyState === 'loading') {
+                      document.addEventListener('DOMContentLoaded', initPincodeGA);
+                    } else {
+                      initPincodeGA();
+                    }
+                  })();
                 </script>
 
               {%- when 'inventory-indicator' -%}
