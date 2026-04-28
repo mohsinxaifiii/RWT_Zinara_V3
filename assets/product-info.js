@@ -180,14 +180,18 @@ if (!customElements.get('product-info')) {
             // Update the entire ProductInfo section with all its content and snippets
             currentProductInfoSection.innerHTML = newProductInfoSection.innerHTML;
 
-            // Re-initialize variant inputs
+            // Clear any cached references since we replaced the DOM
+            this.quantityInput = this.querySelector('.quantity__input');
+            this.quantityForm = this.querySelector('.product-form__quantity');
+
+            // Re-initialize all components
+            this.reinitializeProductInfoScripts();
+
+            // Update variant inputs after section is updated
             this.updateVariantInputs(variant?.id);
 
             // Re-initialize pickup availability if it exists
             this.pickupAvailability?.update(variant);
-
-            // Re-initialize scripts that depend on the new content
-            this.reinitializeProductInfoScripts();
 
             // Update media gallery if it exists in both old and new sections
             this.updateMedia(html, variant?.featured_media?.id);
