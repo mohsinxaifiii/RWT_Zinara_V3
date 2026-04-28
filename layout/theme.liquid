@@ -1122,9 +1122,9 @@ function getProductPagePincodes() {
           <div class="size-chart-video-section">
             <h3>How to measure your ring size</h3>
             <div class="video-container">
-              {% assign video = product.metafields.custom.size_chart_video %}
+              {% assign video = product.metafields.custom.size_chart_video.value %}
               <video id="size-chart-video" width="100%" height="300" controls playsinline>
-                <source src="{{ video.src }}" type="video/mp4">
+                <source src="{{ video.url }}" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
             </div>
