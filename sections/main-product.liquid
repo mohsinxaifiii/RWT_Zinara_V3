@@ -311,14 +311,20 @@
                     }
 
                     container.addEventListener('click', togglePopup);
-                    closeBtn.addEventListener('click', closePopup);
+                    closeBtn?.addEventListener('click', closePopup);
 
-                    overlay.addEventListener('click', (e) => {
+                    overlay?.addEventListener('click', (e) => {
                       if (!popup.contains(e.target)) {
                         closePopup();
                       }
                     });
-                  });
+                    }
+                    if (document.readyState === 'loading') {
+                      document.addEventListener('DOMContentLoaded', initPriceBreakdown);
+                    } else {
+                      initPriceBreakdown();
+                    }
+                  })();
                 </script>
 
                 {%- if product.quantity_price_breaks_configured? -%}
