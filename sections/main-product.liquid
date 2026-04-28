@@ -1260,7 +1260,8 @@
                 </p>
 
                 <script>
-                  document.addEventListener('DOMContentLoaded', () => {
+                  (function () {
+                    function initPincodeChecker() {
                     const btn = document.getElementById('submit-btn');
                     const zipcodeInput = document.getElementById('zipcode');
                     const res = document.getElementById('res');
@@ -1378,10 +1379,17 @@
                       deliveryDateSpan.textContent = finalDate;
                       deliveryDateParagraph.style.display = 'block';
                     });
-                  });
+                    }
+                    if (document.readyState === 'loading') {
+                      document.addEventListener('DOMContentLoaded', initPincodeChecker);
+                    } else {
+                      initPincodeChecker();
+                    }
+                  })();
                 </script>
                 <script>
-                  document.addEventListener('DOMContentLoaded', function () {
+                  (function () {
+                    function initPincodeGA() {
                     const checkerButton = document.querySelector('.pincode-checker-button');
 
                     function isElementVisible(el) {
