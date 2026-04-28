@@ -318,6 +318,9 @@
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'custom.css' | asset_url | stylesheet_tag }}
 
+    <!-- Plyr Video Player CSS -->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+
     <link
       rel="stylesheet"
       href="{{ 'component-cart-items.css' | asset_url }}"
@@ -1121,9 +1124,12 @@ function getProductPagePincodes() {
         {% if product.metafields.custom.size_chart_video %}
           <div class="size-chart-video-section">
             <h3>How to measure your ring size</h3>
-            <div class="video-container">
+            <div class="video-container" id="sizeChartVideoPlayer">
               {% assign video_value = product.metafields.custom.size_chart_video.value %}
-              {{ video_value | video_tag: width: '100%', height: 300 }}
+              <video id="size-chart-video" playsinline controls data-poster="">
+                <source src="{{ video_value }}" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         {% endif %}
