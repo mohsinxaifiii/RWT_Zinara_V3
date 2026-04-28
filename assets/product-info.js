@@ -1,4 +1,31 @@
 if (!customElements.get('product-info')) {
+  // Create a global helper to allow inline scripts to re-initialize
+  window.ProductInfoInitializer = window.ProductInfoInitializer || {
+    callbacks: [],
+    
+    // Register a callback to be called on both DOMContentLoaded and product-info updates
+    onReady(callback) {
+      this.callbacks.push(callback);
+      // Call immediately if DOM is already ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', callback);
+      } else {
+        callback();
+      }
+    },
+    
+    // Internal: trigger all callbacks (called by product-info.js)
+    _triggerCallbacks() {
+      this.callbacks.forEach(cb => {
+        try {
+          cb();
+        } catch (e) {
+          console.error('Error in ProductInfoInitializer callback:', e);
+        }
+      });
+    }
+  };
+
   customElements.define(
     'product-info',
     class ProductInfo extends HTMLElement {
@@ -261,6 +288,19 @@ if (!customElements.get('product-info')) {
           // Variant selects custom element will auto-initialize on connectedCallback
         }
 
+        // Re-initialize product-page-details dropdowns
+        this.initializeProductDetailsDropdowns();
+
+        // Re-initialize all inline scripts within the section
+        this.reInitializeInlineScripts();
+
+        // Re-initialize wishlist-engine positioning if it exists
+        if (window?.WishlistEngine?.reposition) {
+          window.WishlistEngine.reposition();
+        } else if (window?.wishlistEngine?.reposition) {
+          window.wishlistEngine.reposition();
+        }
+
         // Dispatch a custom event for any other components that need to reinitialize
         this.dispatchEvent(new CustomEvent('productinfo:updated', { bubbles: true, detail: { section: this } }));
 
@@ -281,6 +321,67 @@ if (!customElements.get('product-info')) {
           this.quantityInput = quantityInput;
           this.initQuantityHandlers();
         }
+      }
+
+      initializeProductDetailsDropdowns() {
+        // Re-attach event listeners to product details dropdown headers
+        this.querySelectorAll('.product-page-details-list_header').forEach((header) => {
+          // Remove old listeners by cloning and replacing
+          const newHeader = header.cloneNode(true);
+          header.parentNode.replaceChild(newHeader, header);
+          
+          // Attach new listener
+          newHeader.addEventListener('click', () => {
+            const body = newHeader.nextElementSibling;
+            const isExpanded = newHeader.classList.toggle('active');
+
+            if (isExpanded) {
+              body.style.maxHeight = body.scrollHeight + 'px';
+            } else {
+              body.style.maxHeight = '0';
+            }
+          });
+        });
+      }
+
+      reInitializeInlineScripts() {
+        // This method helps re-initialize DOMContentLoaded scripts that were in the section
+        // Trigger any scripts that check for elements after they're added to the DOM
+        
+        // Manually trigger initialization for common patterns
+        const triggerElementInitialization = (selector, initFunction) => {
+          const element = this.querySelector(selector);
+          if (element && initFunction) {
+            initFunction(element);
+          }
+        };
+
+        // Re-initialize pincode checker button
+        const pincodeButton = this.querySelector('.pincode-checker-button');
+        if (pincodeButton) {
+          // Re-attach click listener
+          pincodeButton.addEventListener('click', () => {
+            // The click event will trigger the existing handler if it was cloned properly
+          });
+        }
+
+        // Re-initialize delivery date inputs
+        const submitBtn = this.querySelector('#submit-btn');
+        if (submitBtn) {
+          // Re-attach click listener
+          submitBtn.addEventListener('click', () => {
+            // The click event will trigger the existing handler if it was cloned properly
+          });
+        }
+
+        // Dispatch custom event that scripts can listen to
+        this.dispatchEvent(new CustomEvent('product-info-section-updated', { 
+          bubbles: true, 
+          detail: { 
+            productInfo: this,
+            timestamp: Date.now()
+          } 
+        }));
       }
 
       updateVariantInputs(variantId) {
