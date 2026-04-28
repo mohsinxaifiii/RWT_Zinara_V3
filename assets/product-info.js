@@ -320,74 +320,53 @@ if (!customElements.get('product-info')) {
         }
       }
 
-      initializeProductDetailsDropdowns() {
-        // Re-attach event listeners to product details dropdown headers
-        this.querySelectorAll('.product-page-details-list_header').forEach((header) => {
-          // Remove old listeners by cloning and replacing
-          const newHeader = header.cloneNode(true);
-          header.parentNode.replaceChild(newHeader, header);
-          
-          // Attach new listener
-          newHeader.addEventListener('click', () => {
-            const body = newHeader.nextElementSibling;
-            const isExpanded = newHeader.classList.toggle('active');
+      reInitializeInlineScripts() {
+        // Re-execute inline scripts within the section
+        // This ensures that DOMContentLoaded scripts and event listeners are re-attached
+        
+        // Small delay to ensure DOM is fully settled
+        requestAnimationFrame(() => {
+          // Find all inline scripts in the section (excluding external scripts with src attribute)
+          const scripts = Array.from(this.querySelectorAll('script:not([src])')).filter(script => {
+            // Only re-execute scripts that contain actual code
+            return script.textContent && script.textContent.trim().length > 0;
+          });
 
-            if (isExpanded) {
-              body.style.maxHeight = body.scrollHeight + 'px';
-            } else {
-              body.style.maxHeight = '0';
+          if (scripts.length === 0) {
+            console.log('[ProductInfo] No inline scripts to re-execute');
+            return;
+          }
+
+          console.log(`[ProductInfo] Re-executing ${scripts.length} inline script(s)`);
+
+          scripts.forEach((script, index) => {
+            try {
+              // Create a new script element to force execution
+              const newScript = document.createElement('script');
+              newScript.type = 'text/javascript';
+              newScript.textContent = script.textContent;
+              
+              // Insert before removing old one to maintain execution context
+              script.parentNode.insertBefore(newScript, script);
+              script.remove();
+              
+              console.log(`[ProductInfo] Script ${index + 1} re-executed`);
+            } catch (e) {
+              console.error(`[ProductInfo] Error re-executing inline script ${index + 1}:`, e);
             }
           });
+
+          // After scripts are re-executed, verify dropdowns are initialized
+          setTimeout(() => {
+            const headerCount = this.querySelectorAll('.product-page-details-list_header').length;
+            console.log(`[ProductInfo] Verified ${headerCount} dropdown header(s) in section`);
+          }, 50);
         });
-      }
-
-      reInitializeInlineScripts() {
-        // This method helps re-initialize DOMContentLoaded scripts that were in the section
-        // Trigger any scripts that check for elements after they're added to the DOM
-        
-        // Manually trigger initialization for common patterns
-        const triggerElementInitialization = (selector, initFunction) => {
-          const element = this.querySelector(selector);
-          if (element && initFunction) {
-            initFunction(element);
-          }
-        };
-
-        // Re-initialize pincode checker button
-        const pincodeButton = this.querySelector('.pincode-checker-button');
-        if (pincodeButton) {
-          // Re-attach click listener
-          pincodeButton.addEventListener('click', () => {
-            // The click event will trigger the existing handler if it was cloned properly
-          });
-        }
-
-        // Re-initialize delivery date inputs
-        const submitBtn = this.querySelector('#submit-btn');
-        if (submitBtn) {
-          // Re-attach click listener
-          submitBtn.addEventListener('click', () => {
-            // The click event will trigger the existing handler if it was cloned properly
-          });
-        }
 
         // Trigger all registered callbacks for scripts that need re-initialization
         if (window.ProductInfoInitializer?._triggerCallbacks) {
           window.ProductInfoInitializer._triggerCallbacks();
         }
-
-        // Re-execute inline scripts within the section
-        // This ensures that DOMContentLoaded scripts and event listeners are re-attached
-        this.querySelectorAll('script:not([src])').forEach((script) => {
-          try {
-            // Clone and re-execute the script in the current context
-            const newScript = document.createElement('script');
-            newScript.textContent = script.textContent;
-            script.parentNode.replaceChild(newScript, script);
-          } catch (e) {
-            console.error('Error re-executing inline script:', e);
-          }
-        });
 
         // Dispatch custom event that scripts can listen to
         this.dispatchEvent(new CustomEvent('product-info-section-updated', { 
