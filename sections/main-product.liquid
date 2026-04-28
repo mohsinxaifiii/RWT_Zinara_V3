@@ -2108,8 +2108,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function moveButton(buttonId) {
     const button = document.getElementById(buttonId);
-    if (window.innerWidth > 756 && button && productFormButtons) {
-      productFormButtons.insertAdjacentElement('beforeend', button);
+    const freshProductFormButtons = document.querySelector('.product-form__buttons');
+    if (window.innerWidth > 756 && button && freshProductFormButtons) {
+      freshProductFormButtons.insertAdjacentElement('beforeend', button);
     }
   }
 
@@ -2250,10 +2251,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 {% if availableVariantFound %}
   <script>
-    if (
-      !sessionStorage.getItem('redirectedToAvailableVariant') &&
-      !window.location.search.includes('manual_variant_change=true')
-    ) {
+    if (!sessionStorage.getItem('redirectedToAvailableVariant')) {
       sessionStorage.setItem('redirectedToAvailableVariant', 'true');
       window.location.href = '/products/{{ product.handle }}?variant={{ availableVariantId }}';
     }
