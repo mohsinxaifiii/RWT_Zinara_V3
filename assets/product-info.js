@@ -374,6 +374,11 @@ if (!customElements.get('product-info')) {
           });
         }
 
+        // Trigger all registered callbacks for scripts that need re-initialization
+        if (window.ProductInfoInitializer?._triggerCallbacks) {
+          window.ProductInfoInitializer._triggerCallbacks();
+        }
+
         // Dispatch custom event that scripts can listen to
         this.dispatchEvent(new CustomEvent('product-info-section-updated', { 
           bubbles: true, 
