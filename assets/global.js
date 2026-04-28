@@ -36,7 +36,8 @@ class HTMLUpdateUtility {
     preProcessCallbacks?.forEach((callback) => callback(newContent));
 
     const newNodeWrapper = document.createElement('div');
-    HTMLUpdateUtility.setInnerHTML(newNodeWrapper, newContent.outerHTML);
+    // Parse HTML without executing scripts (innerHTML never executes scripts)
+    newNodeWrapper.innerHTML = newContent.outerHTML;
     const newNode = newNodeWrapper.firstChild;
 
     // dedupe IDs
@@ -46,8 +47,17 @@ class HTMLUpdateUtility {
       element.form && element.setAttribute('form', `${element.form.getAttribute('id')}-${uniqueKey}`);
     });
 
+    // Insert and hide BEFORE executing scripts so inline scripts see the connected DOM
     oldNode.parentNode.insertBefore(newNode, oldNode);
     oldNode.style.display = 'none';
+
+    // Execute scripts now that newNode is connected to the document
+    newNode.querySelectorAll('script').forEach((oldScript) => {
+      const newScript = document.createElement('script');
+      Array.from(oldScript.attributes).forEach((attr) => newScript.setAttribute(attr.name, attr.value));
+      newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+      oldScript.parentNode.replaceChild(newScript, oldScript);
+    });
 
     postProcessCallbacks?.forEach((callback) => callback(newNode));
 
