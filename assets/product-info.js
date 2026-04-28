@@ -57,6 +57,8 @@ if (!customElements.get('product-info')) {
         this.postProcessHtmlCallbacks.push((newNode) => {
           window?.Shopify?.PaymentButton?.init();
           window?.ProductModel?.loadShopifyXR();
+          // Signal external scripts to re-attach listeners to the new product-info content
+          document.dispatchEvent(new CustomEvent('product-info:swapped', { bubbles: false }));
         });
       }
 
@@ -70,12 +72,12 @@ if (!customElements.get('product-info')) {
         const shouldSwapProduct = this.dataset.url !== productUrl;
         const shouldFetchFullPage = this.dataset.updateUrl === 'true' && shouldSwapProduct;
 
+        // Always do a full element swap so all variant-specific content and
+        // inline scripts are replaced and re-executed on every variant change.
         this.renderProductInfo({
           requestUrl: this.buildRequestUrlWithParams(productUrl, selectedOptionValues, shouldFetchFullPage),
           targetId: target.id,
-          callback: shouldSwapProduct
-            ? this.handleSwapProduct(productUrl, shouldFetchFullPage)
-            : this.handleUpdateProductInfo(productUrl),
+          callback: this.handleSwapProduct(productUrl, shouldFetchFullPage),
         });
       }
 
