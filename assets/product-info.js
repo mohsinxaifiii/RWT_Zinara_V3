@@ -1,31 +1,4 @@
 if (!customElements.get('product-info')) {
-  // Create a global helper to allow inline scripts to re-initialize
-  window.ProductInfoInitializer = window.ProductInfoInitializer || {
-    callbacks: [],
-    
-    // Register a callback to be called on both DOMContentLoaded and product-info updates
-    onReady(callback) {
-      this.callbacks.push(callback);
-      // Call immediately if DOM is already ready
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', callback);
-      } else {
-        callback();
-      }
-    },
-    
-    // Internal: trigger all callbacks (called by product-info.js)
-    _triggerCallbacks() {
-      this.callbacks.forEach(cb => {
-        try {
-          cb();
-        } catch (e) {
-          console.error('Error in ProductInfoInitializer callback:', e);
-        }
-      });
-    }
-  };
-
   customElements.define(
     'product-info',
     class ProductInfo extends HTMLElement {
@@ -192,68 +165,41 @@ if (!customElements.get('product-info')) {
         return (html) => {
           const variant = this.getSelectedVariant(html);
 
+          this.pickupAvailability?.update(variant);
+          this.updateOptionValues(html);
           this.updateURL(productUrl, variant?.id);
+          this.updateVariantInputs(variant?.id);
 
           if (!variant) {
             this.setUnavailable();
             return;
           }
 
-          // Get the new product-info section from the fetched HTML
-          const newProductInfoSection = html.querySelector(`section[id^="ProductInfo-"]`);
-          const currentProductInfoSection = this.querySelector(`section[id^="ProductInfo-"]`);
+          this.updateMedia(html, variant?.featured_media?.id);
 
-          if (newProductInfoSection && currentProductInfoSection) {
-            // Update the entire ProductInfo section with all its content and snippets
-            currentProductInfoSection.innerHTML = newProductInfoSection.innerHTML;
+          const updateSourceFromDestination = (id, shouldHide = (source) => false) => {
+            const source = html.getElementById(`${id}-${this.sectionId}`);
+            const destination = this.querySelector(`#${id}-${this.dataset.section}`);
+            if (source && destination) {
+              destination.innerHTML = source.innerHTML;
+              destination.classList.toggle('hidden', shouldHide(source));
+            }
+          };
 
-            // Clear any cached references since we replaced the DOM
-            this.quantityInput = this.querySelector('.quantity__input');
-            this.quantityForm = this.querySelector('.product-form__quantity');
+          updateSourceFromDestination('price');
+          updateSourceFromDestination('Sku', ({ classList }) => classList.contains('hidden'));
+          updateSourceFromDestination('Inventory', ({ innerText }) => innerText === '');
+          updateSourceFromDestination('Volume');
+          updateSourceFromDestination('Price-Per-Item', ({ classList }) => classList.contains('hidden'));
 
-            // Re-initialize all components
-            this.reinitializeProductInfoScripts();
+          this.updateQuantityRules(this.sectionId, html);
+          this.querySelector(`#Quantity-Rules-${this.dataset.section}`)?.classList.remove('hidden');
+          this.querySelector(`#Volume-Note-${this.dataset.section}`)?.classList.remove('hidden');
 
-            // Update variant inputs after section is updated
-            this.updateVariantInputs(variant?.id);
-
-            // Re-initialize pickup availability if it exists
-            this.pickupAvailability?.update(variant);
-
-            // Update media gallery if it exists in both old and new sections
-            this.updateMedia(html, variant?.featured_media?.id);
-          } else {
-            // Fallback to old method if structure changed
-            this.pickupAvailability?.update(variant);
-            this.updateOptionValues(html);
-            this.updateVariantInputs(variant?.id);
-
-            this.updateMedia(html, variant?.featured_media?.id);
-
-            const updateSourceFromDestination = (id, shouldHide = (source) => false) => {
-              const source = html.getElementById(`${id}-${this.sectionId}`);
-              const destination = this.querySelector(`#${id}-${this.dataset.section}`);
-              if (source && destination) {
-                destination.innerHTML = source.innerHTML;
-                destination.classList.toggle('hidden', shouldHide(source));
-              }
-            };
-
-            updateSourceFromDestination('price');
-            updateSourceFromDestination('Sku', ({ classList }) => classList.contains('hidden'));
-            updateSourceFromDestination('Inventory', ({ innerText }) => innerText === '');
-            updateSourceFromDestination('Volume');
-            updateSourceFromDestination('Price-Per-Item', ({ classList }) => classList.contains('hidden'));
-
-            this.updateQuantityRules(this.sectionId, html);
-            this.querySelector(`#Quantity-Rules-${this.dataset.section}`)?.classList.remove('hidden');
-            this.querySelector(`#Volume-Note-${this.dataset.section}`)?.classList.remove('hidden');
-
-            this.productForm?.toggleSubmitButton(
-              html.getElementById(`ProductSubmitButton-${this.sectionId}`)?.hasAttribute('disabled') ?? true,
-              window.variantStrings.soldOut
-            );
-          }
+          this.productForm?.toggleSubmitButton(
+            html.getElementById(`ProductSubmitButton-${this.sectionId}`)?.hasAttribute('disabled') ?? true,
+            window.variantStrings.soldOut
+          );
 
           publish(PUB_SUB_EVENTS.variantChange, {
             data: {
@@ -263,173 +209,6 @@ if (!customElements.get('product-info')) {
             },
           });
         };
-      }
-
-      reinitializeProductInfoScripts() {
-        // Re-initialize Shopify payment buttons if they exist
-        if (window?.Shopify?.PaymentButton?.init) {
-          window.Shopify.PaymentButton.init();
-        }
-
-        // Re-initialize 3D product model viewer if it exists
-        if (window?.ProductModel?.loadShopifyXR) {
-          window.ProductModel.loadShopifyXR();
-        }
-
-        // Re-initialize product form elements
-        const productForm = this.querySelector('product-form');
-        if (productForm && !customElements.get('product-form')) {
-          // Product form custom element will auto-initialize on connectedCallback
-        }
-
-        // Re-initialize variant selects if exists
-        const variantSelects = this.querySelector('variant-selects');
-        if (variantSelects && !customElements.get('variant-selects')) {
-          // Variant selects custom element will auto-initialize on connectedCallback
-        }
-
-        // Re-initialize all inline scripts within the section
-        this.reInitializeInlineScripts();
-
-        // Re-initialize wishlist-engine positioning if it exists
-        if (window?.WishlistEngine?.reposition) {
-          window.WishlistEngine.reposition();
-        } else if (window?.wishlistEngine?.reposition) {
-          window.wishlistEngine.reposition();
-        }
-
-        // Dispatch a custom event for any other components that need to reinitialize
-        this.dispatchEvent(new CustomEvent('productinfo:updated', { bubbles: true, detail: { section: this } }));
-
-        // Re-initialize accordion interactions if they exist
-        this.querySelectorAll('details').forEach((details) => {
-          details.addEventListener('toggle', function () {
-            if (this.open) {
-              this.classList.add('details-open');
-            } else {
-              this.classList.remove('details-open');
-            }
-          });
-        });
-
-        // Re-initialize quantity input handlers if they exist
-        const quantityInput = this.querySelector('.quantity__input');
-        if (quantityInput) {
-          this.quantityInput = quantityInput;
-          this.initQuantityHandlers();
-        }
-      }
-
-      reInitializeInlineScripts() {
-        // Re-execute inline scripts within the section
-        // This ensures that DOMContentLoaded scripts and event listeners are re-attached
-        
-        // Small delay to ensure DOM is fully settled
-        requestAnimationFrame(() => {
-          // FIRST: Initialize product-page-details dropdowns directly
-          // This ensures they work even if the inline script has issues
-          this.initializeProductDetailsDropdowns();
-
-          // SECOND: Find and re-execute all inline scripts
-          const scripts = Array.from(this.querySelectorAll('script:not([src])')).filter(script => {
-            // Only re-execute scripts that contain actual code
-            return script.textContent && script.textContent.trim().length > 0;
-          });
-
-          if (scripts.length > 0) {
-            console.log(`[ProductInfo] Re-executing ${scripts.length} inline script(s)`);
-
-            scripts.forEach((script, index) => {
-              try {
-                // Create a new script element to force execution
-                const newScript = document.createElement('script');
-                newScript.type = 'text/javascript';
-                newScript.textContent = script.textContent;
-                
-                // Insert before removing old one to maintain execution context
-                script.parentNode.insertBefore(newScript, script);
-                script.remove();
-                
-                console.log(`[ProductInfo] Script ${index + 1} re-executed`);
-              } catch (e) {
-                console.error(`[ProductInfo] Error re-executing inline script ${index + 1}:`, e);
-              }
-            });
-          }
-
-          // After scripts are re-executed, verify dropdowns are initialized
-          setTimeout(() => {
-            const headerCount = this.querySelectorAll('.product-page-details-list_header').length;
-            console.log(`[ProductInfo] Verified ${headerCount} dropdown header(s) in section`);
-          }, 50);
-        });
-
-        // Trigger all registered callbacks for scripts that need re-initialization
-        if (window.ProductInfoInitializer?._triggerCallbacks) {
-          window.ProductInfoInitializer._triggerCallbacks();
-        }
-
-        // Dispatch custom event that scripts can listen to
-        this.dispatchEvent(new CustomEvent('product-info-section-updated', { 
-          bubbles: true, 
-          detail: { 
-            productInfo: this,
-            timestamp: Date.now()
-          } 
-        }));
-
-        // Re-trigger wishlist engine positioning
-        setTimeout(() => {
-          if (window?.WishlistEngine?.reposition) {
-            window.WishlistEngine.reposition();
-          } else if (window?.wishlistEngine?.reposition) {
-            window.wishlistEngine.reposition();
-          }
-          // Try common third-party wishlist scripts
-          if (typeof Wishlistr !== 'undefined' && Wishlistr.reposition) {
-            Wishlistr.reposition();
-          }
-        }, 100);
-      }
-
-      initializeProductDetailsDropdowns() {
-        // Directly initialize product-page-details dropdowns
-        // This is called to ensure they work, separate from inline script execution
-        const headers = this.querySelectorAll('.product-page-details-list_header');
-        
-        if (headers.length === 0) {
-          console.log('[ProductInfo] No dropdown headers found');
-          return;
-        }
-
-        console.log(`[ProductInfo] Initializing ${headers.length} dropdown header(s)`);
-
-        headers.forEach((header, index) => {
-          // Remove any existing listeners by cloning
-          const newHeader = header.cloneNode(true);
-          header.replaceWith(newHeader);
-
-          // Add click listener to the new header
-          newHeader.addEventListener('click', function(e) {
-            e.preventDefault();
-            const body = this.nextElementSibling;
-            
-            if (!body) {
-              console.warn('[ProductInfo] No body element found after header');
-              return;
-            }
-
-            const isExpanded = this.classList.toggle('active');
-
-            if (isExpanded) {
-              body.style.maxHeight = body.scrollHeight + 'px';
-              console.log(`[ProductInfo] Dropdown ${index + 1} expanded`);
-            } else {
-              body.style.maxHeight = '0';
-              console.log(`[ProductInfo] Dropdown ${index + 1} collapsed`);
-            }
-          });
-        });
       }
 
       updateVariantInputs(variantId) {
