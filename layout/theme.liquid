@@ -1122,23 +1122,8 @@ function getProductPagePincodes() {
           <div class="size-chart-video-section">
             <h3>How to measure your ring size</h3>
             <div class="video-container">
-              {% if product.metafields.custom.size_chart_video.type == 'file_reference' %}
-                {{ product.metafields.custom.size_chart_video | video_tag: width: '100%', height: 300 }}
-              {% elsif product.metafields.custom.size_chart_video.type == 'single_line_text_field' %}
-                {% assign video_url = product.metafields.custom.size_chart_video.value %}
-                <iframe
-                  width="100%"
-                  height="300"
-                  src="{{ video_url }}"
-                  title="How to measure your ring size"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                >
-                </iframe>
-              {% else %}
-                {{ product.metafields.custom.size_chart_video.value | video_tag: width: '100%', height: 300 }}
-              {% endif %}
+              {% assign video_value = product.metafields.custom.size_chart_video.value %}
+              {{ video_value | video_tag: width: '100%', height: 300 }}
             </div>
           </div>
         {% endif %}
