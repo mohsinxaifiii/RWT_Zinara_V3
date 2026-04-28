@@ -2265,61 +2265,29 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 <script>
   (function () {
-    document.addEventListener('DOMContentLoaded', function () {
-      console.log('add_to_cart DOM fully loaded');
-
-      // Find all forms that have a button with class product-form__submit
+    function initAddToCartTracking() {
       const productForms = Array.from(document.querySelectorAll('form')).filter((form) =>
-        form.querySelector('button.product-form__submit')
+        form.querySelector('button.product-form__submit') && !form.dataset.atcTracked
       );
 
-      if (productForms.length === 0) {
-        console.error('❌ No product forms with .product-form__submit button found!');
-        return;
-      }
-
-      console.log(`add_to_cart ✅ Found ${productForms.length} product form(s)`);
-
       productForms.forEach((productForm) => {
+        productForm.dataset.atcTracked = 'true';
         let triggered = false;
 
         productForm.addEventListener('submit', function (event) {
-          if (triggered) {
-            console.warn('⚠️ Add to cart event already triggered, ignoring duplicate');
-            return;
-          }
+          if (triggered) return;
           triggered = true;
-
           setTimeout(() => (triggered = false), 2000);
 
           const variantInput = productForm.querySelector('.product-variant-id');
-          if (!variantInput) {
-            console.error('❌ Variant ID input (.product-variant-id) NOT found in this form!');
-            return;
-          }
+          if (!variantInput || typeof window.product === 'undefined') return;
+
           const variantId = variantInput.value;
-          console.log('add_to_cart Variant ID:', variantId);
-
-          // Check window.product presence
-          if (typeof window.product === 'undefined') {
-            console.error('❌ window.product is undefined. Make sure product JSON is available globally.');
-            return;
-          }
-
           const productData = window.product;
-          console.log('add_to_cart Product data:', productData);
-
-          if (!productData.variants || productData.variants.length === 0) {
-            console.error('❌ productData.variants missing or empty');
-            return;
-          }
+          if (!productData.variants || productData.variants.length === 0) return;
 
           const variant = productData.variants.find((v) => v.id == variantId);
-          if (!variant) {
-            console.warn('⚠️ Variant not found in productData.variants, using first available variant');
-          }
           const selectedVariant = variant || productData.variants[0];
-          console.log('add_to_cart Selected variant:', selectedVariant);
 
           const customer = window.customer || {};
           const addr = customer.default_address || {};
@@ -2347,25 +2315,19 @@ document.addEventListener('DOMContentLoaded', () => {
             page_title: document.title,
           };
 
-          console.log('add_to_cart Event data:', eventData);
-
-          if (typeof gtag === 'function') {
-            gtag('event', 'add_to_cart', eventData);
-            console.log('add_to_cart GA event sent');
-          } else {
-            console.warn('⚠️ gtag function not found, skipping analytics event');
-          }
-
-          // ✅ Meta Pixel tracking
-          if (typeof fbq === 'function') {
-            fbq('trackCustom', 'add_to_cart', eventData);
-            console.log('add_to_cart Meta Pixel event sent');
-          } else {
-            console.warn('⚠️ fbq function not found, skipping Meta event');
-          }
+          if (typeof gtag === 'function') gtag('event', 'add_to_cart', eventData);
+          if (typeof fbq === 'function') fbq('trackCustom', 'add_to_cart', eventData);
         });
       });
-    });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initAddToCartTracking);
+    } else {
+      initAddToCartTracking();
+    }
+    // Re-attach to new forms after each AJAX variant swap
+    document.addEventListener('product-info:swapped', initAddToCartTracking);
   })();
 </script>
 
