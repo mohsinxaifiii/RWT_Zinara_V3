@@ -1231,6 +1231,23 @@ function getProductPagePincodes() {
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+    <!-- Plyr Video Player JS -->
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const sizeChartVideo = document.getElementById('size-chart-video');
+        if (sizeChartVideo) {
+          const player = new Plyr(sizeChartVideo, {
+            controls: ['play-large', 'play', 'progress', 'current-time', 'duration', 'mute', 'volume', 'fullscreen'],
+            autoplay: false,
+            clickToPlay: true,
+            disableContextMenu: true,
+          });
+        }
+      });
+    </script>
+
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const contactLink = document.querySelector('.scrollable_contact_menu_header');
