@@ -245,6 +245,18 @@ if (!customElements.get('product-info')) {
           window.ProductModel.loadShopifyXR();
         }
 
+        // Re-initialize product form elements
+        const productForm = this.querySelector('product-form');
+        if (productForm && !customElements.get('product-form')) {
+          // Product form custom element will auto-initialize on connectedCallback
+        }
+
+        // Re-initialize variant selects if exists
+        const variantSelects = this.querySelector('variant-selects');
+        if (variantSelects && !customElements.get('variant-selects')) {
+          // Variant selects custom element will auto-initialize on connectedCallback
+        }
+
         // Dispatch a custom event for any other components that need to reinitialize
         this.dispatchEvent(new CustomEvent('productinfo:updated', { bubbles: true, detail: { section: this } }));
 
@@ -258,6 +270,13 @@ if (!customElements.get('product-info')) {
             }
           });
         });
+
+        // Re-initialize quantity input handlers if they exist
+        const quantityInput = this.querySelector('.quantity__input');
+        if (quantityInput) {
+          this.quantityInput = quantityInput;
+          this.initQuantityHandlers();
+        }
       }
 
       updateVariantInputs(variantId) {
