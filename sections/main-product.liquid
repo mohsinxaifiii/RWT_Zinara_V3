@@ -2230,36 +2230,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <script>
   (function () {
-    let lastUrl = window.location.href;
-
-    const reloadOnVariantChange = () => {
-      const currentUrl = window.location.href;
-
-      if (currentUrl !== lastUrl) {
-        console.log('URL changed, reloading...');
-        lastUrl = currentUrl;
-        sessionStorage.removeItem('redirectedToAvailableVariant'); // ✅ Remove session flag after manual change
-        window.location.href = currentUrl.includes('?')
-          ? currentUrl + '&manual_variant_change=true'
-          : currentUrl + '?manual_variant_change=true'; // ✅ Add flag to prevent automatic redirection
-      }
-    };
-
-    // Listen for Shopify's history changes
-    const originalPushState = history.pushState;
-    const originalReplaceState = history.replaceState;
-
-    history.pushState = function (...args) {
-      originalPushState.apply(this, args);
-      reloadOnVariantChange();
-    };
-
-    history.replaceState = function (...args) {
-      originalReplaceState.apply(this, args);
-      reloadOnVariantChange();
-    };
-
-    window.addEventListener('popstate', reloadOnVariantChange); // ✅ Handles back/forward button
+    // ✅ Disabled full page reload on variant change to support AJAX updates
+    // The product-info.js now handles URL updates via window.history.replaceState()
+    // without triggering page reloads. This allows for smoother user experience.
+    
+    // Clear session flag on back/forward navigation only
+    window.addEventListener('popstate', function() {
+      sessionStorage.removeItem('redirectedToAvailableVariant');
+    });
   })();
 </script>
 <script>
