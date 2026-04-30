@@ -14,6 +14,12 @@
 
 .zinara-collection_mobile-image {
     display: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+.zinara-collection_image {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .zinara-collection_link {
