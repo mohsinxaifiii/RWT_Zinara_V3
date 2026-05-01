@@ -3,7 +3,7 @@
   <h2>{{ section.settings.heading }}</h2>
   <div class="zinara-collection_container">
     {% for block in section.blocks %}
-      <a href="{{ block.settings.collection_link }}" class="zinara-collection_link">
+      <a href="{{ block.settings.collection_link }}" class="zinara-collection_link" style="grid-column: {{ forloop.index }}">  
         <img
           src="{{ block.settings.collection_desktop_image | img_url }}"
           alt="{{ block.settings.collection_title }}"
