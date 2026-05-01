@@ -1,7 +1,9 @@
-.home-zinara-collections__container{
+.home-zinara-collections__container {
     background-color: #f5e1e5;
     padding-top: 50px;
+    padding-bottom: 50px;
 }
+
 .home-zinara-collections__container h2 {
     font-weight: 400;
     color: #000;
