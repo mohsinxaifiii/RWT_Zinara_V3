@@ -34,7 +34,7 @@
     justify-content: center;
     align-items: center;
     break-inside: avoid;
-    margin-bottom: 15px;
+    margin-bottom: 0;
 }
 
 /* Mobile: 2 columns */
@@ -70,6 +70,7 @@
     font-weight: 600;
     font-size: 1.6rem;
     text-align: center;
+    margin-bottom: 0;
 }
 
 .home-zinara-collections__container a {
