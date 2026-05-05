@@ -214,7 +214,14 @@
             <div class="testimonial-name_2">
               <img src="https://cdn.shopify.com/s/files/1/0661/8336/4792/files/Div_flex_1.png?v=1778014538">
               <p>{{ block.settings.review | truncate: 55 }}</p>
-              <a class="read-more-btn" data-review="{{ block.settings.review | escape }}">
+              <a
+                class="read-more-btn"
+                data-review="{{ block.settings.review | escape }}"
+                data-name="{{ block.settings.customer_name }}"
+                data-product="{{ block.settings.customer_product_text }}"
+                data-product-link="{{ block.settings.customer_product_link }}"
+                data-image="{{ block.settings.image | img_url: 'master' }}"
+              >
                 {{ block.settings.link_text }}
               </a>
             </div>
