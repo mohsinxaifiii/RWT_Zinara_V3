@@ -30,14 +30,15 @@
 
 .zinara-collection_link img {
     box-shadow: 0px 2px 9px rgba(0, 0, 0, .4);
-    aspect-ratio: 224.4 / 301.2;
-    width: 100%;
+    aspect-ratio: 218 / 290;
     height: auto;
     object-fit: cover;
+    width: 100%;
+    border-radius: 20px;
 }
 
 .zinara-collection_link:nth-child(even) img {
-    aspect-ratio: 228.39999389648438 / 228.39999389648438;
+    aspect-ratio: 218 / 218;
     width: 100%;
     height: auto;
     object-fit: cover;
@@ -82,11 +83,14 @@
     .zinara-collection_image {
         display: none;
     }
-}
 
-.zinara-collection_link img {
-    width: 100%;
-    border-radius: 20px;
+    .zinara-collection_link img {
+        aspect-ratio: 160 / 213;
+    }
+
+    .zinara-collection_link:nth-child(even) img {
+        aspect-ratio: 160 / 160;
+    }
 }
 
 .home-zinara-collections__container h3 {
