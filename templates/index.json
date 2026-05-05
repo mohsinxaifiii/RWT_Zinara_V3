@@ -978,10 +978,94 @@
             "customer_product_text": "Classic Solitaire Ring",
             "customer_product_link": "shopify://products/1-carat-classic-solitaire-ring"
           }
+        },
+        "image_picker_TrizYE": {
+          "type": "image_picker",
+          "settings": {
+            "image": "shopify://shop_images/Sheena_testimonial.png",
+            "alt_text": "testimonialcarousel Image",
+            "name": "Sheena",
+            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
+            "link_text": "read more",
+            "customer_name": "Sheena",
+            "customer_product_text": "Classic Solitaire Ring",
+            "customer_product_link": "shopify://products/1-carat-classic-solitaire-ring"
+          }
+        },
+        "image_picker_inKGkb": {
+          "type": "image_picker",
+          "settings": {
+            "image": "shopify://shop_images/Sheena_testimonial.png",
+            "alt_text": "testimonialcarousel Image",
+            "name": "Sheena",
+            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
+            "link_text": "read more",
+            "customer_name": "Sheena",
+            "customer_product_text": "Classic Solitaire Ring",
+            "customer_product_link": "shopify://products/1-carat-classic-solitaire-ring"
+          }
+        },
+        "image_picker_BniqdG": {
+          "type": "image_picker",
+          "settings": {
+            "image": "shopify://shop_images/Sheena_testimonial.png",
+            "alt_text": "testimonialcarousel Image",
+            "name": "Sheena",
+            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
+            "link_text": "read more",
+            "customer_name": "Sheena",
+            "customer_product_text": "Classic Solitaire Ring",
+            "customer_product_link": "shopify://products/1-carat-classic-solitaire-ring"
+          }
+        },
+        "image_picker_cGfeKB": {
+          "type": "image_picker",
+          "settings": {
+            "image": "shopify://shop_images/Sheena_testimonial.png",
+            "alt_text": "testimonialcarousel Image",
+            "name": "Sheena",
+            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
+            "link_text": "read more",
+            "customer_name": "Sheena",
+            "customer_product_text": "Classic Solitaire Ring",
+            "customer_product_link": "shopify://products/1-carat-classic-solitaire-ring"
+          }
+        },
+        "image_picker_YwcKfA": {
+          "type": "image_picker",
+          "settings": {
+            "image": "shopify://shop_images/Sheena_testimonial.png",
+            "alt_text": "testimonialcarousel Image",
+            "name": "Sheena",
+            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
+            "link_text": "read more",
+            "customer_name": "Sheena",
+            "customer_product_text": "Classic Solitaire Ring",
+            "customer_product_link": "shopify://products/1-carat-classic-solitaire-ring"
+          }
+        },
+        "image_picker_GRHw9M": {
+          "type": "image_picker",
+          "settings": {
+            "image": "shopify://shop_images/Sheena_testimonial.png",
+            "alt_text": "testimonialcarousel Image",
+            "name": "Sheena",
+            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
+            "link_text": "read more",
+            "customer_name": "Sheena",
+            "customer_product_text": "Classic Solitaire Ring",
+            "customer_product_link": "shopify://products/1-carat-classic-solitaire-ring"
+          }
         }
       },
       "block_order": [
-        "image_picker_D9xDnB"
+        "image_picker_D9xDnB",
+        "image_picker_TrizYE",
+        "image_picker_inKGkb",
+        "image_picker_BniqdG",
+        "image_picker_cGfeKB",
+        "image_picker_YwcKfA",
+        "image_picker_GRHw9M"
       ],
       "settings": {
         "heading": "They Tried It. They Loved It!"
