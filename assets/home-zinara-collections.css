@@ -13,12 +13,11 @@
 }
 
 .zinara-collection_container {
-    display: grid;
-    grid-auto-flow: row;
+    display: flex;
     grid-auto-columns: 1fr;
     gap: 15px;
     margin-top: 30px;
-    grid-template-columns: repeat(3, 1fr);
+    flex-wrap: wrap;
 }
 
 .zinara-collection_mobile-image {
