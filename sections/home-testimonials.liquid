@@ -10,16 +10,18 @@
           <div class="testimonial-name">
             <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.alt_text }}">
           </div>
-          <div class="testimonial-name_2">
-            <img src="https://cdn.shopify.com/s/files/1/0661/8336/4792/files/Div_flex_1.png?v=1778014538">
-            <p>{{ block.settings.review | truncate: 55 }}</p>
-            <a>{{ block.settings.link_text }}</a>
-          </div>
-          <div class="testimonial-name_2_lower">
-            <p class="customer_name_testimonial">{{ block.settings.customer_name }}</p>
-            <a href="{{ block.settings.customer_product_link }}" class="customer_product_testimonial">
-              {{- block.settings.customer_product_text -}}
-            </a>
+          <div class="testimonial-name_2-container">
+            <div class="testimonial-name_2">
+              <img src="https://cdn.shopify.com/s/files/1/0661/8336/4792/files/Div_flex_1.png?v=1778014538">
+              <p>{{ block.settings.review | truncate: 55 }}</p>
+              <a>{{ block.settings.link_text }}</a>
+            </div>
+            <div class="testimonial-name_2_lower">
+              <p class="customer_name_testimonial">{{ block.settings.customer_name }}</p>
+              <a href="{{ block.settings.customer_product_link }}" class="customer_product_testimonial">
+                {{- block.settings.customer_product_text -}}
+              </a>
+            </div>
           </div>
         </div>
       {% endfor %}
@@ -41,7 +43,12 @@
     margin-top: 50px;
     letter-spacing: 0;
   }
-
+.testimonial-name_2-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
   .home-testimonials-carousel {
     /* padding: 0;
     max-width: calc(var(--page-width) - 10rem); */
