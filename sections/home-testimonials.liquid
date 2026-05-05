@@ -13,6 +13,7 @@
     backdrop-filter: blur(4px);
     opacity: 0;
     transition: 0.3s;
+    display: flex !important;
   }
 
   .sheet-content {
@@ -461,14 +462,25 @@
     });
   });
   const bottomSheet = document.querySelector('.review-bottom-sheet');
+
   const sheetText = document.querySelector('.sheet-review-text');
+  const sheetName = document.querySelector('.sheet-name');
+  const sheetProduct = document.querySelector('.sheet-product');
+  const sheetImage = document.querySelector('.sheet-user-img');
+
   const closeBtn = document.querySelector('.sheet-close');
   const overlay = document.querySelector('.sheet-overlay');
 
   document.querySelectorAll('.read-more-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
-      const fullReview = btn.getAttribute('data-review');
-      sheetText.textContent = fullReview;
+      sheetText.textContent = btn.dataset.review;
+      sheetName.textContent = btn.dataset.name;
+
+      sheetProduct.textContent = btn.dataset.product;
+      sheetProduct.href = btn.dataset.productLink;
+
+      sheetImage.src = btn.dataset.image;
+
       bottomSheet.classList.add('active');
     });
   });
