@@ -12,7 +12,8 @@
           </div>
           <div class="testimonial-name_2">
             <img src="https://cdn.shopify.com/s/files/1/0661/8336/4792/files/Div_flex_1.png?v=1778014538">
-<p>{{ block.settings.review | truncate: 55 }}</p>            <a href="{{ block.settings.link }}">{{ block.settings.link_text }}</a>
+            <p>{{ block.settings.review | truncate: 55 }}</p>
+            <a href="{{ block.settings.link }}">{{ block.settings.link_text }}</a>
           </div>
         </div>
       {% endfor %}
@@ -143,7 +144,6 @@
     font-size: 1.4rem;
     font-family: 'Libre Baskerville';
     line-height: 1.8rem;
-
   }
   @media (max-width: 756px) {
     .home-testimonials-carousel-parent {
@@ -165,7 +165,7 @@
   }
 </style>
 
-<script>
+{% comment %} <script>
   document.addEventListener('DOMContentLoaded', () => {
     const testimonialCarouselContainer = document.querySelector('.home-testimonials-carousel');
     const testimonialCarousel = document.querySelector('.home-testimonials-carousel-parent');
@@ -292,7 +292,7 @@
       isDragging = false;
     });
   });
-</script>
+</script> {% endcomment %}
 
 {% schema %}
 {
