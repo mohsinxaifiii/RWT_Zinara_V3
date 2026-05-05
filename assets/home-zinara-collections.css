@@ -56,7 +56,7 @@
 /* Mobile: 2 columns */
 @media (max-width: 768px) {
     .zinara-collection_container {
-        grid-template-columns: repeat(2, 1fr);
+        justify-content: space-between;
     }
 
     .home-zinara-collections__container {
