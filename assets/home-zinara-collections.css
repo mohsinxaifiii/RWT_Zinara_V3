@@ -14,11 +14,9 @@
 
 .zinara-collection_container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 0;
-    aspect-ratio: 218 / 290;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
 }
 
 .zinara-collection_mobile-image {
