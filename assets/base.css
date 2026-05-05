@@ -3629,3 +3629,8 @@ details-disclosure>details {
     transform: translateX(100%) scaleX(0);
   }
 }
+@media(max-width:756px){
+  #shopify-section-template--27367513325752__featured_collection_7eczQp .slider--tablet.grid--peek.grid--1-col-tablet-down .grid__item{
+    width: 200px !important;
+  }
+}
