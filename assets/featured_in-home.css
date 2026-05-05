@@ -42,10 +42,11 @@
 }
 
 .home-featured_in-container {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     background-color: #fdfcf9;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: 60px;
 }
 
 @media(max-width:768px) {
