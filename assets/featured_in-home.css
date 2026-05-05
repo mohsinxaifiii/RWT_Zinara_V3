@@ -43,6 +43,7 @@
 
 .home-featured_in-container {
     margin-bottom: 40px;
+    background-color: #fdfcf9;
 }
 
 @media(max-width:768px) {
@@ -57,6 +58,7 @@
     .home-featured_in-heading {
         margin-top: 30px;
     }
+
     .home-featured_in-container {
         margin-bottom: 50px;
     }
