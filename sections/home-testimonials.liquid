@@ -370,6 +370,25 @@
       isDragging = false;
     });
   });
+  const bottomSheet = document.querySelector('.review-bottom-sheet');
+  const sheetText = document.querySelector('.sheet-review-text');
+  const closeBtn = document.querySelector('.sheet-close');
+  const overlay = document.querySelector('.sheet-overlay');
+
+  document.querySelectorAll('.read-more-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const fullReview = btn.getAttribute('data-review');
+      sheetText.textContent = fullReview;
+      bottomSheet.classList.add('active');
+    });
+  });
+
+  function closeSheet() {
+    bottomSheet.classList.remove('active');
+  }
+
+  closeBtn.addEventListener('click', closeSheet);
+  overlay.addEventListener('click', closeSheet);
 </script>
 
 {% schema %}
