@@ -1,4 +1,53 @@
 <style>
+  .review-bottom-sheet {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+  }
+
+  .sheet-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: 0.3s;
+  }
+
+  .sheet-content {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border-radius: 20px 20px 0 0;
+    padding: 20px;
+    transition: 0.4s ease;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  .review-bottom-sheet.active {
+    pointer-events: auto;
+  }
+
+  .review-bottom-sheet.active .sheet-overlay {
+    opacity: 1;
+  }
+
+  .review-bottom-sheet.active .sheet-content {
+    bottom: 0;
+  }
+
+  .sheet-close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
   .customer_name_testimonial {
     font-family: 'Montserrat', sans-serif !important;
     font-weight: 600 !important;
@@ -187,7 +236,13 @@
     >
   </button>
 </section>
-
+<div class="review-bottom-sheet">
+  <div class="sheet-overlay"></div>
+  <div class="sheet-content">
+    <button class="sheet-close">×</button>
+    <p class="sheet-review-text"></p>
+  </div>
+</div>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const testimonialCarouselContainer = document.querySelector('.home-testimonials-carousel');
