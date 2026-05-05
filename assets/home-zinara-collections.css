@@ -31,7 +31,7 @@
     aspect-ratio: 224.4 / 301.2;
 }
 
-.zinara-collection_container .zinara-collection_image:nth-child(even) {
+.zinara-collection_link .zinara-collection_image:nth-child(even) {
     aspect-ratio: 228.39999389648438 / 228.39999389648438 /* flipped ratio */
 }
 
