@@ -342,8 +342,7 @@
             "collection_title": "@everyday.elegance",
             "collection_link": "shopify://collections",
             "collection_desktop_image": "shopify://shop_images/Image_w-full_4.png",
-            "collection_mobile_image": "shopify://shop_images/Image_w-full_1.png",
-            "collection_border_color": "#334fb4"
+            "collection_mobile_image": "shopify://shop_images/Image_w-full_1.png"
           }
         },
         "collection_ppTXTX": {
@@ -352,8 +351,7 @@
             "collection_title": "@everyday.elegance",
             "collection_link": "shopify://collections",
             "collection_desktop_image": "shopify://shop_images/Image_w-full.png",
-            "collection_mobile_image": "shopify://shop_images/Image_w-full.png",
-            "collection_border_color": "#610c27"
+            "collection_mobile_image": "shopify://shop_images/Image_w-full.png"
           }
         },
         "collection_GtLAQ4": {
@@ -362,8 +360,7 @@
             "collection_title": "@everyday.elegance",
             "collection_link": "shopify://collections",
             "collection_desktop_image": "shopify://shop_images/Image_w-full.png",
-            "collection_mobile_image": "shopify://shop_images/Image_w-full.png",
-            "collection_border_color": "#610c27"
+            "collection_mobile_image": "shopify://shop_images/Image_w-full.png"
           }
         },
         "collection_ELWd6B": {
@@ -372,8 +369,7 @@
             "collection_title": "@everyday.elegance",
             "collection_link": "shopify://collections",
             "collection_desktop_image": "shopify://shop_images/Image_w-full_4.png",
-            "collection_mobile_image": "shopify://shop_images/Image_w-full_1.png",
-            "collection_border_color": "#de4444"
+            "collection_mobile_image": "shopify://shop_images/Image_w-full_1.png"
           }
         },
         "collection_E7k7KW": {
@@ -382,8 +378,7 @@
             "collection_title": "@everyday.elegance",
             "collection_link": "shopify://collections",
             "collection_desktop_image": "shopify://shop_images/Image_w-full.png",
-            "collection_mobile_image": "shopify://shop_images/Image_w-full.png",
-            "collection_border_color": "#000000"
+            "collection_mobile_image": "shopify://shop_images/Image_w-full.png"
           }
         },
         "collection_gGNAtf": {
@@ -392,8 +387,7 @@
             "collection_title": "@everyday.elegance",
             "collection_link": "shopify://collections",
             "collection_desktop_image": "shopify://shop_images/Image_w-full_4.png",
-            "collection_mobile_image": "shopify://shop_images/Image_w-full_1.png",
-            "collection_border_color": "#712242"
+            "collection_mobile_image": "shopify://shop_images/Image_w-full_1.png"
           }
         },
         "collection_HC4Jdt": {
@@ -402,8 +396,7 @@
             "collection_title": "@everyday.elegance",
             "collection_link": "shopify://collections",
             "collection_desktop_image": "shopify://shop_images/Image_w-full.png",
-            "collection_mobile_image": "shopify://shop_images/Image_w-full.png",
-            "collection_border_color": "#2be478"
+            "collection_mobile_image": "shopify://shop_images/Image_w-full.png"
           }
         },
         "collection_H8kdk6": {
@@ -412,8 +405,7 @@
             "collection_title": "@everyday.elegance",
             "collection_link": "shopify://collections",
             "collection_desktop_image": "shopify://shop_images/Image_w-full_4.png",
-            "collection_mobile_image": "shopify://shop_images/Image_w-full_1.png",
-            "collection_border_color": "#712242"
+            "collection_mobile_image": "shopify://shop_images/Image_w-full_1.png"
           }
         }
       },
@@ -981,85 +973,15 @@
             "alt_text": "testimonialcarousel Image",
             "name": "Sheena",
             "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
-            "link": "shopify://collections/gifting",
-            "link_text": "read more"
-          }
-        },
-        "image_picker_3hPrJh": {
-          "type": "image_picker",
-          "settings": {
-            "image": "shopify://shop_images/Sheena_testimonial.png",
-            "alt_text": "testimonialcarousel Image",
-            "name": "Sheena",
-            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
-            "link": "shopify://collections/gifting",
-            "link_text": "read more"
-          }
-        },
-        "image_picker_x9GJjk": {
-          "type": "image_picker",
-          "settings": {
-            "image": "shopify://shop_images/Sheena_testimonial.png",
-            "alt_text": "testimonialcarousel Image",
-            "name": "Sheena",
-            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
-            "link": "shopify://collections/gifting",
-            "link_text": "read more"
-          }
-        },
-        "image_picker_BakRgc": {
-          "type": "image_picker",
-          "settings": {
-            "image": "shopify://shop_images/Sheena_testimonial.png",
-            "alt_text": "testimonialcarousel Image",
-            "name": "Sheena",
-            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
-            "link": "shopify://collections/gifting",
-            "link_text": "read more"
-          }
-        },
-        "image_picker_8hmxRF": {
-          "type": "image_picker",
-          "settings": {
-            "image": "shopify://shop_images/Sheena_testimonial.png",
-            "alt_text": "testimonialcarousel Image",
-            "name": "Sheena",
-            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
-            "link": "shopify://collections/gifting",
-            "link_text": "read more"
-          }
-        },
-        "image_picker_eXkXgW": {
-          "type": "image_picker",
-          "settings": {
-            "image": "shopify://shop_images/Sheena_testimonial.png",
-            "alt_text": "testimonialcarousel Image",
-            "name": "Sheena",
-            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
-            "link": "shopify://collections/gifting",
-            "link_text": "read more"
-          }
-        },
-        "image_picker_KCatfh": {
-          "type": "image_picker",
-          "settings": {
-            "image": "shopify://shop_images/Sheena_testimonial.png",
-            "alt_text": "testimonialcarousel Image",
-            "name": "Sheena",
-            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
-            "link": "shopify://collections/gifting",
-            "link_text": "read more"
+            "link_text": "read more",
+            "customer_name": "Sheena",
+            "customer_product_text": "Classic Solitaire Ring",
+            "customer_product_link": "shopify://products/1-carat-classic-solitaire-ring"
           }
         }
       },
       "block_order": [
-        "image_picker_D9xDnB",
-        "image_picker_3hPrJh",
-        "image_picker_x9GJjk",
-        "image_picker_BakRgc",
-        "image_picker_8hmxRF",
-        "image_picker_eXkXgW",
-        "image_picker_KCatfh"
+        "image_picker_D9xDnB"
       ],
       "settings": {
         "heading": "They Tried It. They Loved It!"
