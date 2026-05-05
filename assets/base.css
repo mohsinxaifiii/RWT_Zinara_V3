@@ -3647,4 +3647,7 @@ details-disclosure>details {
   #shopify-section-template--27367513325752__featured_collection_7eczQp .card--media .card__inner .card__content {
     padding: 17px;
   }
+  .section-template--27367513325752__featured_collection_7eczQp-padding{
+    padding-bottom: 0px !important;
+  }
 }
