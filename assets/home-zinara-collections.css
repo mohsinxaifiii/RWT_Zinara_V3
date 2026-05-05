@@ -35,7 +35,10 @@
 }
 
 .zinara-collection_link:nth-child(even) .zinara-collection_image {
-    aspect-ratio: 228.39999389648438 / 228.39999389648438 
+    aspect-ratio: 228.39999389648438 / 228.39999389648438;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 .zinara-collection_link {
