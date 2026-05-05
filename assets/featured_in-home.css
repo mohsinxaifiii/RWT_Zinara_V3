@@ -1,7 +1,7 @@
 .home-featured_in-heading {
     text-align: center;
     margin-bottom: 20px;
-    margin-top: 60px;
+    margin-top: 0;
     font-size: 2rem;
     font-weight: 500;
 }
@@ -44,6 +44,8 @@
 .home-featured_in-container {
     margin-bottom: 40px;
     background-color: #fdfcf9;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 @media(max-width:768px) {
