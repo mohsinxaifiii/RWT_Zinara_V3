@@ -57,6 +57,7 @@
 @media (max-width: 768px) {
     .zinara-collection_container {
         justify-content: space-between;
+        row-gap: 30px;
     }
 
     .home-zinara-collections__container {
