@@ -3638,4 +3638,8 @@ details-disclosure>details {
   #shopify-section-template--27367513325752__featured_collection_7eczQp .collection .slider--tablet.product-grid {
     gap: 15px;
   }
+  #shopify-section-template--27367513325752__featured_collection_7eczQp .card--standard .card__inner{
+    border-radius: 20px;
+    overflow: hidden;
+  }
 }
