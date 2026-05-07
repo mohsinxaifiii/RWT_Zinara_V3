@@ -202,28 +202,18 @@
 
     if (!section) return;
 
-    // Slider counter only
+    // Counter only
     const sliderCounter = section.querySelector('.slider-counter');
 
     if (!sliderCounter) return;
 
-    // Prevent duplicate
-    if (sliderCounter.querySelector('.custom-view-all-btn')) return;
-
-    // Get collection link from any product
-    const firstProductLink = section.querySelector('.card__heading a');
-
-    if (!firstProductLink) return;
-
-    const collectionUrl = firstProductLink.href.split('/products/')[0] || '/collections/all';
-
     // Create button
     const viewAllBtn = document.createElement('a');
-    viewAllBtn.href = collectionUrl;
+    viewAllBtn.href = `{{ section.settings.collection.url }}`;
     viewAllBtn.innerText = 'View All';
     viewAllBtn.className = 'custom-view-all-btn';
 
-    // Replace only counter
+    // Replace counter
     sliderCounter.replaceWith(viewAllBtn);
   });
 </script>
