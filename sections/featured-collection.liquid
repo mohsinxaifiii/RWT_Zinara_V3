@@ -202,24 +202,29 @@
 
     if (!section) return;
 
-    // Existing slider buttons wrapper
-    const sliderButtons = section.querySelector('.slider-buttons');
+    // Slider counter only
+    const sliderCounter = section.querySelector('.slider-counter');
 
-    if (!sliderButtons) return;
+    if (!sliderCounter) return;
 
-    // Get first product link
+    // Prevent duplicate
+    if (sliderCounter.querySelector('.custom-view-all-btn')) return;
+
+    // Get collection link from any product
     const firstProductLink = section.querySelector('.card__heading a');
 
     if (!firstProductLink) return;
 
-    // Create View All button
+    const collectionUrl = firstProductLink.href.split('/products/')[0] || '/collections/all';
+
+    // Create button
     const viewAllBtn = document.createElement('a');
-    viewAllBtn.href = firstProductLink.href.split('/products/')[0] || '/collections/all';
+    viewAllBtn.href = collectionUrl;
     viewAllBtn.innerText = 'View All';
     viewAllBtn.className = 'custom-view-all-btn';
 
-    // Replace slider buttons with View All
-    sliderButtons.replaceWith(viewAllBtn);
+    // Replace only counter
+    sliderCounter.replaceWith(viewAllBtn);
   });
 </script>
 
@@ -235,6 +240,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    white-space: nowrap;
   }
 
   .custom-view-all-btn:hover {
