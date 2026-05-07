@@ -92,6 +92,10 @@
     .zinara-collection_link:nth-child(even) img {
         aspect-ratio: 160 / 160;
     }
+
+    .home-zinara-collections__container h2 {
+        margin-bottom: 30px;
+    }
 }
 
 .home-zinara-collections__container h3 {
