@@ -16,10 +16,8 @@
 
 .zinara-collection_container {
     display: flex;
-    gap: 15px;
     margin-top: 30px;
-    gap: 1.25%;
-
+    gap: 4%;
     flex-wrap: wrap;
 }
 
