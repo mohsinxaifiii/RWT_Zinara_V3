@@ -19,7 +19,7 @@
     gap: 15px;
     margin-top: 30px;
     gap: 1.25%;
-
+    display: flex;
     flex-wrap: wrap;
 }
 
@@ -36,6 +36,7 @@
     object-fit: cover;
     width: 100%;
     border-radius: 20px;
+
 }
 
 .zinara-collection_link:nth-child(even) img {
