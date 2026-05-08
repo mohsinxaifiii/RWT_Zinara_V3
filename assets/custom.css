@@ -2124,4 +2124,52 @@ sticky-header {
     .product-features-badges-container {
         gap: 13px;
     }
+
+/* Contact CTA Button Styling */
+.contact-cta-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    background-color: #f8f8f8;
+    margin: 40px 0;
+    width: 100%;
+}
+
+.contact-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    background-color: #712242;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0;
+    transition: all 0.3s ease;
+    border: 2px solid #712242;
+}
+
+.contact-cta-button:hover {
+    background-color: #5a1b35;
+    border-color: #5a1b35;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(113, 34, 66, 0.3);
+}
+
+@media (max-width: 768px) {
+    .contact-cta-section {
+        padding: 20px 15px;
+        margin: 30px 0;
+    }
+
+    .contact-cta-button {
+        width: 100%;
+        padding: 12px 24px;
+        font-size: 1.5rem;
+    }
+}
 }
