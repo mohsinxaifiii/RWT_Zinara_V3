@@ -202,12 +202,14 @@
 
     if (!section) return;
 
-    // Remove only arrows
-    const prevBtn = section.querySelector('.slider-button--prev');
-    const nextBtn = section.querySelector('.slider-button--next');
+    // Remove arrows only on mobile
+    if (window.innerWidth <= 749) {
+      const prevBtn = section.querySelector('.slider-button--prev');
+      const nextBtn = section.querySelector('.slider-button--next');
 
-    if (prevBtn) prevBtn.remove();
-    if (nextBtn) nextBtn.remove();
+      if (prevBtn) prevBtn.remove();
+      if (nextBtn) nextBtn.remove();
+    }
 
     // Replace counter with View All button
     const sliderCounter = section.querySelector('.slider-counter');
