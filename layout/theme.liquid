@@ -1168,14 +1168,15 @@ function getProductPagePincodes() {
     </div>
 
     <!-- Contact CTA -->
-    <div class="assistance_buttons_container" style="padding: 20px; text-align: center;">
-      <h1 class="assistance_button_heading">Have questions?</h1>
-      <div class="assisstance_buttons_images_container">
-        <a href="https://api.whatsapp.com/send?phone=919211633248&amp;text=Hi" class="assisstance_buttons_image_container">
-          WhatsApp us
-        </a>
-      </div>
+    <div class="contact-cta-section">
+      <a href="https://api.whatsapp.com/send?phone=919211633248&amp;text=Hi" class="contact-cta-button whatsapp-cta">
+        WhatsApp us
+      </a>
     </div>
+
+    {% sections 'footer-group' %}
+
+    <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
       <li id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</li>
     </ul>
