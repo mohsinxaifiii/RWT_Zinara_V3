@@ -202,13 +202,14 @@
 
     if (!section) return;
 
-    // Remove arrows
-    const sliderButtons = section.querySelector('.slider-buttons');
-    if (sliderButtons) {
-      sliderButtons.remove();
-    }
+    // Remove only arrows
+    const prevBtn = section.querySelector('.slider-button--prev');
+    const nextBtn = section.querySelector('.slider-button--next');
 
-    // Replace counter with button
+    if (prevBtn) prevBtn.remove();
+    if (nextBtn) nextBtn.remove();
+
+    // Replace counter with View All button
     const sliderCounter = section.querySelector('.slider-counter');
 
     if (!sliderCounter) return;
