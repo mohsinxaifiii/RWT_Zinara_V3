@@ -202,18 +202,22 @@
 
     if (!section) return;
 
-    // Counter only
+    // Remove arrows
+    const sliderButtons = section.querySelector('.slider-buttons');
+    if (sliderButtons) {
+      sliderButtons.remove();
+    }
+
+    // Replace counter with button
     const sliderCounter = section.querySelector('.slider-counter');
 
     if (!sliderCounter) return;
 
-    // Create button
     const viewAllBtn = document.createElement('a');
     viewAllBtn.href = `{{ section.settings.collection.url }}`;
     viewAllBtn.innerText = 'View All';
     viewAllBtn.className = 'custom-view-all-btn';
 
-    // Replace counter
     sliderCounter.replaceWith(viewAllBtn);
   });
 </script>
