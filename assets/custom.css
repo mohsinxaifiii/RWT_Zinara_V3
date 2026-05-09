@@ -1191,21 +1191,22 @@ body.no-scroll {
 }
 
 .contact-cta-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 32px;
-  background-color: #712242;
-  color: #ffffff;
-  text-decoration: none;
-  border-radius: 6px;
-  font-size: 1.6rem;
-  font-weight: 600;
-  font-family: "Montserrat", sans-serif;
-  letter-spacing: 0;
-  transition: all 0.3s ease;
-  border: 2px solid #712242;
-}
+    display: inline-flex;
+    align-items
+: center;
+    justify-content: center;
+    padding: 10px 32px;
+    background-color: #712242;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: 0;
+    transition: all 0.3s ease;
+    border: 1px solid #712242;
+    width: 100%;}
 
 .contact-cta-button:hover {
   background-color: #5a1b35;
