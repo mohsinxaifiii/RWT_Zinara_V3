@@ -326,77 +326,109 @@
         "image": "shopify://shop_images/jewellery_design.png"
       }
     },
-    "home_testimonials_zmE9Ch": {
+    "home_testimonials_q9kn8g": {
       "type": "home-testimonials",
       "blocks": {
-        "image_picker_RjQtQF": {
+        "image_picker_6g9j6M": {
           "type": "image_picker",
           "settings": {
             "image": "shopify://shop_images/Sheena_testimonial.png",
             "alt_text": "testimonialcarousel Image",
             "name": "Sheena",
-            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent, and you can feel the durability in each piece. Whether for everyday wear or special occasions, their jewellery is both beautiful and well-crafted. Highly recommend!”",
-            "link_text": ""
+            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
+            "link_text": "read more",
+            "customer_name": "Sheena",
+            "customer_product_text": "Classic Solitaire Ring",
+            "customer_product_link": "shopify://products/1-carat-classic-solitaire-ring"
           }
         },
-        "image_picker_kWR7cr": {
+        "image_picker_JPLNzj": {
           "type": "image_picker",
           "settings": {
-            "image": "shopify://shop_images/Pooja_testimonial.png",
+            "image": "shopify://shop_images/Sheena_testimonial.png",
             "alt_text": "testimonialcarousel Image",
-            "name": "Pooja",
-            "review": "“Pretty ring 🥰,thanku Zinara for this wonderful ring and design.I love this 💖 Thanku for this stylish ring.😊I am so happy 😊”",
-            "link_text": ""
+            "name": "Sheena",
+            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
+            "link_text": "read more",
+            "customer_name": "Sheena",
+            "customer_product_text": "Classic Solitaire Ring",
+            "customer_product_link": "shopify://products/1-carat-classic-solitaire-ring"
           }
         },
-        "image_picker_VJyX7G": {
+        "image_picker_fJtyUq": {
           "type": "image_picker",
           "settings": {
-            "image": "shopify://shop_images/testimonials.png",
+            "image": "shopify://shop_images/Sheena_testimonial.png",
             "alt_text": "testimonialcarousel Image",
-            "name": "Manavi",
-            "review": "“Huge thanks to Zinara for the prettiest ring 💖 ”",
-            "link_text": ""
+            "name": "Sheena",
+            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
+            "link_text": "read more",
+            "customer_name": "Sheena",
+            "customer_product_text": "Classic Solitaire Ring",
+            "customer_product_link": "shopify://products/1-carat-classic-solitaire-ring"
           }
         },
-        "image_picker_KRQyPm": {
+        "image_picker_W93mn9": {
           "type": "image_picker",
           "settings": {
-            "image": "shopify://shop_images/Kumkum_testimonial.png",
+            "image": "shopify://shop_images/Sheena_testimonial.png",
             "alt_text": "testimonialcarousel Image",
-            "name": "Kumkum",
-            "review": "“I found the perfect ring at Zinara - it’s simple, elegant, and beautifully made. It looks premium, but was still within my budget. I’ve been wearing it almost every day!”",
-            "link_text": ""
+            "name": "Sheena",
+            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
+            "link_text": "read more",
+            "customer_name": "Sheena",
+            "customer_product_text": "Classic Solitaire Ring",
+            "customer_product_link": "shopify://products/1-carat-classic-solitaire-ring"
           }
         },
-        "image_picker_RhqVm9": {
+        "image_picker_kyp8RL": {
           "type": "image_picker",
           "settings": {
-            "image": "shopify://shop_images/mysha.png",
+            "image": "shopify://shop_images/Sheena_testimonial.png",
             "alt_text": "testimonialcarousel Image",
-            "name": "Vasudha",
-            "review": "\"I ordered a set of earrings from Zinara and it exceeded my expectations. The design is elegant and it feels so luxurious. The price was a pleasant surprise too - such great value for such a stunning piece!\"",
-            "link_text": ""
+            "name": "Sheena",
+            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
+            "link_text": "read more",
+            "customer_name": "Sheena",
+            "customer_product_text": "Classic Solitaire Ring",
+            "customer_product_link": "shopify://products/1-carat-classic-solitaire-ring"
           }
         },
-        "image_picker_GMhzVb": {
+        "image_picker_bkX7nP": {
           "type": "image_picker",
           "settings": {
-            "image": "shopify://shop_images/Sameeksha_testimonial_5aa98d34-59dc-455d-bccc-09f08406bf8b.png",
+            "image": "shopify://shop_images/Sheena_testimonial.png",
             "alt_text": "testimonialcarousel Image",
-            "name": "Sameeksha",
-            "review": "“I’ve always found diamond jewellery overwhelming - either too flashy or too expensive. Zinara changed that. I got a beautiful pair of rings that I wear every day. The quality, the elegance, and the service -everything was just perfect.”",
-            "link_text": ""
+            "name": "Sheena",
+            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
+            "link_text": "read more",
+            "customer_name": "Sheena",
+            "customer_product_text": "Classic Solitaire Ring",
+            "customer_product_link": "shopify://products/1-carat-classic-solitaire-ring"
+          }
+        },
+        "image_picker_6hPK39": {
+          "type": "image_picker",
+          "settings": {
+            "image": "shopify://shop_images/Sheena_testimonial.png",
+            "alt_text": "testimonialcarousel Image",
+            "name": "Sheena",
+            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
+            "link_text": "read more",
+            "customer_name": "Sheena",
+            "customer_product_text": "Classic Solitaire Ring",
+            "customer_product_link": "shopify://products/1-carat-classic-solitaire-ring"
           }
         }
       },
       "block_order": [
-        "image_picker_RjQtQF",
-        "image_picker_kWR7cr",
-        "image_picker_VJyX7G",
-        "image_picker_KRQyPm",
-        "image_picker_RhqVm9",
-        "image_picker_GMhzVb"
+        "image_picker_6g9j6M",
+        "image_picker_JPLNzj",
+        "image_picker_fJtyUq",
+        "image_picker_W93mn9",
+        "image_picker_kyp8RL",
+        "image_picker_bkX7nP",
+        "image_picker_6hPK39"
       ],
       "settings": {
         "heading": "They Tried It. They Loved It!"
@@ -548,7 +580,7 @@
     "related-products",
     "pdp_tryathome_FpgbpJ",
     "home_own_design_99mUA8",
-    "home_testimonials_zmE9Ch",
+    "home_testimonials_q9kn8g",
     "pdp_image_carousel_76BdGX",
     "1738792743f5d3661f",
     "collapsible_content_cmfTNX"
