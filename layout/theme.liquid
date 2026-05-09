@@ -1683,13 +1683,13 @@ function getProductPagePincodes() {
         background-color: rgba(0, 0, 0, 0.5);
         z-index: 998;
         opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
       }
 
       .size-chart-overlay.active {
         opacity: 1;
-        visibility: visible;
+        pointer-events: auto;
       }
 
       .size-chart-bottom-sheet {
