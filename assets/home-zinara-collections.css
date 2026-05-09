@@ -19,6 +19,7 @@
     margin-top: 30px;
     gap: 3.5%;
     flex-wrap: wrap;
+    justify-content: center;
     row-gap: 25px;
 }
 
