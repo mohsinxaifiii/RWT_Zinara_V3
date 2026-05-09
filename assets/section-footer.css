@@ -153,11 +153,11 @@
 /* Platform Logo Styles */
 .also_available-on-container {
   display: flex;
-  gap: 2rem;
+  gap: 30px;
   align-items: center;
   flex-wrap: wrap;
   margin: 1rem 0 2rem 0;
-  justify-content: space-between;
+  justify-content: start;
 }
 
 .platform-item {
@@ -178,7 +178,8 @@
 
 .also_available-on-container_2 {
   display: flex;
-  gap: 4px;
+  gap: 30px;
+  row-gap: 10px;
   align-items: center;
   flex-wrap: wrap;
   margin: 0 0 2rem 0;
@@ -201,8 +202,8 @@
 .has_payment_heading {
   margin-bottom: 15px;
   margin-top: 0;
-  font-size: 1.6rem;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 600;
   font-family: var(--font-heading-family);
   color: #712242;
 }
@@ -210,8 +211,8 @@
 .has_platform_heading {
   margin-bottom: 15px;
   margin-top: 30px;
-  font-size: 1.6rem;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 600;
   font-family: var(--font-heading-family);
   color: #712242;
 

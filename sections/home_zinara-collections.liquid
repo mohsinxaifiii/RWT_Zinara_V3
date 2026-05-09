@@ -9,14 +9,20 @@
         style="grid-column: {{ forloop.index }}"
       >
         <img
-          src="{{ block.settings.collection_desktop_image | img_url }}"
+          src="{{ block.settings.collection_desktop_image | image_url: width: 600 }}"
           alt="{{ block.settings.collection_title }}"
           class="zinara-collection_image"
+          width="{{ block.settings.collection_desktop_image.width }}"
+          height="{{ block.settings.collection_desktop_image.height }}"
+          loading="lazy"
         >
         <img
-          src="{{ block.settings.collection_mobile_image | img_url }}"
+          src="{{ block.settings.collection_mobile_image | image_url: width: 400 }}"
           alt="{{ block.settings.collection_title }}"
           class="zinara-collection_mobile-image"
+          width="{{ block.settings.collection_mobile_image.width }}"
+          height="{{ block.settings.collection_mobile_image.height }}"
+          loading="lazy"
         >
         <h3 class="zinara-collection_title">{{ block.settings.collection_title }}</h3>
       </a>

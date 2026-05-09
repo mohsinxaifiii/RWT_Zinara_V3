@@ -209,6 +209,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    pointer-events: none;
   }
   .testimonial-name_2 img {
     width: 44%;
@@ -283,7 +284,7 @@
       {% for block in section.blocks %}
         <div class="testimonial-container">
           <div class="testimonial-name">
-            <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.alt_text }}">
+            <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.alt_text }}">
           </div>
           <div class="testimonial-name_2-container">
             <div class="testimonial-name_2">
@@ -295,7 +296,7 @@
                 data-name="{{ block.settings.customer_name }}"
                 data-product="{{ block.settings.customer_product_text }}"
                 data-product-link="{{ block.settings.customer_product_link }}"
-                data-image="{{ block.settings.image | img_url: 'master' }}"
+                data-image="{{ block.settings.image | image_url: width: 800 }}"
               >
                 {{ block.settings.link_text }}
               </a>
@@ -351,149 +352,108 @@
     const testimonialCarousel = document.querySelector('.home-testimonials-carousel-parent');
     const leftArrow = document.querySelector('.testimonial-carousel-arrow.left-arrow');
     const rightArrow = document.querySelector('.testimonial-carousel-arrow.right-arrow');
-    const testimonials = testimonialCarousel.querySelectorAll('.testimonial-container');
 
-    let currentIndex = 0;
+    // Clone slides for infinite loop (prepend + append one full set each)
+    const origSlides = Array.from(testimonialCarousel.querySelectorAll('.testimonial-container'));
+    const slideCount = origSlides.length;
+    origSlides.forEach(s => testimonialCarousel.appendChild(s.cloneNode(true)));
+    origSlides.slice().reverse().forEach(s =>
+      testimonialCarousel.insertBefore(s.cloneNode(true), testimonialCarousel.firstChild)
+    );
+
+    let currentIndex = slideCount; // start at first original slide
     const transitionDuration = 500;
-    const autoplayInterval = 3000; // 3 seconds
-    const totalTestimonials = testimonials.length;
+    let isTransitioning = false;
 
-    function updateCarousel() {
-      const testimonialStyle = window.getComputedStyle(testimonials[0]);
-      let testimonialWidth =
-        testimonials[0].offsetWidth + parseInt(testimonialStyle.marginRight) + parseInt(testimonialStyle.marginLeft);
-
-      // Add extra 20px scroll for devices with width < 756px
-      if (window.innerWidth < 756) {
-        testimonialWidth += 13;
-      }
-
-      testimonialCarousel.style.transition = `transform ${transitionDuration}ms ease-in-out`;
-      testimonialCarousel.style.transform = `translateX(-${currentIndex * testimonialWidth}px)`;
-
-      setTimeout(setActiveTestimonials, transitionDuration);
+    function getSlideWidth() {
+      const slide = testimonialCarousel.querySelector('.testimonial-container');
+      const style = window.getComputedStyle(slide);
+      let w = slide.offsetWidth + parseInt(style.marginRight) + parseInt(style.marginLeft);
+      if (window.innerWidth < 756) w += 13;
+      return w;
     }
 
-    function setActiveTestimonials() {
-      const containerRect = testimonialCarouselContainer.getBoundingClientRect();
-
-      testimonials.forEach((testimonial) => {
-        const testimonialRect = testimonial.getBoundingClientRect();
-        if (testimonialRect.left >= containerRect.left && testimonialRect.right <= containerRect.right) {
-          testimonial.classList.add('active');
-        } else {
-          testimonial.classList.remove('active');
-        }
-      });
-    }
-
-    function moveLeft() {
-      currentIndex = currentIndex > 0 ? currentIndex - 1 : totalTestimonials - 1;
-      updateCarousel();
+    function goTo(index, animate) {
+      testimonialCarousel.style.transition = animate ? `transform ${transitionDuration}ms ease-in-out` : 'none';
+      testimonialCarousel.style.transform = `translateX(-${index * getSlideWidth()}px)`;
     }
 
     function moveRight() {
-      currentIndex = currentIndex < totalTestimonials - 1 ? currentIndex + 1 : 0;
-      updateCarousel();
+      if (isTransitioning) return;
+      isTransitioning = true;
+      goTo(++currentIndex, true);
+      setTimeout(() => {
+        if (currentIndex >= slideCount * 2) {
+          currentIndex -= slideCount;
+          goTo(currentIndex, false);
+        }
+        isTransitioning = false;
+      }, transitionDuration);
     }
 
-    leftArrow.addEventListener('click', () => {
-      moveLeft();
-      resetAutoplay();
-    });
-
-    rightArrow.addEventListener('click', () => {
-      moveRight();
-      resetAutoplay();
-    });
-
-    window.addEventListener('resize', () => {
-      testimonialCarousel.style.transition = 'none'; // Disable animation during resize
-      updateCarousel();
-    });
-
-    // Initial setup
-    updateCarousel();
-
-    // Autoplay
-    let autoplay = setInterval(moveRight, autoplayInterval);
-
-    function resetAutoplay() {
-      clearInterval(autoplay);
-      autoplay = setInterval(moveRight, autoplayInterval);
+    function moveLeft() {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      goTo(--currentIndex, true);
+      setTimeout(() => {
+        if (currentIndex < slideCount) {
+          currentIndex += slideCount;
+          goTo(currentIndex, false);
+        }
+        isTransitioning = false;
+      }, transitionDuration);
     }
+
+    goTo(currentIndex, false);
+
+    leftArrow.addEventListener('click', moveLeft);
+    rightArrow.addEventListener('click', moveRight);
+
+    window.addEventListener('resize', () => goTo(currentIndex, false));
 
     // --- Touch Swipe Support ---
-    let touchStartX = 0;
-    let touchEndX = 0;
+    let touchStartX = 0, touchEndX = 0;
 
-    testimonialCarouselContainer.addEventListener('touchstart', (e) => {
-      touchStartX = e.touches[0].clientX;
-    });
-
-    testimonialCarouselContainer.addEventListener('touchmove', (e) => {
-      touchEndX = e.touches[0].clientX;
-    });
-
+    testimonialCarouselContainer.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
+    testimonialCarouselContainer.addEventListener('touchmove', (e) => { touchEndX = e.touches[0].clientX; });
     testimonialCarouselContainer.addEventListener('touchend', () => {
-      const swipeDistance = touchStartX - touchEndX;
-      if (swipeDistance > 50) {
-        moveRight(); // Swipe left → move right
-      } else if (swipeDistance < -50) {
-        moveLeft(); // Swipe right → move left
-      }
-      resetAutoplay();
+      const d = touchStartX - touchEndX;
+      if (d > 50) moveRight();
+      else if (d < -50) moveLeft();
     });
 
     // --- Mouse Drag Support ---
-    let isDragging = false;
-    let startX = 0;
+    let isDragging = false, startX = 0;
 
-    testimonialCarouselContainer.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      startX = e.clientX;
-    });
-
+    testimonialCarouselContainer.addEventListener('mousedown', (e) => { isDragging = true; startX = e.clientX; });
     testimonialCarouselContainer.addEventListener('mouseup', (e) => {
       if (!isDragging) return;
-      let endX = e.clientX;
-      let swipeDistance = startX - endX;
-
-      if (swipeDistance > 50) {
-        moveRight();
-      } else if (swipeDistance < -50) {
-        moveLeft();
-      }
-      isDragging = false;
-      resetAutoplay();
-    });
-
-    testimonialCarouselContainer.addEventListener('mouseleave', () => {
+      const d = startX - e.clientX;
+      if (d > 50) moveRight();
+      else if (d < -50) moveLeft();
       isDragging = false;
     });
+    testimonialCarouselContainer.addEventListener('mouseleave', () => { isDragging = false; });
   });
-  const bottomSheet = document.querySelector('.review-bottom-sheet');
 
+  // Bottom sheet — event delegation so cloned buttons work too
+  const bottomSheet = document.querySelector('.review-bottom-sheet');
   const sheetText = document.querySelector('.sheet-review-text');
   const sheetName = document.querySelector('.sheet-name');
   const sheetProduct = document.querySelector('.sheet-product');
   const sheetImage = document.querySelector('.sheet-user-img');
-
   const closeBtn = document.querySelector('.sheet-close');
   const overlay = document.querySelector('.sheet-overlay');
 
-  document.querySelectorAll('.read-more-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      sheetText.textContent = btn.dataset.review;
-      sheetName.textContent = btn.dataset.name;
-
-      sheetProduct.textContent = btn.dataset.product;
-      sheetProduct.href = btn.dataset.productLink;
-
-      sheetImage.src = btn.dataset.image;
-
-      bottomSheet.classList.add('active');
-    });
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.read-more-btn');
+    if (!btn) return;
+    sheetText.textContent = btn.dataset.review;
+    sheetName.textContent = btn.dataset.name;
+    sheetProduct.textContent = btn.dataset.product;
+    sheetProduct.href = btn.dataset.productLink;
+    sheetImage.src = btn.dataset.image;
+    bottomSheet.classList.add('active');
   });
 
   function closeSheet() {

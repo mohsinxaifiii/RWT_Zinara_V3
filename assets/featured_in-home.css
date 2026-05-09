@@ -9,12 +9,13 @@
 .home-featured_in-slider {
     overflow: hidden;
     width: 100%;
+    margin-top: 40px;
 }
 
 .home-featured_in-logos {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 100px;
     will-change: transform;
 }
 
@@ -26,7 +27,7 @@
 }
 
 .home-featured_in-logo-container img {
-    height: 100px;
+    height: 50px;
     max-width: 100%;
     display: block;
 }
@@ -43,7 +44,6 @@
 
 .home-featured_in-container {
     margin-bottom: 20px;
-    background-color: #fdfcf9;
     padding-top: 50px;
     padding-bottom: 50px;
     margin-top: 60px;
@@ -51,11 +51,11 @@
 
 @media(max-width:768px) {
     .home-featured_in-logo-container img {
-        height: 65px;
+        height: 35px;
     }
 
     .home-featured_in-logos {
-        gap: 10px;
+        gap: 50px;
     }
 
     .home-featured_in-heading {
