@@ -3,15 +3,17 @@
   <h2>{{ section.settings.heading }}</h2>
   <div class="zinara-collection_container">
     {% for block in section.blocks %}
-      <a href="{{ block.settings.collection_link }}" class="zinara-collection_link">
+      <a
+        href="{{ block.settings.collection_link }}"
+        class="zinara-collection_link"
+        style="grid-column: {{ forloop.index }}"
+      >
         <img
-          style="border: solid 3px {{ block.settings.collection_border_color }};"
           src="{{ block.settings.collection_desktop_image | img_url }}"
           alt="{{ block.settings.collection_title }}"
           class="zinara-collection_image"
         >
         <img
-          style="border: solid 3px {{ block.settings.collection_border_color }};"
           src="{{ block.settings.collection_mobile_image | img_url }}"
           alt="{{ block.settings.collection_title }}"
           class="zinara-collection_mobile-image"
@@ -57,11 +59,6 @@
           "type": "image_picker",
           "id": "collection_mobile_image",
           "label": "Collection Image"
-        },
-        {
-          "type": "color",
-          "id": "collection_border_color",
-          "label": "Border Color"
         }
       ]
     }

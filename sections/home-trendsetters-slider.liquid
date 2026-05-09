@@ -80,7 +80,6 @@
 
                 .swiper-slide img {
                   width: 100%;
-                  border-radius: 8px;
                   display: block;
                 }
 
@@ -125,7 +124,7 @@
         inset: 0;
         width: 0%;
         background: #1A1A1A;
-        animation: dotProgress 4s linear forwards;
+        animation: dotProgress 1.8s linear forwards;
       }
       .trend-pagination-{{ section.id }} {
         margin-top: 24px;
@@ -143,8 +142,8 @@
             @media (max-width: 767px) {
   .trendsetters-section_heading {
       margin: 30px 0 15px;
-  }        
-  
+  }
+
   }
 {% endstylesheet %}
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -157,19 +156,19 @@
       grabCursor: true,
 
       autoplay: {
-        delay: 4000,
+        delay: 1800,
         disableOnInteraction: false,
       },
 
-      speed: 600,
+      speed: 400,
 
       slidesPerView: 5,
       spaceBetween: 20,
 
       breakpoints: {
         0: {
-          slidesPerView: 1.2, // center + side peek
-          spaceBetween: 10,
+          slidesPerView: 1.6, // center + side peek
+          spaceBetween: 6,
         },
         768: {
           slidesPerView: 5,

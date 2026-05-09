@@ -1,77 +1,170 @@
-<section class="home-testimonials-container">
-  <h2 class="page-width section-heading">{{ section.settings.heading }}</h2>
-  <button class="testimonial-carousel-arrow left-arrow">
-    <img src="https://cdn.shopify.com/s/files/1/0661/8336/4792/files/Expand_Arrow_1_-_Copy.png?v=1744182420">
-  </button>
-  <div class="page-width home-testimonials-carousel">
-    <div class="home-testimonials-carousel-parent">
-      {% for block in section.blocks %}
-        <div class="testimonial-container">
-          <div class="testimonial-name">
-            <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.alt_text }}">
-          </div>
-          <div class="testimonial-name_2">
-            <img src="https://cdn.shopify.com/s/files/1/0661/8336/4792/files/Div_flex_1.png?v=1777195544">
-            <p>{{ block.settings.review }}</p>
-            <a href="{{ block.settings.link }}">{{ block.settings.link_text }}</a>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-  </div>
-  <button class="testimonial-carousel-arrow right-arrow">
-    <img
-      style="transform: rotate(180deg)"
-      src="https://cdn.shopify.com/s/files/1/0661/8336/4792/files/Expand_Arrow_1_-_Copy.png?v=1744182420"
-    >
-  </button>
-</section>
-
 <style>
+  .review-bottom-sheet {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+  }
+
+  .sheet-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    transition: 0.3s;
+    display: flex !important;
+  }
+
+  .sheet-content {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border-radius: 24px 24px 0 0;
+    padding: 18px 18px 25px;
+    transition: 0.45s cubic-bezier(0.22, 0.9, 0.3, 1);
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .review-bottom-sheet.active {
+    pointer-events: auto;
+  }
+
+  .review-bottom-sheet.active .sheet-overlay {
+    opacity: 1;
+  }
+
+  .review-bottom-sheet.active .sheet-content {
+    bottom: 0;
+  }
+
+  /* drag indicator */
+  .sheet-drag {
+    width: 40px;
+    height: 4px;
+    background: #ccc;
+    border-radius: 10px;
+    margin: 0 auto 12px;
+  }
+
+  /* close */
+  .sheet-close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* card */
+  .sheet-card {
+    margin-top: 10px;
+  }
+
+  /* header */
+  .sheet-header {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .sheet-user-img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .sheet-user-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sheet-name {
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .sheet-stars {
+    width: 90px;
+  }
+
+  /* review text */
+  .sheet-review-text {
+    font-size: 1.4rem;
+    line-height: 1.7;
+    color: #000;
+    margin-bottom: 18px;
+    font-family: 'Libre Baskerville';
+  }
+
+  /* product link */
+  .sheet-product {
+    display: inline-block;
+    font-size: 1.3rem;
+    text-decoration: underline;
+    color: #000;
+  }
+  .customer_name_testimonial {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 1.6rem !important;
+    margin: 0 !important;
+  }
   .home-testimonials-container {
     position: relative;
     overflow: hidden;
     margin-bottom: 50px;
+    margin-top: 50px;
     letter-spacing: 0;
   }
-
+  .testimonial-name_2-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 17px;
+  }
   .home-testimonials-carousel {
     /* padding: 0;
     max-width: calc(var(--page-width) - 10rem); */
     position: relative;
     overflow: hidden;
   }
-
   .home-testimonials-carousel-parent {
     display: flex;
-    gap: 3%;
+    gap: 17px;
     transition: transform 0.5s ease-in-out;
     align-items: start;
     height: 210px;
   }
-
   .testimonial-container {
-    min-width: 45%;
+    min-width: 410px;
     height: 100%;
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: start;
-    background-color: #f9f7f9;
+    background-color: #fff;
     border-radius: 40px;
     overflow: hidden;
+    border: solid 1px #f0ebe1;
   }
-
   /* .testimonial-container.active {
     opacity: 1;
     transform: scale(1);
   }
-
   .testimonial-container:not(.active) {
     opacity: 0.1;
     transform: scale(0.9);
   } */
-
   .testimonial-carousel-arrow {
     position: absolute;
     top: 50%;
@@ -100,18 +193,16 @@
     justify-content: start;
     align-items: center;
     gap: 20px;
-    width: 40%;
+    width: auto;
     height: 100%;
+    aspect-ratio: 117/174;
   }
   .testimonial-name_2 {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: start;
-    gap: 20px;
-    width: 60%;
     height: 100%;
-    padding: 30px;
   }
 
   .testimonial-name img {
@@ -120,12 +211,21 @@
     object-fit: cover;
   }
   .testimonial-name_2 img {
-    width: 50%;
+    width: 44%;
+    margin-bottom: 15px;
   }
   .testimonial-name_2 a {
     color: #1a1a1a;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1;
+    text-decoration: underline;
+    font-size: 1.4rem;
+    text-underline-offset: 3px;
+  }
+  .customer_product_testimonial {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    color: #000;
   }
   .testimonial-container .testimonial-name p {
     font-size: 1.4rem;
@@ -137,30 +237,113 @@
   .testimonial-container p {
     color: #000;
     font-weight: 400;
-    margin: 0;
+    margin: 0 0 10px;
     font-size: 1.4rem;
+    font-family: 'Libre Baskerville';
     line-height: 1.8rem;
+  }
+  .read-more-btn {
+    cursor: pointer !important;
   }
   @media (max-width: 756px) {
     .home-testimonials-carousel-parent {
       height: fit-content;
     }
-    .testimonial-name_2 {
-      padding: 15px;
-      gap: 14px;
-    }
     .testimonial-name_2 img {
-      width: 65%;
+      width: 55%;
+      margin-bottom: 10px;
     }
     .testimonial-name_2 a {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
+      text-underline-offset: 1px;
+      font-weight: 600;
     }
-    .home-testimonials-container{
+    .home-testimonials-container {
       margin-top: 50px;
+    }
+    .testimonial-name_2_lower .customer_name_testimonial {
+      font-size: 1.3rem !important;
+    }
+    .customer_product_testimonial {
+      font-size: 1.2rem;
+      margin-top: -1px;
+      display: flex;
     }
   }
 </style>
 
+<section class="home-testimonials-container">
+  <h2 class="page-width section-heading">{{ section.settings.heading }}</h2>
+  <button class="testimonial-carousel-arrow left-arrow">
+    <img src="https://cdn.shopify.com/s/files/1/0661/8336/4792/files/Expand_Arrow_1_-_Copy.png?v=1744182420">
+  </button>
+  <div class="page-width home-testimonials-carousel">
+    <div class="home-testimonials-carousel-parent">
+      {% for block in section.blocks %}
+        <div class="testimonial-container">
+          <div class="testimonial-name">
+            <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.alt_text }}">
+          </div>
+          <div class="testimonial-name_2-container">
+            <div class="testimonial-name_2">
+              <img src="https://cdn.shopify.com/s/files/1/0661/8336/4792/files/Div_flex_1.png?v=1778014538">
+              <p>{{ block.settings.review | truncate: 49 }}</p>
+              <a
+                class="read-more-btn"
+                data-review="{{ block.settings.review | escape }}"
+                data-name="{{ block.settings.customer_name }}"
+                data-product="{{ block.settings.customer_product_text }}"
+                data-product-link="{{ block.settings.customer_product_link }}"
+                data-image="{{ block.settings.image | img_url: 'master' }}"
+              >
+                {{ block.settings.link_text }}
+              </a>
+            </div>
+            <div class="testimonial-name_2_lower">
+              <p class="customer_name_testimonial">{{ block.settings.customer_name }}</p>
+              <a href="{{ block.settings.customer_product_link }}" class="customer_product_testimonial">
+                {{- block.settings.customer_product_text -}}
+              </a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <button class="testimonial-carousel-arrow right-arrow">
+    <img
+      style="transform: rotate(180deg)"
+      src="https://cdn.shopify.com/s/files/1/0661/8336/4792/files/Expand_Arrow_1_-_Copy.png?v=1744182420"
+    >
+  </button>
+</section>
+<div class="review-bottom-sheet">
+  <div class="sheet-overlay"></div>
+
+  <div class="sheet-content">
+    <div class="sheet-drag"></div>
+
+    <button class="sheet-close">×</button>
+
+    <div class="sheet-card">
+      <div class="sheet-header">
+        <img class="sheet-user-img" src="" alt="">
+
+        <div class="sheet-user-info">
+          <p class="sheet-name"></p>
+          <img
+            class="sheet-stars"
+            src="https://cdn.shopify.com/s/files/1/0661/8336/4792/files/Div_flex_1.png?v=1778014538"
+          >
+        </div>
+      </div>
+
+      <p class="sheet-review-text"></p>
+
+      <a class="sheet-product" target="_blank"></a>
+    </div>
+  </div>
+</div>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const testimonialCarouselContainer = document.querySelector('.home-testimonials-carousel');
@@ -288,6 +471,36 @@
       isDragging = false;
     });
   });
+  const bottomSheet = document.querySelector('.review-bottom-sheet');
+
+  const sheetText = document.querySelector('.sheet-review-text');
+  const sheetName = document.querySelector('.sheet-name');
+  const sheetProduct = document.querySelector('.sheet-product');
+  const sheetImage = document.querySelector('.sheet-user-img');
+
+  const closeBtn = document.querySelector('.sheet-close');
+  const overlay = document.querySelector('.sheet-overlay');
+
+  document.querySelectorAll('.read-more-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      sheetText.textContent = btn.dataset.review;
+      sheetName.textContent = btn.dataset.name;
+
+      sheetProduct.textContent = btn.dataset.product;
+      sheetProduct.href = btn.dataset.productLink;
+
+      sheetImage.src = btn.dataset.image;
+
+      bottomSheet.classList.add('active');
+    });
+  });
+
+  function closeSheet() {
+    bottomSheet.classList.remove('active');
+  }
+
+  closeBtn.addEventListener('click', closeSheet);
+  overlay.addEventListener('click', closeSheet);
 </script>
 
 {% schema %}
@@ -328,14 +541,24 @@
           "label": "Review"
         },
         {
-          "type": "url",
-          "id": "link",
-          "label": "Link URL"
-        },
-        {
           "type": "text",
           "id": "link_text",
           "label": "Link Text"
+        },
+        {
+          "type": "text",
+          "id": "customer_name",
+          "label": "Customer Name"
+        },
+        {
+          "type": "text",
+          "id": "customer_product_text",
+          "label": "Customer Product Text"
+        },
+        {
+          "type": "url",
+          "id": "customer_product_link",
+          "label": "Customer Product Link"
         }
       ]
     }
