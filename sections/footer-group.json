@@ -20,8 +20,15 @@
             "image": "shopify://shop_images/Image_h-full.png"
           }
         },
+        "platform_P3irTY": {
+          "type": "platform",
+          "settings": {
+            "image": "shopify://shop_images/fk_footer_png.png"
+          }
+        },
         "platform_cLqy9p": {
           "type": "platform",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Div_h-5.png"
           }
@@ -79,6 +86,7 @@
       },
       "block_order": [
         "platform_tGTAdA",
+        "platform_P3irTY",
         "platform_cLqy9p",
         "payment_j4fpd8",
         "payment_PUm4VF",

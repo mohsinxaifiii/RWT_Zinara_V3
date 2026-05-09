@@ -365,6 +365,7 @@
         },
         "collection_ELWd6B": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "collection_title": "@everyday.elegance",
             "collection_link": "shopify://collections",
@@ -374,6 +375,7 @@
         },
         "collection_E7k7KW": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "collection_title": "@everyday.elegance",
             "collection_link": "shopify://collections",
@@ -383,6 +385,7 @@
         },
         "collection_gGNAtf": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "collection_title": "@everyday.elegance",
             "collection_link": "shopify://collections",
@@ -392,6 +395,7 @@
         },
         "collection_HC4Jdt": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "collection_title": "@everyday.elegance",
             "collection_link": "shopify://collections",
@@ -401,11 +405,20 @@
         },
         "collection_H8kdk6": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "collection_title": "@everyday.elegance",
             "collection_link": "shopify://collections",
             "collection_desktop_image": "shopify://shop_images/Image_w-full_4.png",
             "collection_mobile_image": "shopify://shop_images/Image_w-full_1.png"
+          }
+        },
+        "collection_EkwFGq": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection_title": "",
+            "collection_link": ""
           }
         }
       },
@@ -417,7 +430,8 @@
         "collection_E7k7KW",
         "collection_gGNAtf",
         "collection_HC4Jdt",
-        "collection_H8kdk6"
+        "collection_H8kdk6",
+        "collection_EkwFGq"
       ],
       "name": "Home Zinara Collections",
       "settings": {
@@ -1078,7 +1092,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/trendsetter-2.jpg",
-            "text": "Daily Wear first",
+            "text": "Daily Wear firstdsbfdsnfjdsbfjesnf",
             "url": "shopify://collections/18-kt-gold-vermeil"
           }
         },
