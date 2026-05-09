@@ -36,31 +36,43 @@
         "payment_j4fpd8": {
           "type": "payment",
           "settings": {
-            "image": "shopify://shop_images/Div_w-_42px.png"
+            "image": "shopify://shop_images/upi_logo.png"
           }
         },
         "payment_PUm4VF": {
           "type": "payment",
           "settings": {
-            "image": "shopify://shop_images/Div_w-_42px.png"
+            "image": "shopify://shop_images/mastercard_png.png"
           }
         },
         "payment_fjegcN": {
           "type": "payment",
           "settings": {
-            "image": "shopify://shop_images/Div_w-_42px.png"
+            "image": "shopify://shop_images/visa_png.png"
           }
         },
         "payment_JjDRLj": {
           "type": "payment",
           "settings": {
-            "image": "shopify://shop_images/Div_w-_42px.png"
+            "image": "shopify://shop_images/rupay_png.png"
           }
         },
         "payment_3GdygG": {
           "type": "payment",
           "settings": {
-            "image": "shopify://shop_images/Div_w-_42px.png"
+            "image": "shopify://shop_images/diners_png.svg"
+          }
+        },
+        "payment_9PQ997": {
+          "type": "payment",
+          "settings": {
+            "image": "shopify://shop_images/net_banking_png.webp"
+          }
+        },
+        "payment_8Uew4B": {
+          "type": "payment",
+          "settings": {
+            "image": "shopify://shop_images/cod_png.webp"
           }
         },
         "link_list_Mfht8K": {
@@ -93,6 +105,8 @@
         "payment_fjegcN",
         "payment_JjDRLj",
         "payment_3GdygG",
+        "payment_9PQ997",
+        "payment_8Uew4B",
         "link_list_Mfht8K",
         "link_list_URgP36",
         "brand_information_7xcQqn"
