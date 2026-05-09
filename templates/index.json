@@ -339,28 +339,28 @@
         "collection_MwMYmm": {
           "type": "collection",
           "settings": {
-            "collection_title": "@everyday.elegance",
+            "collection_title": "@siesta",
             "collection_link": "shopify://collections",
-            "collection_desktop_image": "shopify://shop_images/summer_card_test.png",
-            "collection_mobile_image": "shopify://shop_images/summer_card_test.png"
+            "collection_desktop_image": "shopify://shop_images/summer_card.png",
+            "collection_mobile_image": "shopify://shop_images/summer_card.png"
           }
         },
         "collection_ppTXTX": {
           "type": "collection",
           "settings": {
-            "collection_title": "@everyday.elegance",
+            "collection_title": "@double.take",
             "collection_link": "shopify://collections",
-            "collection_desktop_image": "shopify://shop_images/Image_w-full.png",
-            "collection_mobile_image": "shopify://shop_images/Image_w-full.png"
+            "collection_desktop_image": "shopify://shop_images/twostone_card.png",
+            "collection_mobile_image": "shopify://shop_images/twostone_card.png"
           }
         },
         "collection_GtLAQ4": {
           "type": "collection",
           "settings": {
-            "collection_title": "@everyday.elegance",
+            "collection_title": "@prism.3d",
             "collection_link": "shopify://collections",
-            "collection_desktop_image": "shopify://shop_images/Image_w-full.png",
-            "collection_mobile_image": "shopify://shop_images/Image_w-full.png"
+            "collection_desktop_image": "shopify://shop_images/prism3d_card.png",
+            "collection_mobile_image": "shopify://shop_images/prism3d_card.png"
           }
         },
         "collection_ELWd6B": {
