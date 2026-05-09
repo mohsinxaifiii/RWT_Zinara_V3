@@ -15,9 +15,9 @@
         "slide_ki3k4R": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/home_web_banner_658514da-6fe6-40b2-aca5-f74c98439cc4.png",
+            "image": "shopify://shop_images/desktop_web_banner_prism3d.png",
             "image_alt": "",
-            "image_mobile": "shopify://shop_images/mobile_web_banner_518c1c1c-f92f-4c9d-a95d-77aba2fe116d.png",
+            "image_mobile": "shopify://shop_images/mobile_web_banner_prism3d.png",
             "image_mobile_alt": "",
             "image_aspect_ratio": true,
             "heading": "Image slide",
@@ -37,9 +37,9 @@
         "slide_dJ3FVC": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/web_2_apr26.png",
+            "image": "shopify://shop_images/desktop_web_banner_twostone.png",
             "image_alt": "",
-            "image_mobile": "shopify://shop_images/mob_2_apr26.png",
+            "image_mobile": "shopify://shop_images/mobile_banner_twostone.png",
             "image_mobile_alt": "",
             "image_aspect_ratio": true,
             "heading": "Image slide",
