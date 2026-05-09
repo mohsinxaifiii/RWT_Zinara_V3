@@ -1675,7 +1675,6 @@ function getProductPagePincodes() {
     <!-- Size Chart Bottom Sheet Styles -->
     <style>
       .size-chart-overlay {
-        display: none;
         position: fixed;
         top: 0;
         left: 0;
@@ -1684,12 +1683,13 @@ function getProductPagePincodes() {
         background-color: rgba(0, 0, 0, 0.5);
         z-index: 998;
         opacity: 0;
-        transition: opacity 0.3s ease;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
       }
 
       .size-chart-overlay.active {
-        display: block;
         opacity: 1;
+        visibility: visible;
       }
 
       .size-chart-bottom-sheet {
@@ -1701,8 +1701,10 @@ function getProductPagePincodes() {
         width: min(480px, 92vw);
         background-color: white;
         border-radius: 16px 0 0 16px;
-        max-height: 100vh;
+        max-height: 100%;
+        max-height: -webkit-fill-available;
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
         z-index: 999;
         transform: translateX(100%);
         transition: transform 0.3s ease;
@@ -1842,7 +1844,7 @@ function getProductPagePincodes() {
           left: 0;
           width: 100%;
           border-radius: 20px 20px 0 0;
-          max-height: 95vh;
+          max-height: 95svh;
           transform: translateY(100%);
           box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
         }
