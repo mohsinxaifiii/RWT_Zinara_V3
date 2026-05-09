@@ -199,40 +199,47 @@
           return false;
         }
 
+        // iOS-safe scroll lock helpers
+        const lockScroll = () => {
+          const scrollY = window.scrollY;
+          document.body.style.position = 'fixed';
+          document.body.style.top = `-${scrollY}px`;
+          document.body.style.width = '100%';
+          document.body.dataset.scrollY = scrollY;
+        };
+        const unlockScroll = () => {
+          const scrollY = parseInt(document.body.dataset.scrollY || '0', 10);
+          document.body.style.position = '';
+          document.body.style.top = '';
+          document.body.style.width = '';
+          window.scrollTo(0, scrollY);
+        };
+
         if (!window.__zinaraSizeChartOpenBound) {
-          console.log('[SizeChart] binding open listener');
           document.addEventListener('click', (e) => {
             const openBtn = e.target.closest('.size-chart-btn');
             if (!openBtn) return;
-
             e.preventDefault();
-            console.log('[SizeChart] open button clicked', openBtn);
             sizeChartBottomSheet.classList.add('active');
             sizeChartOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            console.log('[SizeChart] bottom sheet opened');
+            lockScroll();
           });
+          // Prevent touch-scroll bleed-through on iOS overlay
+          sizeChartOverlay.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
           window.__zinaraSizeChartOpenBound = true;
-        } else {
-          console.log('[SizeChart] open listener already bound');
         }
 
         if (closeSizeChartBtn && !window.__zinaraSizeChartCloseBound) {
-          console.log('[SizeChart] binding close listeners');
           const closeSheet = () => {
-            console.log('[SizeChart] closing bottom sheet');
             sizeChartBottomSheet.classList.remove('active');
             sizeChartOverlay.classList.remove('active');
-            document.body.style.overflow = '';
+            unlockScroll();
           };
-
           closeSizeChartBtn.addEventListener('click', closeSheet);
           sizeChartOverlay.addEventListener('click', closeSheet);
           window.__zinaraSizeChartCloseBound = true;
         } else if (!closeSizeChartBtn) {
           console.log('[SizeChart] close button not found');
-        } else {
-          console.log('[SizeChart] close listeners already bound');
         }
 
         return true;
