@@ -1223,26 +1223,27 @@
         "image_picker_Jw3Xa6": {
           "type": "image_picker",
           "settings": {
-            "image": "shopify://shop_images/VOGUE.png",
+            "image": "shopify://shop_images/vogue_png.svg",
             "alt_text": "featuredinlogo Image"
           }
         },
         "image_picker_bqytnc": {
           "type": "image_picker",
           "settings": {
-            "image": "shopify://shop_images/ELLE.png",
+            "image": "shopify://shop_images/ht_logo_png.png",
             "alt_text": "featuredinlogo Image"
           }
         },
         "image_picker_Qdatk9": {
           "type": "image_picker",
           "settings": {
-            "image": "shopify://shop_images/GQ.png",
+            "image": "shopify://shop_images/outlook_money_png.png",
             "alt_text": "featuredinlogo Image"
           }
         },
         "image_picker_EGMUNW": {
           "type": "image_picker",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/VOGUE.png",
             "alt_text": "featuredinlogo Image"
@@ -1250,6 +1251,7 @@
         },
         "image_picker_iiUJnc": {
           "type": "image_picker",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/ELLE.png",
             "alt_text": "featuredinlogo Image"
@@ -1257,6 +1259,7 @@
         },
         "image_picker_LyB3xJ": {
           "type": "image_picker",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/GQ.png",
             "alt_text": "featuredinlogo Image"
@@ -1264,6 +1267,7 @@
         },
         "image_picker_WA8GDn": {
           "type": "image_picker",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/VOGUE.png",
             "alt_text": "featuredinlogo Image"
@@ -1271,6 +1275,7 @@
         },
         "image_picker_bnjLcY": {
           "type": "image_picker",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/ELLE.png",
             "alt_text": "featuredinlogo Image"
@@ -1278,6 +1283,7 @@
         },
         "image_picker_xDfKhr": {
           "type": "image_picker",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/GQ.png",
             "alt_text": "featuredinlogo Image"
