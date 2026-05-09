@@ -2171,8 +2171,7 @@ sticky-header {
   /* Contact CTA Button Styling */
   @media (max-width: 768px) {
     .contact-cta-section {
-      padding: 20px 15px;
-      margin: 30px 0;
+      margin: 30px 0 10px;
     }
 
     .contact-cta-button {
