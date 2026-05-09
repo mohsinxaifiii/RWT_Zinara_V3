@@ -260,7 +260,6 @@
         "block_rHyewm",
         "block_yTytmE"
       ],
-      "disabled": true,
       "name": "Home Shop by Metal",
       "settings": {
         "heading": "Find Your Diamond, Your Way",
@@ -342,7 +341,8 @@
             "collection_title": "@everyday.elegance",
             "collection_link": "shopify://collections",
             "collection_desktop_image": "shopify://shop_images/Image_w-full_4.png",
-            "collection_mobile_image": "shopify://shop_images/Image_w-full_1.png"
+            "collection_mobile_image": "shopify://shop_images/Image_w-full_1.png",
+            "collection_border_color": "#334fb4"
           }
         },
         "collection_ppTXTX": {
@@ -351,7 +351,8 @@
             "collection_title": "@everyday.elegance",
             "collection_link": "shopify://collections",
             "collection_desktop_image": "shopify://shop_images/Image_w-full.png",
-            "collection_mobile_image": "shopify://shop_images/Image_w-full.png"
+            "collection_mobile_image": "shopify://shop_images/Image_w-full.png",
+            "collection_border_color": "#610c27"
           }
         },
         "collection_GtLAQ4": {
@@ -360,7 +361,8 @@
             "collection_title": "@everyday.elegance",
             "collection_link": "shopify://collections",
             "collection_desktop_image": "shopify://shop_images/Image_w-full.png",
-            "collection_mobile_image": "shopify://shop_images/Image_w-full.png"
+            "collection_mobile_image": "shopify://shop_images/Image_w-full.png",
+            "collection_border_color": "#610c27"
           }
         },
         "collection_ELWd6B": {
@@ -369,7 +371,8 @@
             "collection_title": "@everyday.elegance",
             "collection_link": "shopify://collections",
             "collection_desktop_image": "shopify://shop_images/Image_w-full_4.png",
-            "collection_mobile_image": "shopify://shop_images/Image_w-full_1.png"
+            "collection_mobile_image": "shopify://shop_images/Image_w-full_1.png",
+            "collection_border_color": "#de4444"
           }
         },
         "collection_E7k7KW": {
@@ -378,7 +381,8 @@
             "collection_title": "@everyday.elegance",
             "collection_link": "shopify://collections",
             "collection_desktop_image": "shopify://shop_images/Image_w-full.png",
-            "collection_mobile_image": "shopify://shop_images/Image_w-full.png"
+            "collection_mobile_image": "shopify://shop_images/Image_w-full.png",
+            "collection_border_color": "#000000"
           }
         },
         "collection_gGNAtf": {
@@ -387,7 +391,8 @@
             "collection_title": "@everyday.elegance",
             "collection_link": "shopify://collections",
             "collection_desktop_image": "shopify://shop_images/Image_w-full_4.png",
-            "collection_mobile_image": "shopify://shop_images/Image_w-full_1.png"
+            "collection_mobile_image": "shopify://shop_images/Image_w-full_1.png",
+            "collection_border_color": "#712242"
           }
         },
         "collection_HC4Jdt": {
@@ -396,7 +401,8 @@
             "collection_title": "@everyday.elegance",
             "collection_link": "shopify://collections",
             "collection_desktop_image": "shopify://shop_images/Image_w-full.png",
-            "collection_mobile_image": "shopify://shop_images/Image_w-full.png"
+            "collection_mobile_image": "shopify://shop_images/Image_w-full.png",
+            "collection_border_color": "#2be478"
           }
         },
         "collection_H8kdk6": {
@@ -405,7 +411,8 @@
             "collection_title": "@everyday.elegance",
             "collection_link": "shopify://collections",
             "collection_desktop_image": "shopify://shop_images/Image_w-full_4.png",
-            "collection_mobile_image": "shopify://shop_images/Image_w-full_1.png"
+            "collection_mobile_image": "shopify://shop_images/Image_w-full_1.png",
+            "collection_border_color": "#712242"
           }
         }
       },
@@ -433,15 +440,15 @@
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "all-products",
-        "products_to_show": 10,
+        "collection": "all-bracelets",
+        "products_to_show": 25,
         "columns_desktop": 4,
         "full_width": false,
         "show_view_all": false,
         "view_all_style": "solid",
         "enable_desktop_slider": true,
         "color_scheme": "",
-        "image_ratio": "square",
+        "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
@@ -450,7 +457,7 @@
         "columns_mobile": "1",
         "swipe_on_mobile": true,
         "padding_top": 36,
-        "padding_bottom": 0
+        "padding_bottom": 36
       }
     },
     "home_shop_by_category_xRd7wT": {
@@ -505,7 +512,6 @@
         "block_EcmD49",
         "block_Qa9ty6"
       ],
-      "disabled": true,
       "name": "Home Shop by Category",
       "settings": {
         "heading": "Where Diamonds Meet Life",
@@ -565,64 +571,6 @@
       ],
       "disabled": true,
       "settings": {}
-    },
-    "home_shop_by_category_XPFUnn": {
-      "type": "home-shop_by_category",
-      "blocks": {
-        "block_TyAJxa": {
-          "type": "block",
-          "settings": {
-            "image": "shopify://shop_images/under_5k_gifting.png",
-            "heading": "",
-            "url": "shopify://collections/under-5000"
-          }
-        },
-        "block_zgCwV4": {
-          "type": "block",
-          "settings": {
-            "image": "shopify://shop_images/under_10k_gifting.png",
-            "heading": "",
-            "url": "shopify://collections/under-10000"
-          }
-        },
-        "block_Xqcg6e": {
-          "type": "block",
-          "settings": {
-            "image": "shopify://shop_images/under_15k_gifting.png",
-            "heading": "",
-            "url": "shopify://collections/under-15000"
-          }
-        },
-        "block_EVXQRt": {
-          "type": "block",
-          "settings": {
-            "image": "shopify://shop_images/under_20k_gifting.png",
-            "heading": "",
-            "url": "shopify://collections/under-20000"
-          }
-        },
-        "block_BmXN7H": {
-          "type": "block",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/unsplash__9jskbU4eLA.jpg",
-            "heading": "From 16k to 20k",
-            "url": "shopify://collections/all-pendants"
-          }
-        }
-      },
-      "block_order": [
-        "block_TyAJxa",
-        "block_zgCwV4",
-        "block_Xqcg6e",
-        "block_EVXQRt",
-        "block_BmXN7H"
-      ],
-      "name": "Home Shop by Category",
-      "settings": {
-        "heading": "Gifting by Zinara",
-        "subheading": "Find the perfect gift and delight your loved ones"
-      }
     },
     "2_blocks_grid_qTWRJf": {
       "type": "2_blocks_grid",
@@ -963,112 +911,62 @@
         "heading": "Zinara Benefits"
       }
     },
-    "home_testimonials_iX3QWY": {
-      "type": "home-testimonials",
+    "home_shop_by_category_XPFUnn": {
+      "type": "home-shop_by_category",
       "blocks": {
-        "image_picker_D9xDnB": {
-          "type": "image_picker",
+        "block_TyAJxa": {
+          "type": "block",
           "settings": {
-            "image": "shopify://shop_images/Sheena_testimonial.png",
-            "alt_text": "testimonialcarousel Image",
-            "name": "Sheena",
-            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
-            "link_text": "read more",
-            "customer_name": "Sheena",
-            "customer_product_text": "Classic Solitaire Ring",
-            "customer_product_link": "shopify://products/1-carat-classic-solitaire-ring"
+            "image": "shopify://shop_images/under_5k_gifting.png",
+            "heading": "",
+            "url": "shopify://collections/under-5000"
           }
         },
-        "image_picker_TrizYE": {
-          "type": "image_picker",
+        "block_zgCwV4": {
+          "type": "block",
           "settings": {
-            "image": "shopify://shop_images/Sheena_testimonial.png",
-            "alt_text": "testimonialcarousel Image",
-            "name": "Sheena",
-            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
-            "link_text": "read more",
-            "customer_name": "Sheena",
-            "customer_product_text": "Classic Solitaire Ring",
-            "customer_product_link": "shopify://products/1-carat-classic-solitaire-ring"
+            "image": "shopify://shop_images/under_10k_gifting.png",
+            "heading": "",
+            "url": "shopify://collections/under-10000"
           }
         },
-        "image_picker_inKGkb": {
-          "type": "image_picker",
+        "block_Xqcg6e": {
+          "type": "block",
           "settings": {
-            "image": "shopify://shop_images/Sheena_testimonial.png",
-            "alt_text": "testimonialcarousel Image",
-            "name": "Sheena",
-            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
-            "link_text": "read more",
-            "customer_name": "Sheena",
-            "customer_product_text": "Classic Solitaire Ring",
-            "customer_product_link": "shopify://products/1-carat-classic-solitaire-ring"
+            "image": "shopify://shop_images/under_15k_gifting.png",
+            "heading": "",
+            "url": "shopify://collections/under-15000"
           }
         },
-        "image_picker_BniqdG": {
-          "type": "image_picker",
+        "block_EVXQRt": {
+          "type": "block",
           "settings": {
-            "image": "shopify://shop_images/Sheena_testimonial.png",
-            "alt_text": "testimonialcarousel Image",
-            "name": "Sheena",
-            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
-            "link_text": "read more",
-            "customer_name": "Sheena",
-            "customer_product_text": "Classic Solitaire Ring",
-            "customer_product_link": "shopify://products/1-carat-classic-solitaire-ring"
+            "image": "shopify://shop_images/under_20k_gifting.png",
+            "heading": "",
+            "url": "shopify://collections/under-20000"
           }
         },
-        "image_picker_cGfeKB": {
-          "type": "image_picker",
+        "block_BmXN7H": {
+          "type": "block",
+          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/Sheena_testimonial.png",
-            "alt_text": "testimonialcarousel Image",
-            "name": "Sheena",
-            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
-            "link_text": "read more",
-            "customer_name": "Sheena",
-            "customer_product_text": "Classic Solitaire Ring",
-            "customer_product_link": "shopify://products/1-carat-classic-solitaire-ring"
-          }
-        },
-        "image_picker_YwcKfA": {
-          "type": "image_picker",
-          "settings": {
-            "image": "shopify://shop_images/Sheena_testimonial.png",
-            "alt_text": "testimonialcarousel Image",
-            "name": "Sheena",
-            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
-            "link_text": "read more",
-            "customer_name": "Sheena",
-            "customer_product_text": "Classic Solitaire Ring",
-            "customer_product_link": "shopify://products/1-carat-classic-solitaire-ring"
-          }
-        },
-        "image_picker_GRHw9M": {
-          "type": "image_picker",
-          "settings": {
-            "image": "shopify://shop_images/Sheena_testimonial.png",
-            "alt_text": "testimonialcarousel Image",
-            "name": "Sheena",
-            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
-            "link_text": "read more",
-            "customer_name": "Sheena",
-            "customer_product_text": "Classic Solitaire Ring",
-            "customer_product_link": "shopify://products/1-carat-classic-solitaire-ring"
+            "image": "shopify://shop_images/unsplash__9jskbU4eLA.jpg",
+            "heading": "From 16k to 20k",
+            "url": "shopify://collections/all-pendants"
           }
         }
       },
       "block_order": [
-        "image_picker_D9xDnB",
-        "image_picker_TrizYE",
-        "image_picker_inKGkb",
-        "image_picker_BniqdG",
-        "image_picker_cGfeKB",
-        "image_picker_YwcKfA",
-        "image_picker_GRHw9M"
+        "block_TyAJxa",
+        "block_zgCwV4",
+        "block_Xqcg6e",
+        "block_EVXQRt",
+        "block_BmXN7H"
       ],
+      "name": "Home Shop by Category",
       "settings": {
-        "heading": "They Tried It. They Loved It!"
+        "heading": "Gifting by Zinara",
+        "subheading": "Find the perfect gift and delight your loved ones"
       }
     },
     "home_trendsetters_slider_7hfRrg": {
@@ -1188,13 +1086,98 @@
         "image": "shopify://shop_images/try_athome.png"
       }
     },
-    "home_about_us_2_EmErTz": {
-      "type": "home_about_us_2",
-      "name": "Home About Us 2",
+    "home_testimonials_iX3QWY": {
+      "type": "home-testimonials",
+      "blocks": {
+        "image_picker_D9xDnB": {
+          "type": "image_picker",
+          "settings": {
+            "image": "shopify://shop_images/Sheena_testimonial.png",
+            "alt_text": "testimonialcarousel Image",
+            "name": "Sheena",
+            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
+            "link": "shopify://collections/gifting",
+            "link_text": "read more"
+          }
+        },
+        "image_picker_3hPrJh": {
+          "type": "image_picker",
+          "settings": {
+            "image": "shopify://shop_images/Sheena_testimonial.png",
+            "alt_text": "testimonialcarousel Image",
+            "name": "Sheena",
+            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
+            "link": "shopify://collections/gifting",
+            "link_text": "read more"
+          }
+        },
+        "image_picker_x9GJjk": {
+          "type": "image_picker",
+          "settings": {
+            "image": "shopify://shop_images/Sheena_testimonial.png",
+            "alt_text": "testimonialcarousel Image",
+            "name": "Sheena",
+            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
+            "link": "shopify://collections/gifting",
+            "link_text": "read more"
+          }
+        },
+        "image_picker_BakRgc": {
+          "type": "image_picker",
+          "settings": {
+            "image": "shopify://shop_images/Sheena_testimonial.png",
+            "alt_text": "testimonialcarousel Image",
+            "name": "Sheena",
+            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
+            "link": "shopify://collections/gifting",
+            "link_text": "read more"
+          }
+        },
+        "image_picker_8hmxRF": {
+          "type": "image_picker",
+          "settings": {
+            "image": "shopify://shop_images/Sheena_testimonial.png",
+            "alt_text": "testimonialcarousel Image",
+            "name": "Sheena",
+            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
+            "link": "shopify://collections/gifting",
+            "link_text": "read more"
+          }
+        },
+        "image_picker_eXkXgW": {
+          "type": "image_picker",
+          "settings": {
+            "image": "shopify://shop_images/Sheena_testimonial.png",
+            "alt_text": "testimonialcarousel Image",
+            "name": "Sheena",
+            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
+            "link": "shopify://collections/gifting",
+            "link_text": "read more"
+          }
+        },
+        "image_picker_KCatfh": {
+          "type": "image_picker",
+          "settings": {
+            "image": "shopify://shop_images/Sheena_testimonial.png",
+            "alt_text": "testimonialcarousel Image",
+            "name": "Sheena",
+            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
+            "link": "shopify://collections/gifting",
+            "link_text": "read more"
+          }
+        }
+      },
+      "block_order": [
+        "image_picker_D9xDnB",
+        "image_picker_3hPrJh",
+        "image_picker_x9GJjk",
+        "image_picker_BakRgc",
+        "image_picker_8hmxRF",
+        "image_picker_eXkXgW",
+        "image_picker_KCatfh"
+      ],
       "settings": {
-        "heading": "About Us",
-        "image": "shopify://shop_images/About_Us_Image.png",
-        "content": "Zinara is a lab-grown diamond jewellery brand for women who live life on their own terms. We design everyday pieces that are lightweight, elegant, and easy to wear - whether you’re at work, traveling, or celebrating yourself just because. No rules, no waiting, no special occasion needed. With consciously crafted designs and timeless sparkle, Zinara makes it easy to choose diamonds that fit your style, your pace, and the life you’re creating every day."
+        "heading": "They Tried It. They Loved It!"
       }
     },
     "featured_in_home_8zRT3B": {
@@ -1278,6 +1261,15 @@
       "name": "Home Featured In",
       "settings": {
         "heading": "Featured In"
+      }
+    },
+    "home_about_us_2_EmErTz": {
+      "type": "home_about_us_2",
+      "name": "Home About Us 2",
+      "settings": {
+        "heading": "About Us",
+        "image": "shopify://shop_images/About_Us_Image.png",
+        "content": "Zinara is a lab-grown diamond jewellery brand for women who live life on their own terms. We design everyday pieces that are lightweight, elegant, and easy to wear - whether you’re at work, traveling, or celebrating yourself just because. No rules, no waiting, no special occasion needed. With consciously crafted designs and timeless sparkle, Zinara makes it easy to choose diamonds that fit your style, your pace, and the life you’re creating every day."
       }
     },
     "home_about_hDMerC": {
@@ -1423,17 +1415,17 @@
     "featured_collection_7eczQp",
     "home_shop_by_category_xRd7wT",
     "home_image_gallery_carousel_73c7Ep",
-    "home_shop_by_category_XPFUnn",
     "2_blocks_grid_qTWRJf",
     "home_shop_by_category_jmQhfR",
     "home_shop_by_occasion_WePWCL",
     "home_benefits_pbKiTY",
-    "home_testimonials_iX3QWY",
+    "home_shop_by_category_XPFUnn",
     "home_trendsetters_slider_7hfRrg",
     "home_own_design_WDng9w",
     "home_tryathome_UAw34q",
-    "home_about_us_2_EmErTz",
+    "home_testimonials_iX3QWY",
     "featured_in_home_8zRT3B",
+    "home_about_us_2_EmErTz",
     "home_about_hDMerC",
     "collapsible_content_AU8NGL"
   ]

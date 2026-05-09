@@ -196,56 +196,7 @@
     {%- endif -%}
   </div>
 </div>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const section = document.querySelector('#shopify-section-template--27367513325752__featured_collection_7eczQp');
 
-    if (!section) return;
-
-    // Remove arrows only on mobile
-    if (window.innerWidth <= 749) {
-      const prevBtn = section.querySelector('.slider-button--prev');
-      const nextBtn = section.querySelector('.slider-button--next');
-
-      if (prevBtn) prevBtn.remove();
-      if (nextBtn) nextBtn.remove();
-    }
-
-    // Replace counter with View All button
-    const sliderCounter = section.querySelector('.slider-counter');
-
-    if (!sliderCounter) return;
-
-    const viewAllBtn = document.createElement('a');
-    viewAllBtn.href = `{{ section.settings.collection.url }}`;
-    viewAllBtn.innerText = 'View All';
-    viewAllBtn.className = 'custom-view-all-btn';
-
-    sliderCounter.replaceWith(viewAllBtn);
-  });
-</script>
-
-<style>
-  .custom-view-all-btn {
-    color: #7d7d7d;
-    padding: 10px 18px;
-    font-size: 14px;
-    line-height: 1;
-    transition: 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-    margin: -5px 20px 0;
-    text-decoration: underline;
-    text-underline-offset: 7px;
-    text-transform: lowercase;
-  }
-
-  .custom-view-all-btn:hover {
-    color: #610c27;
-  }
-</style>
 {% schema %}
 {
   "name": "t:sections.featured-collection.name",

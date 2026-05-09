@@ -1108,13 +1108,6 @@ function getProductPagePincodes() {
           }
         });
       </script>
-
-      <!-- Contact CTA -->
-      <div class="contact-cta-section">
-        <a href="https://api.whatsapp.com/send?phone=919211633248&amp;text=Hi" class="contact-cta-button whatsapp-cta">
-          WhatsApp us
-        </a>
-      </div>
     </main>
 
     <!-- Size Chart Bottom Sheet -->
@@ -1125,52 +1118,76 @@ function getProductPagePincodes() {
         <button id="closeSizeChartBtn" class="size-chart-close-btn" aria-label="Close size chart">✕</button>
       </div>
       <div class="size-chart-content">
-        {% if product.metafields.custom.size_chart_video %}
-          <div class="size-chart-video-section">
-            <h3>How to measure your ring size</h3>
-            <div class="video-container">
-              {% assign video_obj = product.metafields.custom.size_chart_video.value %}
-              {{ video_obj | video_tag: controls: true }}
-            </div>
+        <div class="size-chart-video-section">
+          <h3>How to measure your ring size</h3>
+          <div class="video-container">
+            <iframe
+              width="100%"
+              height="300"
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="How to measure your ring size"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            >
+            </iframe>
           </div>
-        {% endif %}
+        </div>
 
-        {% if product.metafields.custom.size_chart_headings and product.metafields.custom.size_chart %}
-          <div class="size-chart-table-section">
-            <h3>Size Chart</h3>
-            <table class="size-chart-table">
-              <thead>
-                <tr>
-                  {% for heading in product.metafields.custom.size_chart_headings.value %}
-                    <th>{{ heading }}</th>
-                  {% endfor %}
-                </tr>
-              </thead>
-              <tbody>
-                {% for row in product.metafields.custom.size_chart.value %}
-                  <tr>
-                    {% if row.column_1 %}
-                      <td>{{ row.column_1 }}</td>
-                    {% endif %}
-                    {% if row.column_2 %}
-                      <td>{{ row.column_2 }}</td>
-                    {% endif %}
-                    {% if row.column_3 %}
-                      <td>{{ row.column_3 }}</td>
-                    {% endif %}
-                    {% if row.column_4 %}
-                      <td>{{ row.column_4 }}</td>
-                    {% endif %}
-                    {% if row.column_5 %}
-                      <td>{{ row.column_5 }}</td>
-                    {% endif %}
-                  </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
-        {% endif %}
-
+        <div class="size-chart-table-section">
+          <h3>Ring Size Chart</h3>
+          <table class="size-chart-table">
+            <thead>
+              <tr>
+                <th>IND</th>
+                <th>Diameter (mm)</th>
+                <th>Circumference (mm)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>5</td>
+                <td>15.7</td>
+                <td>49.3</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>16.5</td>
+                <td>51.9</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>17.3</td>
+                <td>54.4</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>18.1</td>
+                <td>57.0</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>18.9</td>
+                <td>59.4</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td>19.7</td>
+                <td>61.9</td>
+              </tr>
+              <tr>
+                <td>11</td>
+                <td>20.6</td>
+                <td>64.7</td>
+              </tr>
+              <tr>
+                <td>12</td>
+                <td>21.4</td>
+                <td>67.2</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
 
@@ -1758,11 +1775,6 @@ function getProductPagePincodes() {
       .size-chart-video-section,
       .size-chart-table-section {
         margin-bottom: 30px;
-        margin-top: 0;
-      }
-
-      .size-chart-video-section {
-        padding: 0;
       }
 
       .size-chart-video-section h3,
@@ -1778,17 +1790,10 @@ function getProductPagePincodes() {
       .video-container {
         position: relative;
         width: 100%;
+        padding-bottom: 56.25%;
+        height: 0;
         overflow: hidden;
         border-radius: 8px;
-        background-color: #000;
-      }
-
-      .video-container video {
-        display: block;
-        width: 100%;
-        height: auto;
-        max-height: 300px;
-        object-fit: contain;
       }
 
       .video-container iframe {
@@ -1825,7 +1830,6 @@ function getProductPagePincodes() {
         border-bottom: 1px solid #eee;
         color: #666;
         font-size: 13px;
-        text-align: center;
       }
 
       .size-chart-table tbody tr:hover {
