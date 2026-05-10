@@ -49,12 +49,12 @@
         <fieldset class="js product-form__input product-form__input--pill">
           <legend class="form__label">
             {{ option.name }}
-            {%- assign normalized_option_name = option.name | downcase | strip -%}
+            {% comment %} {%- assign normalized_option_name = option.name | downcase | strip -%}
             {%- if normalized_option_name == 'size' -%}
               <button type="button" class="size-chart-btn" aria-label="Open size chart">
                 Size Chart
               </button>
-            {%- endif -%}
+            {%- endif -%} {% endcomment %}
           </legend>
           {% render 'product-variant-options',
             product: product,
