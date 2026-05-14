@@ -645,14 +645,11 @@ product-info .price__container span {
 
 .product-page-details-container
   .product-page-details-parent-child
-  .product-description-paragraph
-  p {
+  .product-description-paragraph {
   font-size: 1.2rem !important;
   line-height: 2.4rem;
 }
-.product-page-details-parent .product-page-details-parent-child .product-description-paragraph{
-  font-size: 12px !important;
-}
+
 .dropdown-swatch {
   color: transparent;
   font-size: 0;
