@@ -14,18 +14,17 @@
       "blocks": {
         "slide_gMDJpj": {
           "type": "slide",
-          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/valentine_web_banner_with_vogue.png",
+            "image": "shopify://shop_images/siesta_desktop_1_banner.png",
             "image_alt": "",
-            "image_mobile": "shopify://shop_images/valentines_mobile_banner_with_vogue.png",
+            "image_mobile": "shopify://shop_images/siesta_mobile_1_banner.png",
             "image_mobile_alt": "",
             "image_aspect_ratio": true,
             "heading": "Image slide",
             "heading_size": "h1",
             "subheading": "Tell your brand's story through images",
             "button_label": "Button label",
-            "link": "shopify://collections/18-kt-gold-vermeil",
+            "link": "shopify://collections/siesta-collection",
             "button_style_secondary": false,
             "box_align": "middle-center",
             "show_text_box": true,
@@ -47,7 +46,7 @@
             "heading_size": "h1",
             "subheading": "",
             "button_label": "",
-            "link": "shopify://collections/18-kt-gold-vermeil",
+            "link": "shopify://collections/prism3d-pendants",
             "button_style_secondary": false,
             "box_align": "middle-center",
             "show_text_box": true,
@@ -69,7 +68,7 @@
             "heading_size": "h1",
             "subheading": "",
             "button_label": "",
-            "link": "shopify://collections/9kt-14kt-fine-gold",
+            "link": "shopify://collections/double-take-two-stone-lab-grown-diamonds",
             "button_style_secondary": false,
             "box_align": "middle-center",
             "show_text_box": true,
@@ -340,7 +339,7 @@
           "type": "collection",
           "settings": {
             "collection_title": "@siesta",
-            "collection_link": "shopify://collections",
+            "collection_link": "shopify://collections/siesta-collection",
             "collection_desktop_image": "shopify://shop_images/summer_card.png",
             "collection_mobile_image": "shopify://shop_images/summer_card.png"
           }
@@ -349,7 +348,7 @@
           "type": "collection",
           "settings": {
             "collection_title": "@double.take",
-            "collection_link": "shopify://collections",
+            "collection_link": "shopify://collections/double-take-two-stone-lab-grown-diamonds",
             "collection_desktop_image": "shopify://shop_images/twostone_card.png",
             "collection_mobile_image": "shopify://shop_images/twostone_card.png"
           }
@@ -358,7 +357,7 @@
           "type": "collection",
           "settings": {
             "collection_title": "@prism.3d",
-            "collection_link": "shopify://collections",
+            "collection_link": "shopify://collections/prism3d-pendants",
             "collection_desktop_image": "shopify://shop_images/prism3d_card.png",
             "collection_mobile_image": "shopify://shop_images/prism3d_card.png"
           }
@@ -986,67 +985,68 @@
             "image": "shopify://shop_images/Sheena_testimonial.png",
             "alt_text": "testimonialcarousel Image",
             "name": "Sheena",
-            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
+            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent, and you can feel the durability in each piece. Whether for everyday wear or special occasions, their jewellery is both beautiful and well-crafted. Highly recommend!”",
             "link_text": "read more",
             "customer_name": "Sheena",
-            "customer_product_text": "Classic Solitaire Ring",
-            "customer_product_link": "shopify://products/1-carat-classic-solitaire-ring"
+            "customer_product_text": "Bloom Sparkle Diamond Ring",
+            "customer_product_link": "shopify://products/bloom-sparkle-diamond-ring"
           }
         },
         "image_picker_TrizYE": {
           "type": "image_picker",
           "settings": {
-            "image": "shopify://shop_images/Sheena_testimonial.png",
+            "image": "shopify://shop_images/Pooja_testimonial.png",
             "alt_text": "testimonialcarousel Image",
-            "name": "Sheena",
-            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
+            "name": "Pooja",
+            "review": "“Pretty ring 🥰,thanku Zinara for this wonderful ring and design.I love this 💖 Thanku for this stylish ring.😊I am so happy 😊”",
             "link_text": "read more",
-            "customer_name": "Sheena",
-            "customer_product_text": "Classic Solitaire Ring",
-            "customer_product_link": "shopify://products/1-carat-classic-solitaire-ring"
+            "customer_name": "Pooja",
+            "customer_product_text": "Brilliant Mirage Diamond Ring",
+            "customer_product_link": "shopify://products/brilliant-mirage-diamond-ring"
           }
         },
         "image_picker_inKGkb": {
           "type": "image_picker",
           "settings": {
-            "image": "shopify://shop_images/Sheena_testimonial.png",
+            "image": "shopify://shop_images/Kumkum_testimonial.png",
             "alt_text": "testimonialcarousel Image",
-            "name": "Sheena",
-            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
+            "name": "Kumkum",
+            "review": "“I found the perfect ring at Zinara.Iit’s simple, elegant, and beautifully made. It looks premium, but was still within my budget. I’ve been wearing it almost every day!”",
             "link_text": "read more",
-            "customer_name": "Sheena",
-            "customer_product_text": "Classic Solitaire Ring",
-            "customer_product_link": "shopify://products/1-carat-classic-solitaire-ring"
+            "customer_name": "Kumkum",
+            "customer_product_text": "Radiant Solitaire Diamond Ring",
+            "customer_product_link": "shopify://products/radiant-solitaire-diamond-ring"
           }
         },
         "image_picker_BniqdG": {
           "type": "image_picker",
           "settings": {
-            "image": "shopify://shop_images/Sheena_testimonial.png",
+            "image": "shopify://shop_images/mysha.png",
             "alt_text": "testimonialcarousel Image",
-            "name": "Sheena",
-            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
+            "name": "Vasudha",
+            "review": "\"I ordered a set of earrings from Zinara and it exceeded my expectations. The design is elegant and it feels so luxurious. The price was a pleasant surprise too such great value for such a stunning piece!\"",
             "link_text": "read more",
-            "customer_name": "Sheena",
-            "customer_product_text": "Classic Solitaire Ring",
-            "customer_product_link": "shopify://products/1-carat-classic-solitaire-ring"
+            "customer_name": "Vasudha",
+            "customer_product_text": "50 Cent Classic Solitaire Studs",
+            "customer_product_link": "shopify://products/50-cent-classic-solitaire-studs"
           }
         },
         "image_picker_cGfeKB": {
           "type": "image_picker",
           "settings": {
-            "image": "shopify://shop_images/Sheena_testimonial.png",
+            "image": "shopify://shop_images/Sameeksha_testimonial_5aa98d34-59dc-455d-bccc-09f08406bf8b.png",
             "alt_text": "testimonialcarousel Image",
-            "name": "Sheena",
-            "review": "“Their designs are elegant, modern, and unique. The quality of materials is excellent!”",
+            "name": "Sameeksha",
+            "review": "“I’ve always found diamond jewellery overwhelming - either too flashy or too expensive. Zinara changed that. I got a beautiful pair of rings that I wear every day. The quality, the elegance, and the service, everything was just perfect.”",
             "link_text": "read more",
-            "customer_name": "Sheena",
-            "customer_product_text": "Classic Solitaire Ring",
-            "customer_product_link": "shopify://products/1-carat-classic-solitaire-ring"
+            "customer_name": "Sameeksha",
+            "customer_product_text": "Blossom Symphony Diamond Ring",
+            "customer_product_link": "shopify://products/blossom-symphony-diamond-ring"
           }
         },
         "image_picker_YwcKfA": {
           "type": "image_picker",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Sheena_testimonial.png",
             "alt_text": "testimonialcarousel Image",
@@ -1060,6 +1060,7 @@
         },
         "image_picker_GRHw9M": {
           "type": "image_picker",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Sheena_testimonial.png",
             "alt_text": "testimonialcarousel Image",
