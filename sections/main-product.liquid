@@ -1282,41 +1282,17 @@
                       })
                       .catch((err) => console.error('Pincode JSON load failed:', err));
 
-                    // ✅ Variant handling (FIXED)
-                    let currentVariant = null;
-
-                    // initial variant
-                    const variantJson = document.querySelector('[data-selected-variant]');
-                    if (variantJson) {
-                      currentVariant = JSON.parse(variantJson.textContent);
-                    }
-
-                    // update on variant change
-                    document.addEventListener('change', () => {
-                      const variantId = document.querySelector('[name="id"]')?.value;
-                      if (!variantId) return;
-
-                      const allVariants = {{ product.variants | json }};
-                      const found = allVariants.find(v => v.id == variantId);
-
-                      if (found) {
-                        currentVariant = found;
-                        console.log('Updated variant:', currentVariant.option1);
-                      }
-                    });
-
-                    // ✅ Correct dataset selection
+                    // ✅ Correct dataset selection — uses product tags, not variant options
+                    const productTags = {{ product.tags | json }};
                     function getCurrentSet() {
-                      const option1 = currentVariant?.option1?.toLowerCase() || '';
+                      const tags = productTags.map(t => t.toLowerCase());
 
-                      console.log('OPTION1:', option1);
-
-                      if (option1.includes('gold') && !option1.includes('vermeil')) {
-                        return validPincodesGold;
+                      if (tags.some(t => t.includes('vermeil') || t.includes('silver'))) {
+                        return validPincodesSilver;
                       }
 
-                      if (option1.includes('vermeil') || option1.includes('silver')) {
-                        return validPincodesSilver;
+                      if (tags.some(t => t.includes('gold'))) {
+                        return validPincodesGold;
                       }
 
                       return validPincodesGold;
