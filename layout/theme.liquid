@@ -479,6 +479,52 @@
         });
       });
     </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+      #sy-whatshelp {
+          right: 25px;
+          bottom: 90px;
+          position: fixed;
+          z-index: 9999;
+      }
+
+      #sy-whatshelp a.sywh-open-services {
+          background-color: #25d366;
+          color: #fff;
+          margin-top: 10px;
+          border: none;
+          cursor: pointer;
+          width: 50px;
+          height: 50px;
+          box-shadow: 2px 2px 8px -3px #000;
+          border-radius: 100%;
+          -webkit-border-radius: 100%;
+          -moz-border-radius: 100%;
+          -ms-border-radius: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
+      }
+      #sy-whatshelp a.sywh-open-services:hover,
+      #sy-whatshelp a.sywh-open-services:focus,
+      #sy-whatshelp a.sywh-open-services:active {
+          text-decoration: none;
+      }
+
+      #sy-whatshelp a.sywh-open-services .fa-whatsapp {
+          font-size: 33px;
+          line-height: 1;
+          width: auto;
+          min-width: 0;
+          max-width: none;
+      }
+      #sy-whatshelp a.sywh-open-services .fa-whatsapp:before {
+          width: auto;
+          min-width: 0;
+          max-width: none;
+      }
+    </style>
   </head>
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
     <!-- Google Tag Manager (noscript) -->
@@ -1108,7 +1154,6 @@ function getProductPagePincodes() {
           }
         });
       </script>
-
     </main>
 
     <!-- Size Chart Bottom Sheet -->
@@ -1167,11 +1212,13 @@ function getProductPagePincodes() {
 
         <!-- Contact CTA -->
         <div class="contact-cta-section">
-          <a href="https://api.whatsapp.com/send?phone=919211633248&amp;text=Hi" class="contact-cta-button whatsapp-cta">
+          <a
+            href="https://api.whatsapp.com/send?phone=919211633248&amp;text=Hi"
+            class="contact-cta-button whatsapp-cta"
+          >
             WhatsApp us
           </a>
         </div>
-
       </div>
     </div>
 
@@ -1659,7 +1706,7 @@ function getProductPagePincodes() {
     </style>
 
     {% comment %} Whatsapp Floater {% endcomment %}
-    <script
+    {% comment %} <script
       type="text/javascript"
       src="https://d3mkw6s8thqya7.cloudfront.net/integration-plugin.js"
       id="aisensy-wa-widget"
@@ -1671,7 +1718,7 @@ function getProductPagePincodes() {
         z-index: 2 !important;
       }
     </style>
-
+ {% endcomment %}
     <!-- Size Chart Bottom Sheet Styles -->
     <style>
       .size-chart-overlay {
@@ -1894,5 +1941,11 @@ function getProductPagePincodes() {
         }
       }
     </style>
+    <div id="sy-whatshelp">
+        <a href="https://api.whatsapp.com/send?phone=919217975782&text=Hi" target="_blank" class="sywh-open-services " data-html="true" data-placement="left">
+          <i class="fab fa-whatsapp"></i>
+         </a>        
+</div>
+
   </body>
 </html>
