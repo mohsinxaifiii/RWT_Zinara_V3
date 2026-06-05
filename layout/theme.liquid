@@ -1157,58 +1157,110 @@ function getProductPagePincodes() {
     </main>
 
     <!-- Size Chart Bottom Sheet -->
-    <div id="sizeChartOverlay" class="size-chart-overlay" style="opacity:0;pointer-events:none">.</div>
-    <div id="sizeChartBottomSheet" class="size-chart-bottom-sheet" style="transform:translateX(100%)">
+    <div id="sizeChartOverlay" class="size-chart-overlay">.</div>
+    <div id="sizeChartBottomSheet" class="size-chart-bottom-sheet">
       <div class="size-chart-header">
         <h2>Size Guide</h2>
         <button id="closeSizeChartBtn" class="size-chart-close-btn" aria-label="Close size chart">✕</button>
       </div>
       <div class="size-chart-content">
-        {% if product.metafields.custom.size_chart_video %}
+        {%- assign size_chart_product_type = product.type | downcase | strip -%}
+        {%- if size_chart_product_type == 'gold rings' or size_chart_product_type == 'vermeil rings' -%}
+          {% comment %} Hardcoded ring size chart for Gold Rings / Vermeil Rings {% endcomment %}
           <div class="size-chart-video-section">
             <h3>How to measure your ring size</h3>
             <div class="video-container">
-              {% assign video_obj = product.metafields.custom.size_chart_video.value %}
-              {{ video_obj | video_tag: controls: true }}
+              <video controls playsinline preload="metadata">
+                <source
+                  src="https://cdn.shopify.com/videos/c/o/v/d0d213af2061422a837e2656892a022b.mp4"
+                  type="video/mp4"
+                >
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
-        {% endif %}
 
-        {% if product.metafields.custom.size_chart_headings and product.metafields.custom.size_chart %}
           <div class="size-chart-table-section">
             <h3>Size Chart</h3>
             <table class="size-chart-table">
               <thead>
                 <tr>
-                  {% for heading in product.metafields.custom.size_chart_headings.value %}
-                    <th>{{ heading }}</th>
-                  {% endfor %}
+                  <th>Ring Size</th>
+                  <th>Circumference (mm)</th>
+                  <th>Diameter (mm)</th>
                 </tr>
               </thead>
               <tbody>
-                {% for row in product.metafields.custom.size_chart.value %}
-                  <tr>
-                    {% if row.column_1 %}
-                      <td>{{ row.column_1 }}</td>
-                    {% endif %}
-                    {% if row.column_2 %}
-                      <td>{{ row.column_2 }}</td>
-                    {% endif %}
-                    {% if row.column_3 %}
-                      <td>{{ row.column_3 }}</td>
-                    {% endif %}
-                    {% if row.column_4 %}
-                      <td>{{ row.column_4 }}</td>
-                    {% endif %}
-                    {% if row.column_5 %}
-                      <td>{{ row.column_5 }}</td>
-                    {% endif %}
-                  </tr>
-                {% endfor %}
+                <tr><td>8</td><td>48.1</td><td>15</td></tr>
+                <tr><td>9</td><td>49.0</td><td>15.4</td></tr>
+                <tr><td>10</td><td>50.0</td><td>15.7</td></tr>
+                <tr><td>11</td><td>50.9</td><td>16</td></tr>
+                <tr><td>12</td><td>51.8</td><td>16.4</td></tr>
+                <tr><td>13</td><td>52.8</td><td>16.7</td></tr>
+                <tr><td>14</td><td>54.0</td><td>17.1</td></tr>
+                <tr><td>15</td><td>55.0</td><td>17.4</td></tr>
+                <tr><td>16</td><td>55.9</td><td>17.8</td></tr>
+                <tr><td>17</td><td>56.9</td><td>18</td></tr>
+                <tr><td>18</td><td>57.8</td><td>18.4</td></tr>
+                <tr><td>19</td><td>59.1</td><td>18.7</td></tr>
+                <tr><td>20</td><td>60.0</td><td>19</td></tr>
+                <tr><td>21</td><td>60.9</td><td>19.3</td></tr>
+                <tr><td>22</td><td>61.9</td><td>19.7</td></tr>
+                <tr><td>23</td><td>62.8</td><td>20</td></tr>
+                <tr><td>24</td><td>63.8</td><td>20.3</td></tr>
+                <tr><td>25</td><td>64.7</td><td>20.6</td></tr>
+                <tr><td>26</td><td>66.0</td><td>20.9</td></tr>
+                <tr><td>27</td><td>66.9</td><td>21.2</td></tr>
               </tbody>
             </table>
           </div>
-        {% endif %}
+        {%- else -%}
+          {% if product.metafields.custom.size_chart_video %}
+            <div class="size-chart-video-section">
+              <h3>How to measure your ring size</h3>
+              <div class="video-container">
+                {% assign video_obj = product.metafields.custom.size_chart_video.value %}
+                {{ video_obj | video_tag: controls: true }}
+              </div>
+            </div>
+          {% endif %}
+
+          {% if product.metafields.custom.size_chart_headings and product.metafields.custom.size_chart %}
+            <div class="size-chart-table-section">
+              <h3>Size Chart</h3>
+              <table class="size-chart-table">
+                <thead>
+                  <tr>
+                    {% for heading in product.metafields.custom.size_chart_headings.value %}
+                      <th>{{ heading }}</th>
+                    {% endfor %}
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for row in product.metafields.custom.size_chart.value %}
+                    <tr>
+                      {% if row.column_1 %}
+                        <td>{{ row.column_1 }}</td>
+                      {% endif %}
+                      {% if row.column_2 %}
+                        <td>{{ row.column_2 }}</td>
+                      {% endif %}
+                      {% if row.column_3 %}
+                        <td>{{ row.column_3 }}</td>
+                      {% endif %}
+                      {% if row.column_4 %}
+                        <td>{{ row.column_4 }}</td>
+                      {% endif %}
+                      {% if row.column_5 %}
+                        <td>{{ row.column_5 }}</td>
+                      {% endif %}
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          {% endif %}
+        {%- endif -%}
 
         <!-- Contact CTA -->
         <div class="contact-cta-section">
