@@ -218,6 +218,10 @@
             const openBtn = e.target.closest('.size-chart-btn');
             if (!openBtn) return;
             e.preventDefault();
+            // Clear the initial inline hidden styles so the .active rules apply
+            sizeChartBottomSheet.style.transform = '';
+            sizeChartOverlay.style.opacity = '';
+            sizeChartOverlay.style.pointerEvents = '';
             sizeChartBottomSheet.classList.add('active');
             sizeChartOverlay.classList.add('active');
             lockScroll();
